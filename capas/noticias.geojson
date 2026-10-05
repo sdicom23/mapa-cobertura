@@ -1,0 +1,881 @@
+{
+"type": "FeatureCollection",
+"actualizado": "2026-10-05",
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.37,
+18.86
+]
+},
+"properties": {
+"id": "n_bedef51507c9",
+"fecha": "2026-09-30",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Esperanza",
+"estado": "Puebla",
+"carretera": "150D Puebla-Orizaba",
+"km": "",
+"fuente": "Noticia: e-consulta",
+"titulo": "Roban tractocamión y el operador desaparece en Cumbres de Maltrata",
+"url": "https://e-consulta.com/municipios/roban-tractocamion-y-desaparece-chofer-en-autopista-puebla-orizaba",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.78,
+18.98
+]
+},
+"properties": {
+"id": "n_0cbcbbc0978c",
+"fecha": "2026-09-23",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Acatzingo",
+"estado": "Puebla",
+"carretera": "150D Puebla-Orizaba",
+"km": "172",
+"fuente": "Noticia: MTP Noticias",
+"titulo": "Atraviesan un tráiler para frenar transportistas; el GPS frustró el robo",
+"url": "https://mtpnoticias.com/dolor-y-sangre/caos-vial/intento-de-robo-de-trailer-paraliza-la-autopista-puebla-orizaba/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.38,
+20.02
+]
+},
+"properties": {
+"id": "n_aadd89181f4f",
+"fecha": "2026-08-12",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Tula de Allende",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "65",
+"fuente": "Noticia: La Silla Rota",
+"titulo": "Roban tractocamión con chiles y abandonan al operador maniatado",
+"url": "https://lasillarota.com/hidalgo/estado/2026/8/13/roban-trailer-en-el-arco-norte-dejan-maniatado-a-conductor-cerca-de-tula-524448.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.82,
+19.88
+]
+},
+"properties": {
+"id": "n_b187a58f0595",
+"fecha": "2026-08-03",
+"hora": "",
+"tipo": "Robo de carga",
+"violencia": "Sí",
+"lugar": "Villa de Tezontepec",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "",
+"fuente": "Noticia: La Silla Rota",
+"titulo": "Despojan con violencia tráiler con 56 toneladas de carne",
+"url": "https://lasillarota.com/hidalgo/estado/2026/8/3/roban-56-toneladas-de-carne-en-el-arco-norte-aparecen-en-hidalgo-asi-el-hecho-523189.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.05,
+19.37
+]
+},
+"properties": {
+"id": "n_82be974016e6",
+"fecha": "2026-07-27",
+"hora": "03:30",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Apizaco-Huamantla",
+"estado": "Tlaxcala",
+"carretera": "Apizaco-Huamantla",
+"km": "",
+"fuente": "Noticia: Alerta Vigilante",
+"titulo": "Hombres armados roban tráiler doble remolque; persecución hasta Puebla",
+"url": "https://www.alertavigilante.com/2026/07/persecucion-de-pelicula-en-tlaxcala-y.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.995,
+20.515
+]
+},
+"properties": {
+"id": "n_ce1825d23938",
+"fecha": "2026-07-22",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Villagrán",
+"estado": "Guanajuato",
+"carretera": "Celaya-Salamanca",
+"km": "",
+"fuente": "Noticia: Azteca Bajío",
+"titulo": "Roban tractocamión con carga de más de un millón; hubo disparos",
+"url": "https://www.aztecabajio.com/policiaca/roban-tractocamion-carga-valuada-en-mas-un-millon-pesos-en-guanajuato-esto-paso/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.69,
+20.55
+]
+},
+"properties": {
+"id": "n_afe68d43e776",
+"fecha": "2026-07-14",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Apaseo el Grande",
+"estado": "Guanajuato",
+"carretera": "Querétaro-Celaya",
+"km": "",
+"fuente": "Noticia: Azteca Michoacán",
+"titulo": "Intentan detener a transportista con láser y arma de fuego",
+"url": "https://www.aztecamichoacan.com/noticias/intento-asalto-a-transportista-laser-en-carretera-video/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-101.05,
+20.53
+]
+},
+"properties": {
+"id": "n_01bcf4ed4078",
+"fecha": "2026-06-22",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Salamanca",
+"estado": "Guanajuato",
+"carretera": "Salamanca-Celaya",
+"km": "",
+"fuente": "Noticia: Periódico Correo",
+"titulo": "Presunto intento de robo a trailero provoca carambola y cierre total",
+"url": "https://periodicocorreo.com.mx/seguridad/2026/jun/22/presunto-intento-de-robo-a-trailero-causa-carambola-en-la-autopista-salamanca-celaya-y-cierre-total-160006.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.01,
+19.68
+]
+},
+"properties": {
+"id": "n_5def70637cee",
+"fecha": "2026-06-19",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Tecámac",
+"estado": "México",
+"carretera": "México-Pachuca",
+"km": "",
+"fuente": "Noticia: N+",
+"titulo": "Roban tráiler; persecución y tiroteo cerca de caseta Ojo de Agua",
+"url": "https://www.nmas.com.mx/estado-de-mexico/seguridad/en-tecamac-robo-de-trailer-desata-persecucion-y-tiroteo-en-autopista-mexico-pachuca/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.53,
+19.95
+]
+},
+"properties": {
+"id": "n_1a2f6a09283b",
+"fecha": "2026-06-19",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Jilotepec",
+"estado": "México",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "Noticia: Quadratín Hidalgo",
+"titulo": "Presunto asalto armado con disparos a tráiler",
+"url": "https://hidalgo.quadratin.com.mx/sucesos/difunden-video-de-presunto-asalto-armado-a-trailer-en-la-mexico-queretaro/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.43,
+19.3
+]
+},
+"properties": {
+"id": "n_dd49b373f06f",
+"fecha": "2026-06-13",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "No",
+"lugar": "San Martín Texmelucan",
+"estado": "Puebla",
+"carretera": "150D México-Puebla",
+"km": "",
+"fuente": "Noticia: e-consulta",
+"titulo": "Roban 6 llantas a tractocamión en casetas mientras el chofer dormía",
+"url": "https://www.e-consulta.com/nota/2026-06-13/municipios/roban-6-llantas-tractocamion-en-casetas-de-san-martin-mientras-el-chofer",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.96,
+20.49
+]
+},
+"properties": {
+"id": "n_75e179c3f0c5",
+"fecha": "2026-05-30",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Cortazar",
+"estado": "Guanajuato",
+"carretera": "Salamanca-Celaya",
+"km": "",
+"fuente": "Noticia: Periódico Correo",
+"titulo": "Trailero lesionado en presunto asalto",
+"url": "https://periodicocorreo.com.mx/seguridad/2026/may/30/trailero-sale-lesionado-en-presunto-asalto-en-la-salamanca-celaya-a-la-altura-de-cortazar-158144.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.25,
+18.82
+]
+},
+"properties": {
+"id": "n_0714a9a93c3b",
+"fecha": "2026-05-18",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Maltrata",
+"estado": "Veracruz",
+"carretera": "150D Orizaba-Puebla",
+"km": "",
+"fuente": "Noticia: Quadratín Veracruz",
+"titulo": "Usan extintores para obligar a transportistas a detenerse",
+"url": "https://veracruz.quadratin.com.mx/con-extintores-asaltantes-obligan-a-transportistas-a-detener-unidades/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.27,
+18.81
+]
+},
+"properties": {
+"id": "n_91582dc71f23",
+"fecha": "2026-04-23",
+"hora": "19:27",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Maltrata",
+"estado": "Veracruz",
+"carretera": "150D Orizaba-Puebla",
+"km": "230",
+"fuente": "Noticia: AVC Noticias",
+"titulo": "Cinco hombres armados asaltan vehículos en Cumbres de Maltrata",
+"url": "https://www.avcnoticias.com.mx/noticias-veracruz/centro/377672/captan-asaltos-en-cumbres-de-maltrata-en-autopista-orizaba-puebla.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.03,
+19.62
+]
+},
+"properties": {
+"id": "n_17aaa87fb54c",
+"fecha": "2026-04-17",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Ecatepec de Morelos",
+"estado": "México",
+"carretera": "México-Pachuca",
+"km": "",
+"fuente": "Noticia: La Silla Rota",
+"titulo": "Intentan abrir cabina de tráiler a la altura del Circuito Exterior Mexiquense",
+"url": "https://lasillarota.com/hidalgo/local/2026/4/17/autopista-mexico-pachuca-captan-intento-de-asalto-trailero-asi-fue-video-595167.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.77,
+21.85
+]
+},
+"properties": {
+"id": "n_c58f92c42666",
+"fecha": "2026-04-15",
+"hora": "",
+"tipo": "Homicidio en intento de robo",
+"violencia": "Sí",
+"lugar": "Carretera 57 (sur de SLP)",
+"estado": "San Luis Potosí",
+"carretera": "57 SLP-Querétaro",
+"km": "",
+"fuente": "Noticia: N+",
+"titulo": "Asesinan a trailero en intento de asalto en la 'curva del diablo'",
+"url": "https://www.nmas.com.mx/queretaro/seguridad/balaceras/trailero-muere-tras-intento-de-asalto-en-la-carretera-57-en-san-luis-potosi/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.29,
+18.8
+]
+},
+"properties": {
+"id": "n_db938f990051",
+"fecha": "2026-04-13",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Cumbres de Maltrata",
+"estado": "Veracruz",
+"carretera": "150D Puebla-Orizaba",
+"km": "",
+"fuente": "Noticia: UnoTV",
+"titulo": "Trailero esquiva intento de asalto de sujetos armados",
+"url": "https://www.unotv.com/estados/veracruz/trailero-graba-y-esquiva-intento-de-asalto-en-cumbres-de-maltrata/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.39,
+21.0
+]
+},
+"properties": {
+"id": "n_4783a18751d7",
+"fecha": "2026-04-08",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "No",
+"lugar": "San José Iturbide",
+"estado": "Guanajuato",
+"carretera": "57 Querétaro-SLP",
+"km": "",
+"fuente": "Noticia: Periódico Correo",
+"titulo": "Asaltan tráiler; autos de los ladrones bloquean la vía",
+"url": "https://periodicocorreo.com.mx/seguridad/2026/apr/08/asaltan-trailer-en-carretera-federal-57-en-san-jose-de-iturbide-autos-de-ladrones-quedan-bloqueando-via-154058.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.31,
+18.8
+]
+},
+"properties": {
+"id": "n_863c588cbdb5",
+"fecha": "2026-03-20",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "No",
+"lugar": "Cumbres de Maltrata",
+"estado": "Veracruz",
+"carretera": "150D Puebla-Orizaba",
+"km": "227",
+"fuente": "Noticia: Quince Minutos",
+"titulo": "Roban tractocamión cargado con ganado",
+"url": "https://www.quinceminutos.mx/post/asaltan-a-trailero-en-las-cumbres-de-maltrata-alertan-por-nuevo-modus-operandi-en-la-puebla-orizaba",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-101.85,
+21.42
+]
+},
+"properties": {
+"id": "n_38ac6cf2abca",
+"fecha": "2026-03-18",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Lagos de Moreno",
+"estado": "Jalisco",
+"carretera": "Lagos de Moreno-Ojuelos",
+"km": "",
+"fuente": "Noticia: El Informador",
+"titulo": "Fiscalía frustra robo de camión de carga tras enfrentamiento",
+"url": "https://www.informador.mx/jalisco/elementos-de-fiscalia-se-enfrentan-con-delincuentes-en-lagos-de-moreno-e-impiden-robo-de-un-camion-20260318-0135.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.08,
+20.45
+]
+},
+"properties": {
+"id": "n_dc05e23cd427",
+"fecha": "2026-03-17",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Pedro Escobedo",
+"estado": "Querétaro",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "Noticia: La Silla Rota",
+"titulo": "Bloquean tráiler con camioneta y camión; el chofer escapa",
+"url": "https://lasillarota.com/estados/2026/3/18/video-asi-evito-un-asalto-el-conductor-de-un-trailer-en-la-mexico-queretaro-501779.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.25,
+20.55
+]
+},
+"properties": {
+"id": "n_40a30662b813",
+"fecha": "2026-03-15",
+"hora": "",
+"tipo": "Robo de carga",
+"violencia": "Sí",
+"lugar": "El Marqués",
+"estado": "Querétaro",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "Noticia: Infobae",
+"titulo": "Roban caja seca; persecución y balacera, dos detenidos",
+"url": "https://www.infobae.com/mexico/2026/03/18/robo-de-trailer-desata-persecucion-y-balacera-en-la-autopista-mexico-queretaro-asi-fue-la-detencion-de-los-implicados/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-101.73,
+19.46
+]
+},
+"properties": {
+"id": "n_708bebb29647",
+"fecha": "2026-03-06",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Zirahuén (Salvador Escalante)",
+"estado": "Michoacán",
+"carretera": "Siglo 21",
+"km": "",
+"fuente": "Noticia: Informa Oriente",
+"titulo": "Comando armado roba tráiler de doble remolque",
+"url": "https://www.informaoriente.com.mx/seguridad/michoacan-bajo-asedio-carretero-comandos-se-aduenan-de-trailer-de-doble-remolque-y-una-camioneta-ultimo-modelo-en-atracos-en-autopistas-clave.htm",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-101.76,
+19.98
+]
+},
+"properties": {
+"id": "n_1226458fb309",
+"fecha": "2026-03-06",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Panindícuaro",
+"estado": "Michoacán",
+"carretera": "Autopista de Occidente",
+"km": "",
+"fuente": "Noticia: Informa Oriente",
+"titulo": "Asalto armado a vehículo de transporte en la autopista",
+"url": "https://www.informaoriente.com.mx/seguridad/michoacan-bajo-asedio-carretero-comandos-se-aduenan-de-trailer-de-doble-remolque-y-una-camioneta-ultimo-modelo-en-atracos-en-autopistas-clave.htm",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-105.78,
+22.83
+]
+},
+"properties": {
+"id": "n_0255d90de740",
+"fecha": "2026-02-18",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Escuinapa",
+"estado": "Sinaloa",
+"carretera": "15D Mazatlán-Tepic",
+"km": "",
+"fuente": "Noticia: Red Michoacán",
+"titulo": "Trailero sobrevive a balacera y asalto",
+"url": "https://www.redmichoacan.com/2026/02/18/ataque-armado-en-la-mazatlan-tepic-trailero-sobrevive-a-balacera-y-asalto-en-escuinapa/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.21,
+19.71
+]
+},
+"properties": {
+"id": "n_4049282e42f4",
+"fecha": "2026-01-08",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "No",
+"lugar": "Tepotzotlán",
+"estado": "México",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "Noticia: La Silla Rota",
+"titulo": "Tráiler robado se impacta contra la caseta de Tepotzotlán",
+"url": "https://lasillarota.com/metropoli/2026/1/8/trailer-robado-se-impacta-contra-caseta-en-tepotzotlan-caos-vial-en-la-mexico-queretaro-489848.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.52,
+18.81
+]
+},
+"properties": {
+"id": "n_5f2b7c3c0e23",
+"fecha": "2025-08-26",
+"hora": "03:25",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Palmar de Bravo (Cuacnopalan)",
+"estado": "Puebla",
+"carretera": "150D Puebla-Orizaba",
+"km": "216",
+"fuente": "Noticia: Azteca Puebla",
+"titulo": "Sujetos armados detienen y roban tráiler en la madrugada",
+"url": "https://www.aztecapuebla.com/noticias/captan-asalto-a-trailero-en-la-puebla-orizaba-la-madrugada/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-94.98,
+17.97
+]
+},
+"properties": {
+"id": "n_812f93c4f107",
+"fecha": "2025-07-22",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Acayucan",
+"estado": "Veracruz",
+"carretera": "145D Cosoleacaque-La Tinaja",
+"km": "179",
+"fuente": "Noticia: N+",
+"titulo": "Pipa de combustible sale del camino tras intento de asalto con disparos",
+"url": "https://www.nmas.com.mx/veracruz/tractocamion-se-sale-del-camino-tras-intento-de-asalto-en-autopista-cosoleacaque-la-tinaja-acayucan-sur-de-veracruz/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.9,
+20.54
+]
+},
+"properties": {
+"id": "n_245880836c18",
+"fecha": "2025-06-01",
+"hora": "",
+"tipo": "Robo de carga",
+"violencia": "Sí",
+"lugar": "Celaya",
+"estado": "Guanajuato",
+"carretera": "Celaya-Salamanca",
+"km": "",
+"fuente": "Noticia: Azteca Bajío",
+"titulo": "Hombres armados roban tractocamión con 35 toneladas de varilla",
+"url": "https://www.aztecabajio.com/policiaca/roban-un-trailer-cargado-varilla-en-la-carretera-celaya-salamanca-lo-recuperaron/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.43,
+19.99
+]
+},
+"properties": {
+"id": "n_5ed18ac5a822",
+"fecha": "2025-05-03",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Arco Norte km 89",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "89",
+"fuente": "Noticia: TV Azteca",
+"titulo": "Operador baleado en intento de asalto",
+"url": "https://www.tvazteca.com/aztecanoticias/intento-asalto-autopista-arco-norte-trailero-ataque-balazos-video",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.3,
+20.03
+]
+},
+"properties": {
+"id": "n_ce871d711618",
+"fecha": "2025-04-30",
+"hora": "02:00",
+"tipo": "Homicidio en intento de robo",
+"violencia": "Sí",
+"lugar": "Tula de Allende",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "97",
+"fuente": "Noticia: Criterio Hidalgo",
+"titulo": "Trailero asesinado en intento de asalto cerca de Coyotitos",
+"url": "https://criteriohidalgo.com/noticias/regiones/tula/trailero-es-ejecutado-en-el-arco-norte-durante-intento-de-asalto",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.33,
+20.045
+]
+},
+"properties": {
+"id": "n_723a89c8166e",
+"fecha": "2025-04-24",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Tula de Allende",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "",
+"fuente": "Noticia: La Jornada Hidalgo",
+"titulo": "Asaltan a operador cerca de caseta Tula; herido de bala",
+"url": "https://lajornadahidalgo.com/asalto-en-el-arco-norte-deja-a-transportista-herido-en-tula-de-allende/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.7,
+18.93
+]
+},
+"properties": {
+"id": "n_a544f0094fc9",
+"fecha": "2025-04-09",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Tecamachalco",
+"estado": "Puebla",
+"carretera": "150D Puebla-Orizaba",
+"km": "",
+"fuente": "Noticia: N+",
+"titulo": "Auto con luces de patrulla intenta detener y asaltar tráiler",
+"url": "https://www.nmas.com.mx/puebla/auto-particular-con-luces-de-patrulla-intenta-detener-y-asaltar-trailer-en-autopista-puebla-orizaba/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.35,
+19.9
+]
+},
+"properties": {
+"id": "n_29903928d0f2",
+"fecha": "2025-03-02",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Tepeji del Río",
+"estado": "Hidalgo",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "Noticia: Criterio Hidalgo",
+"titulo": "Intento de asalto a tráiler paraliza la autopista",
+"url": "https://criteriohidalgo.com/noticias/regiones/tula/mexico-queretaro-intento-asalto-trailer-paraliza-autopista",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.32,
+20.04
+]
+},
+"properties": {
+"id": "n_61284514593f",
+"fecha": "2025-01-23",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Tula de Allende",
+"estado": "Hidalgo",
+"carretera": "Arco Norte",
+"km": "",
+"fuente": "Noticia: Criterio Hidalgo",
+"titulo": "Balean a trailero en intento de asalto cerca de caseta Tula II",
+"url": "https://criteriohidalgo.com/noticias/regiones/tula/violencia-en-el-arco-norte-balean-a-trailero-en-intento-de-asalto-cerca-de-tula",
+"confianza": 0.6
+}
+}
+]
+}

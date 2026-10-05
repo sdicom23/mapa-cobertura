@@ -49,8 +49,8 @@
   <div class="fila" id="periodos">
     <button class="btn" data-dias="1">24 h</button>
     <button class="btn" data-dias="7">7 días</button>
-    <button class="btn on" data-dias="30">30 días</button>
-    <button class="btn" data-dias="365">12 meses</button>
+    <button class="btn" data-dias="30">30 días</button>
+    <button class="btn on" data-dias="365">12 meses</button>
   </div>
   <div class="fila" id="cats"></div>
   <div class="leyenda"></div>
@@ -101,18 +101,26 @@ map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-ri
 
 /***** ESTADO *****/
 let todos = [];
-let diasSel = 30;
+let diasSel = 365;
 const catsOn = new Set(Object.keys(CATS));
 
 /***** DATOS *****/
 async function cargarDatos() {
-  if (DATA_URL) {
-    try {
-      const r = await fetch(DATA_URL);
-      const gj = await r.json();
-      if (gj && Array.isArray(gj.features)) return { gj, demo: false };
-    } catch (e) { console.warn('No se pudo leer DATA_URL, uso datos de ejemplo', e); }
-  }
+  // Noticias verificadas (capas/noticias.geojson) + eventos en vivo de la hoja (DATA_URL), sin duplicados
+  const leer = async url => {
+    if (!url) return [];
+    try { const j = await (await fetch(url)).json(); return Array.isArray(j.features) ? j.features : []; }
+    catch (e) { console.warn('No se pudo leer', url, e); return []; }
+  };
+  const [vivas, fijas] = await Promise.all([leer(DATA_URL), leer('capas/noticias.geojson')]);
+  const vistos = new Set();
+  const features = [...vivas, ...fijas].filter(f => {
+    const k = f.properties.url || f.properties.id;
+    if (k && vistos.has(k)) return false;
+    vistos.add(k);
+    return true;
+  });
+  if (features.length) return { gj: { type: 'FeatureCollection', features }, demo: false };
   return { gj: datosDemo(), demo: true };
 }
 

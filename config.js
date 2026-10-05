@@ -32,8 +32,10 @@ window.CONFIG = {
   // Incidencias: URL /exec de tu Apps Script con ?accion=eventos&dias=365
   // Vacía = datos de ejemplo
   EVENTOS_URL: '',
+  // Capa 2: noticias de robo a transportista ya verificadas (se actualiza en GitHub)
+  NOTICIAS_URL: 'capas/noticias.geojson',
   VIDA_MEDIA_DIAS: 90,     // un incidente de hace 90 días pesa ~37% de uno de hoy
-  RADIO_RIESGO_KM: 3,      // incidentes a menos de esta distancia de la ruta cuentan para su riesgo
+  RADIO_RIESGO_KM: 5,      // incidentes a menos de esta distancia de la ruta cuentan (las noticias se ubican en el poblado)
 
   // Índice oficial por municipio (generado con sesnsp_a_mapa.py)
   RIESGO_MUNICIPAL_URL: 'capas/riesgo_municipal.geojson',

@@ -127,14 +127,24 @@
 
   /** Devuelve { features, demo } con la propiedad "peso" ya calculada */
   async function cargarEventos() {
-    let gj = null, demo = false;
-    if (C.EVENTOS_URL) {
+    // Capa 2: noticias recopiladas (archivo en GitHub) + eventos en vivo de la hoja (bot / lector de noticias)
+    const leer = async url => {
+      if (!url) return [];
       try {
-        const j = await (await fetch(C.EVENTOS_URL)).json();
-        if (j && Array.isArray(j.features)) gj = j;
-      } catch (e) { console.warn('No se pudo leer EVENTOS_URL', e); }
-    }
-    if (!gj) { gj = eventosDemo(); demo = true; }
+        const j = await (await fetch(url)).json();
+        return j && Array.isArray(j.features) ? j.features : [];
+      } catch (e) { console.warn('No se pudo leer', url, e); return []; }
+    };
+    const [fijas, vivas] = await Promise.all([leer(C.NOTICIAS_URL), leer(C.EVENTOS_URL)]);
+    const vistos = new Set();
+    const todas = [...vivas, ...fijas].filter(f => {
+      const k = f.properties.url || f.properties.id || JSON.stringify(f.geometry.coordinates) + f.properties.fecha;
+      if (vistos.has(k)) return false;
+      vistos.add(k);
+      return true;
+    });
+    let gj = { type: 'FeatureCollection', features: todas }, demo = false;
+    if (!todas.length) { gj = eventosDemo(); demo = true; }
     const ahora = Date.now();
     gj.features.forEach(f => { f.properties.peso = Math.max(pesoEvento(f.properties, ahora), 0.05); });
     return { features: gj.features, demo };
