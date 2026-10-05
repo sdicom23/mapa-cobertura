@@ -57,6 +57,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-102.7,
+22.95
+]
+},
+"properties": {
+"id": "n_7625c51f10d4",
+"fecha": "2026-09-23",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Carretera 49 (Saldaña)",
+"estado": "Zacatecas",
+"carretera": "Federal 49 Zacatecas-Fresnillo",
+"km": "",
+"fuente": "X: @lasillarota",
+"titulo": "Chofer baleado al forcejear con asaltante; lo captó la cámara de la unidad",
+"url": "https://x.com/lasillarota/status/2102751638955950444",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -99.38,
 20.02
 ]
@@ -182,6 +207,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-110.81,
+27.96
+]
+},
+"properties": {
+"id": "n_0dc1659d0e72",
+"fecha": "2026-07-07",
+"hora": "",
+"tipo": "Robo de carga",
+"violencia": "Sí",
+"lugar": "Empalme",
+"estado": "Sonora",
+"carretera": "Federal 15",
+"km": "",
+"fuente": "Noticia: Mural Sonorense",
+"titulo": "Despojan a operador de la unidad y la carga con armas de fuego",
+"url": "https://muralsonorense.com/asalto-a-conductor-de-trayler-lo-despojan-de-la-unidad-y-la-carga/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -101.05,
 20.53
 ]
@@ -282,6 +332,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-102.24,
+21.52
+]
+},
+"properties": {
+"id": "n_83f6df489a7c",
+"fecha": "2026-06-04",
+"hora": "",
+"tipo": "Robo de carga",
+"violencia": "Sí",
+"lugar": "Encarnación de Díaz",
+"estado": "Jalisco",
+"carretera": "Federal 45 León-Aguascalientes",
+"km": "",
+"fuente": "Noticia: Azteca Aguascalientes",
+"titulo": "Comando dispara contra tráiler y se lleva la caja de carga",
+"url": "https://www.aztecaaguascalientes.com/noticias/registran-robo-a-mano-armada-a-chofer-de-trailer-sobre-la-carretera-federal-45-sur-hoy-4-de-junio/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -100.96,
 20.49
 ]
@@ -332,6 +407,56 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-97.22,
+18.83
+]
+},
+"properties": {
+"id": "n_eb6416727b1c",
+"fecha": "2026-05-13",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Cumbres de Maltrata",
+"estado": "Veracruz",
+"carretera": "150D Puebla-Orizaba",
+"km": "240",
+"fuente": "X: @AztecaNoticias",
+"titulo": "Trailero frustra asalto y embiste a uno de los delincuentes",
+"url": "https://x.com/AztecaNoticias/status/2054917146203886068",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-101.47,
+20.99
+]
+},
+"properties": {
+"id": "n_6e858389df1f",
+"fecha": "2026-04-30",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "No",
+"lugar": "Silao de la Victoria",
+"estado": "Guanajuato",
+"carretera": "Silao-León",
+"km": "",
+"fuente": "X: @ApartadoMex",
+"titulo": "Graban robo a trailero con presunta complicidad de policías",
+"url": "https://x.com/ApartadoMex/status/2050946206210121954",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -97.27,
 18.81
 ]
@@ -349,6 +474,31 @@
 "fuente": "Noticia: AVC Noticias",
 "titulo": "Cinco hombres armados asaltan vehículos en Cumbres de Maltrata",
 "url": "https://www.avcnoticias.com.mx/noticias-veracruz/centro/377672/captan-asaltos-en-cumbres-de-maltrata-en-autopista-orizaba-puebla.html",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.32,
+18.62
+]
+},
+"properties": {
+"id": "n_b28569ffd7d3",
+"fecha": "2026-04-23",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Puente de Ixtla",
+"estado": "Morelos",
+"carretera": "95D Cuernavaca-Acapulco",
+"km": "",
+"fuente": "Noticia: Azteca Morelos",
+"titulo": "Le disparan a trailero que no se detuvo; llegó herido a la caseta de Xochitepec",
+"url": "https://www.aztecamorelos.com/noticias/trailero-es-baleado-intento-asalto-en-la-autopista-acapulco-cuernavaca-en-puente",
 "confianza": 0.6
 }
 },
@@ -532,6 +682,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-100.4,
+21.05
+]
+},
+"properties": {
+"id": "n_79e1c50d2f9a",
+"fecha": "2026-03-16",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "No",
+"lugar": "Carretera 57 (Guanajuato)",
+"estado": "Guanajuato",
+"carretera": "57 Querétaro-SLP",
+"km": "",
+"fuente": "X: @AztecaNoticias",
+"titulo": "Trailero forcejea con dos asaltantes que terminan huyendo",
+"url": "https://x.com/AztecaNoticias/status/2033527139329343539",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -100.25,
 20.55
 ]
@@ -550,6 +725,31 @@
 "titulo": "Roban caja seca; persecución y balacera, dos detenidos",
 "url": "https://www.infobae.com/mexico/2026/03/18/robo-de-trailer-desata-persecucion-y-balacera-en-la-autopista-mexico-queretaro-asi-fue-la-detencion-de-los-implicados/",
 "confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.51,
+27.03
+]
+},
+"properties": {
+"id": "n_aa4c27abff2a",
+"fecha": "2026-03-11",
+"hora": "",
+"tipo": "Enfrentamiento / balacera",
+"violencia": "Sí",
+"lugar": "Lampazos de Naranjo",
+"estado": "Nuevo León",
+"carretera": "Carretera Colombia",
+"km": "",
+"fuente": "X: @VALORPORTAMPS",
+"titulo": "Cierran la carretera Colombia por enfrentamiento armado de madrugada",
+"url": "https://x.com/VALORPORTAMPS/status/2031756621345382639",
+"confianza": 0.5
 }
 },
 {
@@ -657,6 +857,56 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-95.04,
+16.88
+]
+},
+"properties": {
+"id": "n_a00943e89686",
+"fecha": "2025-11-20",
+"hora": "",
+"tipo": "Secuestro / desaparición de operadores",
+"violencia": "Sí",
+"lugar": "Matías Romero",
+"estado": "Oaxaca",
+"carretera": "Istmo de Tehuantepec",
+"km": "",
+"fuente": "Noticia: Quinta Fuerza",
+"titulo": "Desaparecen cuatro traileros; sus unidades aparecen abandonadas",
+"url": "https://quintafuerza.mx/mexico/ola-de-asaltos-a-transportistas-coincide-con-desaparicion-de-cuatro-traileros-en-oaxaca/",
+"confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.04,
+19.04
+]
+},
+"properties": {
+"id": "n_7adbcad10caa",
+"fecha": "2025-09-05",
+"hora": "23:00",
+"tipo": "Asalto a transporte público",
+"violencia": "Sí",
+"lugar": "Amozoc",
+"estado": "Puebla",
+"carretera": "Puebla-Amozoc",
+"km": "",
+"fuente": "X: @OroNoticiasPue",
+"titulo": "Asaltan con disparos a pasajeros de la Ruta 18",
+"url": "https://x.com/OroNoticiasPue/status/1964191833291899000",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -97.52,
 18.81
 ]
@@ -682,6 +932,156 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-99.02,
+19.66
+]
+},
+"properties": {
+"id": "n_07ffe2d6badd",
+"fecha": "2025-08-01",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "No",
+"lugar": "México-Pachuca",
+"estado": "México",
+"carretera": "México-Pachuca",
+"km": "",
+"fuente": "X: @AztecaEdoMex",
+"titulo": "Ladrón salta del tráiler robado al ver a la Guardia Nacional; detenido",
+"url": "https://x.com/AztecaEdoMex/status/1951452986317873584",
+"confianza": 0.4
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-100.6,
+20.56
+]
+},
+"properties": {
+"id": "n_45f3e58bf3b5",
+"fecha": "2025-07-29",
+"hora": "",
+"tipo": "Robo de unidad",
+"violencia": "Sí",
+"lugar": "Carretera Querétaro-Celaya",
+"estado": "Guanajuato",
+"carretera": "Querétaro-Celaya",
+"km": "",
+"fuente": "X: @adn40",
+"titulo": "Interceptan tráiler a plena luz del día; disparos y conductor desaparecido",
+"url": "https://x.com/adn40/status/1950236125190345073",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.4,
+20.07
+]
+},
+"properties": {
+"id": "n_1df082a32c5c",
+"fecha": "2025-07-29",
+"hora": "",
+"tipo": "Homicidio en intento de robo",
+"violencia": "Sí",
+"lugar": "Tulancingo",
+"estado": "Hidalgo",
+"carretera": "México-Tuxpan",
+"km": "",
+"fuente": "X: @adn40",
+"titulo": "Asesinan a trailero que se resistió a un asalto",
+"url": "https://x.com/adn40/status/1950280164564488315",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.16,
+19.08
+]
+},
+"properties": {
+"id": "n_04bfcc9d0655",
+"fecha": "2025-07-29",
+"hora": "07:15",
+"tipo": "Robo a transportista",
+"violencia": "No",
+"lugar": "Puebla (Los Estadios)",
+"estado": "Puebla",
+"carretera": "150D México-Puebla",
+"km": "",
+"fuente": "X: @laredcincoradio",
+"titulo": "Reportan que una camioneta detuvo a un torton y obligó al operador a bajar",
+"url": "https://x.com/laredcincoradio/status/1950183413144592534",
+"confianza": 0.4
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.48,
+18.68
+]
+},
+"properties": {
+"id": "n_00518118858a",
+"fecha": "2025-07-27",
+"hora": "",
+"tipo": "Homicidio en intento de robo",
+"violencia": "Sí",
+"lugar": "Autopista Cuacnopalan-Oaxaca km 17.9",
+"estado": "Puebla",
+"carretera": "135D Cuacnopalan-Oaxaca",
+"km": "17.9",
+"fuente": "X: @LaHoraMX",
+"titulo": "Asesinan a conductor de pipa interceptado por sujetos armados",
+"url": "https://x.com/LaHoraMX/status/1949588333232804062",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.3,
+19.45
+]
+},
+"properties": {
+"id": "n_b00e4c566c70",
+"fecha": "2025-07-23",
+"hora": "20:40",
+"tipo": "Intento de asalto a transporte público",
+"violencia": "No",
+"lugar": "Naucalpan (San Rafael Chamapa)",
+"estado": "México",
+"carretera": "Toluca-Naucalpan",
+"km": "",
+"fuente": "X: @CI_CDMX",
+"titulo": "Conductor de transporte público frustra un asalto",
+"url": "https://x.com/CI_CDMX/status/1948211535572062621",
+"confianza": 0.4
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -94.98,
 17.97
 ]
@@ -700,6 +1100,81 @@
 "titulo": "Pipa de combustible sale del camino tras intento de asalto con disparos",
 "url": "https://www.nmas.com.mx/veracruz/tractocamion-se-sale-del-camino-tras-intento-de-asalto-en-autopista-cosoleacaque-la-tinaja-acayucan-sur-de-veracruz/",
 "confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-97.33,
+17.71
+]
+},
+"properties": {
+"id": "n_504e06029914",
+"fecha": "2025-07-05",
+"hora": "",
+"tipo": "Robo a transportista",
+"violencia": "Sí",
+"lugar": "Autopista Cuacnopalan-Oaxaca (Mixteca)",
+"estado": "Oaxaca",
+"carretera": "135D Cuacnopalan-Oaxaca",
+"km": "",
+"fuente": "Noticia: Azteca Puebla",
+"titulo": "Asaltan a trailero con armas largas",
+"url": "https://www.aztecapuebla.com/noticias/video-asaltaron-a-trailero-en-la-autopista-cuacnopalan-oaxaca-este-fin-semana/",
+"confianza": 0.4
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-99.22,
+19.76
+]
+},
+"properties": {
+"id": "n_d68b48ec673e",
+"fecha": "2025-07-04",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "Coyotepec",
+"estado": "México",
+"carretera": "57D México-Querétaro",
+"km": "",
+"fuente": "X: @AztecaNoticias",
+"titulo": "Chofer herido de bala en intento de asalto; logró escapar",
+"url": "https://x.com/AztecaNoticias/status/1941180304817012928",
+"confianza": 0.5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.67,
+19.35
+]
+},
+"properties": {
+"id": "n_be93a65fcdf7",
+"fecha": "2025-06-21",
+"hora": "",
+"tipo": "Intento de robo",
+"violencia": "Sí",
+"lugar": "México-Puebla (Río Frío)",
+"estado": "México",
+"carretera": "150D México-Puebla",
+"km": "",
+"fuente": "X: @Diario_Cambio",
+"titulo": "Trailero escapa entre balazos de dos camionetas",
+"url": "https://x.com/Diario_Cambio/status/1936515306169790818",
+"confianza": 0.4
 }
 },
 {
@@ -875,6 +1350,31 @@
 "titulo": "Balean a trailero en intento de asalto cerca de caseta Tula II",
 "url": "https://criteriohidalgo.com/noticias/regiones/tula/violencia-en-el-arco-norte-balean-a-trailero-en-intento-de-asalto-cerca-de-tula",
 "confianza": 0.6
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-98.33,
+18.97
+]
+},
+"properties": {
+"id": "n_27e1b1fff0f5",
+"fecha": "2025-01-22",
+"hora": "00:14",
+"tipo": "Asalto masivo en carretera",
+"violencia": "Sí",
+"lugar": "Autopista Puebla-Atlixco km 13",
+"estado": "Puebla",
+"carretera": "Puebla-Atlixco",
+"km": "13",
+"fuente": "X: @Trafico_Puebla",
+"titulo": "Ponchan llantas a una docena de vehículos para asaltar a mano armada",
+"url": "https://x.com/Trafico_Puebla/status/1881948608024432773",
+"confianza": 0.5
 }
 }
 ]
