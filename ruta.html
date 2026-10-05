@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Ruta con cobertura</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="estilos.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3.2.1/dist/pmtiles.js"></script>
+<script src="https://unpkg.com/@turf/turf@7.1.0/turf.min.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="config.js"></script>
+<script src="comun.js"></script>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="panel arriba">
+  <h1><span>Ruta con cobertura</span><span class="demo" id="demo">Datos de ejemplo</span></h1>
+  <div class="info" id="info">Calculando ruta…</div>
+</div>
+
+<div class="panel abajo">
+  <div class="fila">
+    <span class="ley"><span class="linea" style="background:#1D9E75"></span>Buena</span>
+    <span class="ley"><span class="linea" style="background:#EF9F27"></span>Regular</span>
+    <span class="ley"><span class="linea" style="background:#E24B4A"></span>Sin señal</span>
+  </div>
+  <div class="fila" id="operadores"></div>
+</div>
+
+<script>
+const C = window.CONFIG, U = window.Comun;
+const q = new URLSearchParams(location.search);
+const leer = s => { const p = (s || '').split(',').map(Number); return p.length === 2 && p.every(n => !isNaN(n)) ? p : null; };
+// o y d llegan como lat,lon. Sin parámetros: ejemplo CDMX -> Pachuca
+const O = leer(q.get('o')) || [19.4955, -99.1194];
+const D = leer(q.get('d')) || [20.1011, -98.7591];
+
+const map = new maplibregl.Map({
+  container: 'map', style: C.MAPA_BASE,
+  bounds: [[Math.min(O[1], D[1]), Math.min(O[0], D[0])], [Math.max(O[1], D[1]), Math.max(O[0], D[0])]],
+  fitBoundsOptions: { padding: 80 },
+  attributionControl: { compact: true }
+});
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+let capas = [], ruta = null, largo = 0;
+
+map.on('load', async () => {
+  const r = await U.cargarCoberturas(map, 0.22);
+  capas = r.capas;
+  if (r.demo) document.getElementById('demo').style.display = 'inline-block';
+
+  try {
+    const url = `${C.OSRM_URL}${O[1]},${O[0]};${D[1]},${D[0]}?overview=full&geometries=geojson`;
+    const j = await (await fetch(url)).json();
+    if (!j.routes || !j.routes.length) throw new Error('sin ruta');
+    ruta = turf.lineString(j.routes[0].geometry.coordinates);
+    largo = turf.length(ruta);
+    window._duracion = j.routes[0].duration;
+  } catch (e) {
+    document.getElementById('info').textContent = '❌ No se pudo calcular la ruta. Intenta de nuevo.';
+    return;
+  }
+
+  map.addSource('ruta', { type: 'geojson', data: turf.featureCollection([]) });
+  map.addLayer({ id: 'ruta-borde', type: 'line', source: 'ruta',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#ffffff', 'line-width': 9 } });
+  map.addLayer({ id: 'ruta-linea', type: 'line', source: 'ruta',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-width': 6, 'line-color': ['match', ['get', 'nivel'],
+      'buena', '#1D9E75', 'regular', '#EF9F27', 'sin', '#E24B4A', '#888'] } });
+
+  new maplibregl.Marker({ color: '#185FA5' }).setLngLat([O[1], O[0]]).addTo(map);
+  new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([D[1], D[0]]).addTo(map);
+
+  map.fitBounds(turf.bbox(ruta), { padding: { top: 110, bottom: 120, left: 40, right: 40 }, duration: 0 });
+  U.botonesOperador(document.getElementById('operadores'), map, capas, () => U.cuandoListo(map, evaluar));
+  U.cuandoListo(map, evaluar);
+});
+
+function evaluar() {
+  const rango = { buena: 2, regular: 1, sin: 0 };
+  const paso = C.PASO_RUTA_KM;
+  const tramos = [];
+  const km = { buena: 0, regular: 0, sin: 0 };
+  let cortes = 0, previo = null;
+
+  for (let d = 0; d < largo; d += paso) {
+    const fin = Math.min(d + paso, largo);
+    const a = turf.along(ruta, d).geometry.coordinates;
+    const b = turf.along(ruta, fin).geometry.coordinates;
+    const medio = turf.along(ruta, (d + fin) / 2).geometry.coordinates;
+    let nivel = 'sin';
+    U.coberturaEn(map, medio, capas).forEach(c => {
+      const n = rango[c.calidad] !== undefined ? c.calidad : 'buena';
+      if (rango[n] > rango[nivel]) nivel = n;
+    });
+    km[nivel] += fin - d;
+    if (nivel === 'sin' && previo !== 'sin') cortes++;
+    previo = nivel;
+    tramos.push(turf.lineString([a, b], { nivel }));
+  }
+  map.getSource('ruta').setData(turf.featureCollection(tramos));
+
+  const pct = v => Math.round(v / largo * 100);
+  const h = Math.floor(window._duracion / 3600), m = Math.round(window._duracion % 3600 / 60);
+  document.getElementById('info').innerHTML =
+    `<b>${largo.toFixed(0)} km · ${h ? h + ' h ' : ''}${m} min · ${100 - pct(km.sin)}% con cobertura</b><br>` +
+    `<span class="sub">🟢 ${km.buena.toFixed(0)} km · 🟡 ${km.regular.toFixed(0)} km · 🔴 ${km.sin.toFixed(1)} km` +
+    `${cortes ? ` en ${cortes} tramo${cortes > 1 ? 's' : ''}` : ''}</span>`;
+}
+</script>
+</body>
+</html>

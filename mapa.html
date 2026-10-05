@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Mapa de incidencias</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root { --bg:#ffffff; --tx:#1d1d1f; --tx2:#5f5e5a; --bd:#e2e0d8; --ac:#185FA5; --acbg:#E6F1FB; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; font-family:-apple-system, "Segoe UI", Roboto, sans-serif; color:var(--tx); background:#ebe7df; }
+  #map { position:absolute; inset:0; }
+  .panel { position:absolute; left:10px; right:10px; background:var(--bg); border:1px solid var(--bd); border-radius:12px; padding:8px 10px; z-index:2; }
+  #top { top:10px; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  #top h1 { font-size:15px; margin:0; font-weight:600; }
+  #top .sub { font-size:12px; color:var(--tx2); }
+  #demo { display:none; background:#FAEEDA; color:#633806; font-size:11px; padding:2px 8px; border-radius:8px; white-space:nowrap; }
+  #filtros { bottom:10px; }
+  .fila { display:flex; gap:6px; flex-wrap:wrap; }
+  .fila + .fila { margin-top:7px; }
+  .btn { flex:1; min-width:56px; border:1px solid var(--bd); background:var(--bg); color:var(--tx2); border-radius:8px; padding:6px 4px; font-size:12px; cursor:pointer; }
+  .btn.on { background:var(--acbg); color:#0C447C; border-color:#85B7EB; font-weight:600; }
+  .chip { display:flex; align-items:center; gap:5px; border:1px solid var(--bd); border-radius:16px; padding:4px 9px; font-size:12px; cursor:pointer; user-select:none; background:var(--bg); color:var(--tx); }
+  .chip.off { opacity:.35; }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .leyenda { height:7px; border-radius:4px; background:linear-gradient(90deg,#fee08b,#fdae61,#f46d43,#d7191c); margin-top:7px; }
+  .leyenda-txt { display:flex; justify-content:space-between; font-size:11px; color:var(--tx2); margin-top:2px; }
+  .maplibregl-popup-content { border-radius:10px; padding:10px 12px; font-size:13px; line-height:1.45; max-width:260px; }
+  .pop-t { font-weight:600; font-size:14px; margin-bottom:3px; }
+  .badge { display:inline-block; font-size:11px; padding:1px 8px; border-radius:8px; background:#FCEBEB; color:#791F1F; margin-left:4px; }
+  .pop-s { color:#5f5e5a; font-size:12px; }
+  .pop a { color:var(--ac); text-decoration:none; font-size:12px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div id="top" class="panel">
+  <div>
+    <h1>Incidencias de seguridad</h1>
+    <div class="sub" id="resumen">Cargando…</div>
+  </div>
+  <span id="demo">Datos de ejemplo</span>
+</div>
+
+<div id="filtros" class="panel">
+  <div class="fila" id="periodos">
+    <button class="btn" data-dias="1">24 h</button>
+    <button class="btn" data-dias="7">7 días</button>
+    <button class="btn on" data-dias="30">30 días</button>
+    <button class="btn" data-dias="365">12 meses</button>
+  </div>
+  <div class="fila" id="cats"></div>
+  <div class="leyenda"></div>
+  <div class="leyenda-txt"><span>Menos incidencias</span><span>Más incidencias</span></div>
+</div>
+
+<script>
+/***** CONFIGURACIÓN *****
+ * Pega aquí la URL de tu Apps Script (la misma /exec del bot) con ?accion=eventos
+ * Si la dejas vacía, el mapa muestra datos de ejemplo.
+ */
+const DATA_URL = '';   // ej. 'https://script.google.com/macros/s/XXXX/exec?accion=eventos&dias=365'
+
+const CATS = {
+  robo:      { nombre: 'Robo / asalto',        color: '#E24B4A' },
+  violencia: { nombre: 'Violencia armada',     color: '#7F3FBF' },
+  bloqueo:   { nombre: 'Bloqueo / retén',      color: '#EF9F27' },
+  secuestro: { nombre: 'Secuestro / extorsión', color: '#D4537E' },
+  otro:      { nombre: 'Otro',                 color: '#5F5E5A' }
+};
+
+function categoria(tipo) {
+  const t = String(tipo).toLowerCase();
+  if (/secuestr|extorsi|cobro de piso/.test(t)) return 'secuestro';
+  if (/balacera|enfrent|homicid|disparo|quema|narcobloqueo/.test(t)) return 'violencia';
+  if (/bloqueo|ponchallantas|ret[eé]n/.test(t)) return 'bloqueo';
+  if (/robo|asalto|despojo/.test(t)) return 'robo';
+  return 'otro';
+}
+
+/***** TELEGRAM *****/
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); }
+
+/***** MAPA BASE (OpenFreeMap: gratis, sin registro) *****/
+const params = new URLSearchParams(location.search);
+const centro = params.get('lat') && params.get('lon')
+  ? [parseFloat(params.get('lon')), parseFloat(params.get('lat'))] : [-99.3, 19.9];
+
+const map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://tiles.openfreemap.org/styles/positron',
+  center: centro,
+  zoom: params.get('lat') ? 9 : 5.6,
+  attributionControl: { compact: true }
+});
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+/***** ESTADO *****/
+let todos = [];
+let diasSel = 30;
+const catsOn = new Set(Object.keys(CATS));
+
+/***** DATOS *****/
+async function cargarDatos() {
+  if (DATA_URL) {
+    try {
+      const r = await fetch(DATA_URL);
+      const gj = await r.json();
+      if (gj && Array.isArray(gj.features)) return { gj, demo: false };
+    } catch (e) { console.warn('No se pudo leer DATA_URL, uso datos de ejemplo', e); }
+  }
+  return { gj: datosDemo(), demo: true };
+}
+
+function preparar(gj) {
+  const ahora = Date.now();
+  return gj.features.map(f => {
+    const p = f.properties;
+    const ts = new Date(`${p.fecha}T${p.hora || '12:00'}:00-06:00`).getTime();
+    const dias = Math.max(0, (ahora - ts) / 86400000);
+    const peso = Math.exp(-dias / 60) * (p.violencia === 'Sí' ? 1.3 : 1) * (Number(p.confianza) || 0.5);
+    return { ...f, properties: { ...p, cat: categoria(p.tipo), ts, peso: Math.max(peso, 0.05) } };
+  });
+}
+
+function filtrados() {
+  const limite = Date.now() - diasSel * 86400000;
+  return todos.filter(f => f.properties.ts >= limite && catsOn.has(f.properties.cat));
+}
+
+function actualizar() {
+  const lista = filtrados();
+  map.getSource('eventos').setData({ type: 'FeatureCollection', features: lista });
+
+  const conViolencia = lista.filter(f => f.properties.violencia === 'Sí').length;
+  const etiqueta = { 1: 'últimas 24 h', 7: 'últimos 7 días', 30: 'últimos 30 días', 365: 'últimos 12 meses' }[diasSel];
+  document.getElementById('resumen').textContent =
+    `${lista.length} incidentes · ${conViolencia} con violencia · ${etiqueta}`;
+
+  document.querySelectorAll('.chip').forEach(ch => {
+    const n = todos.filter(f => f.properties.cat === ch.dataset.cat &&
+      f.properties.ts >= Date.now() - diasSel * 86400000).length;
+    ch.querySelector('.n').textContent = n;
+  });
+}
+
+/***** CAPAS *****/
+map.on('load', async () => {
+  const { gj, demo } = await cargarDatos();
+  todos = preparar(gj);
+  if (demo) document.getElementById('demo').style.display = 'inline-block';
+
+  map.addSource('eventos', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+
+  map.addLayer({
+    id: 'calor', type: 'heatmap', source: 'eventos', maxzoom: 13,
+    paint: {
+      'heatmap-weight': ['get', 'peso'],
+      'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 4, 0.9, 10, 2.2],
+      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 4, 14, 8, 26, 12, 40],
+      'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'],
+        0, 'rgba(254,224,139,0)', 0.2, '#fee08b', 0.45, '#fdae61', 0.7, '#f46d43', 1, '#d7191c'],
+      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 0.85, 12, 0.35]
+    }
+  });
+
+  map.addLayer({
+    id: 'puntos', type: 'circle', source: 'eventos', minzoom: 6.5,
+    paint: {
+      'circle-color': ['match', ['get', 'cat'],
+        'robo', CATS.robo.color, 'violencia', CATS.violencia.color, 'bloqueo', CATS.bloqueo.color,
+        'secuestro', CATS.secuestro.color, CATS.otro.color],
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 6.5, 3, 10, 6, 14, 9],
+      'circle-stroke-color': '#ffffff',
+      'circle-stroke-width': 1.5,
+      'circle-opacity': ['interpolate', ['linear'], ['zoom'], 6.5, 0, 7.5, 1]
+    }
+  });
+
+  map.on('click', 'puntos', e => {
+    const p = e.features[0].properties;
+    const via = [p.carretera, p.km ? 'km ' + p.km : ''].filter(Boolean).join(' · ');
+    const html = `
+      <div class="pop">
+        <div class="pop-t">${esc(p.tipo)}${p.violencia === 'Sí' ? '<span class="badge">Con violencia</span>' : ''}</div>
+        <div>${esc([p.lugar, p.estado].filter(Boolean).join(', '))}</div>
+        ${via ? `<div>${esc(via)}</div>` : ''}
+        <div class="pop-s">${esc(p.fecha)}${p.hora ? ' · ' + esc(p.hora) : ''}</div>
+        <div class="pop-s">${esc(p.fuente)}</div>
+        ${p.titulo ? `<div class="pop-s" style="margin-top:4px">${esc(p.titulo)}</div>` : ''}
+        ${p.url ? `<div style="margin-top:4px"><a href="${esc(p.url)}" target="_blank" rel="noopener">Abrir nota ›</a></div>` : ''}
+      </div>`;
+    new maplibregl.Popup({ offset: 10 }).setLngLat(e.lngLat).setHTML(html).addTo(map);
+  });
+  map.on('mouseenter', 'puntos', () => map.getCanvas().style.cursor = 'pointer');
+  map.on('mouseleave', 'puntos', () => map.getCanvas().style.cursor = '');
+
+  crearChips();
+  actualizar();
+});
+
+/***** CONTROLES *****/
+document.getElementById('periodos').addEventListener('click', e => {
+  const b = e.target.closest('.btn');
+  if (!b) return;
+  document.querySelectorAll('#periodos .btn').forEach(x => x.classList.toggle('on', x === b));
+  diasSel = Number(b.dataset.dias);
+  actualizar();
+});
+
+function crearChips() {
+  const cont = document.getElementById('cats');
+  Object.entries(CATS).forEach(([k, c]) => {
+    const ch = document.createElement('div');
+    ch.className = 'chip';
+    ch.dataset.cat = k;
+    ch.innerHTML = `<span class="dot" style="background:${c.color}"></span>${c.nombre} <b class="n">0</b>`;
+    ch.onclick = () => {
+      catsOn.has(k) ? catsOn.delete(k) : catsOn.add(k);
+      ch.classList.toggle('off', !catsOn.has(k));
+      actualizar();
+    };
+    cont.appendChild(ch);
+  });
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+/***** DATOS DE EJEMPLO (solo si DATA_URL está vacía) *****/
+function datosDemo() {
+  const lugares = [
+    ['Tepotzotlán', 'Edomex', '57D', 19.72, -99.22, 9], ['Cuautitlán Izcalli', 'Edomex', '57D', 19.65, -99.21, 5],
+    ['Palmillas', 'Qro.', '57D', 20.32, -99.94, 7], ['San Juan del Río', 'Qro.', '57D', 20.39, -99.99, 3],
+    ['Ecatepec', 'Edomex', '85D', 19.60, -99.05, 6], ['Tizayuca', 'Hgo.', '85D', 19.84, -98.98, 3],
+    ['Ixtapaluca', 'Edomex', '150D', 19.32, -98.88, 4], ['Río Frío', 'Edomex', '150D', 19.35, -98.67, 5],
+    ['San Martín Texmelucan', 'Pue.', '150D', 19.28, -98.43, 9], ['Amozoc', 'Pue.', '150D', 19.04, -98.04, 7],
+    ['Acatzingo', 'Pue.', '150D', 18.98, -97.78, 6], ['Palmar de Bravo', 'Pue.', '150D', 18.84, -97.55, 8],
+    ['Esperanza', 'Pue.', '150D', 18.86, -97.37, 9], ['Maltrata', 'Ver.', '150D', 18.81, -97.27, 7],
+    ['Orizaba', 'Ver.', '150D', 18.85, -97.10, 3], ['Córdoba', 'Ver.', '150D', 18.89, -96.93, 3],
+    ['Celaya', 'Gto.', '45D', 20.52, -100.81, 5], ['Salamanca', 'Gto.', '45D', 20.57, -101.19, 4],
+    ['Irapuato', 'Gto.', '45D', 20.68, -101.35, 4], ['Querétaro', 'Qro.', '57D', 20.59, -100.39, 4],
+    ['Lagos de Moreno', 'Jal.', '80', 21.36, -101.93, 3], ['San Luis Potosí', 'SLP', '57', 22.15, -100.98, 4],
+    ['Matehuala', 'SLP', '57', 23.65, -100.64, 3], ['Perote', 'Ver.', '140', 19.56, -97.24, 3],
+    ['Calpulalpan', 'Tlax.', 'Arco Norte', 19.59, -98.57, 4]
+  ];
+  const tipos = ['Robo de unidad', 'Robo de carga', 'Robo a transportista', 'Asalto a autobús',
+                 'Bloqueo / ponchallantas', 'Enfrentamiento / balacera', 'Retén falso',
+                 'Extorsión / cobro de piso', 'Secuestro', 'Intento de robo'];
+  let s = 7;
+  const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  const features = [];
+  lugares.forEach(([lugar, estado, carretera, lat, lon, n]) => {
+    for (let i = 0; i < n * 2; i++) {
+      const d = new Date(Date.now() - Math.floor(rnd() * 300) * 86400000 * (rnd() < 0.5 ? 0.15 : 1));
+      const hh = String(Math.floor(rnd() < 0.6 ? rnd() * 6 : rnd() * 24)).padStart(2, '0');
+      const tipo = tipos[Math.floor(Math.pow(rnd(), 1.6) * tipos.length)];
+      features.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lon + (rnd() - 0.5) * 0.12, lat + (rnd() - 0.5) * 0.12] },
+        properties: {
+          fecha: d.toISOString().slice(0, 10), hora: hh + ':' + String(Math.floor(rnd() * 60)).padStart(2, '0'),
+          tipo, violencia: rnd() < 0.7 ? 'Sí' : 'No', lugar, estado, carretera,
+          km: String(Math.floor(rnd() * 200)), fuente: 'Ejemplo', titulo: '', url: '', confianza: 0.6
+        }
+      });
+    }
+  });
+  return { type: 'FeatureCollection', features };
+}
+</script>
+</body>
+</html>
