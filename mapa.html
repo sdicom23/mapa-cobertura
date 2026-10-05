@@ -163,6 +163,7 @@ map.on('load', async () => {
   if (demo) document.getElementById('demo').style.display = 'inline-block';
 
   await cargarOficial();
+  await cargarTramos();
   map.addSource('eventos', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
 
   map.addLayer({
@@ -244,6 +245,43 @@ async function cargarOficial() {
   ch.onclick = () => {
     const on = map.getLayoutProperty('oficial', 'visibility') !== 'none';
     map.setLayoutProperty('oficial', 'visibility', on ? 'none' : 'visible');
+    ch.classList.toggle('off', on);
+  };
+  document.getElementById('cats').appendChild(ch);
+}
+
+/***** CAPA 3: TRAMOS DE RIESGO (ANERPV, Overhaul, Canacar, SICT/GN) *****/
+async function cargarTramos() {
+  let gj;
+  try {
+    const r = await fetch('capas/tramos.geojson');
+    if (!r.ok) return;
+    gj = await r.json();
+  } catch (e) { return; }
+  if (!gj.features || !gj.features.length) return;
+  map.addSource('tramos', { type: 'geojson', data: gj });
+  map.addLayer({ id: 'tramos', type: 'line', source: 'tramos',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': ['match', ['get', 'nivel'], 5, '#a50026', 4, '#e0452c', 3, '#f59e3b', '#f5c26b'],
+             'line-opacity': 0.6, 'line-width': ['interpolate', ['linear'], ['zoom'], 4, 3, 8, 7, 12, 12] } });
+  map.on('click', 'tramos', e => {
+    if (map.queryRenderedFeatures(e.point, { layers: ['puntos'] }).length) return;
+    const p = e.features[0].properties;
+    const fuentes = String(p.fuentes || '').split(' | ').map(f => `<li>${esc(f)}</li>`).join('');
+    new maplibregl.Popup({ offset: 6, maxWidth: '280px' }).setLngLat(e.lngLat).setHTML(
+      `<div class="pop"><div class="pop-t">${esc(p.nombre)}</div>` +
+      `<div>Nivel de riesgo: <b>${['', '', '', 'Alto', 'Muy alto', 'Crítico'][p.nivel] || p.nivel}</b></div>` +
+      `<ul style="margin:4px 0 4px 16px;padding:0;font-size:12px">${fuentes}</ul>` +
+      `<div class="pop-s">${esc(p.horario)}</div></div>`).addTo(map);
+  });
+  map.on('mouseenter', 'tramos', () => map.getCanvas().style.cursor = 'pointer');
+  map.on('mouseleave', 'tramos', () => map.getCanvas().style.cursor = '');
+  const ch = document.createElement('div');
+  ch.className = 'chip';
+  ch.innerHTML = `<span class="dot" style="background:#e0452c;border-radius:2px;height:4px;width:14px"></span>Tramos de riesgo (asociaciones)`;
+  ch.onclick = () => {
+    const on = map.getLayoutProperty('tramos', 'visibility') !== 'none';
+    map.setLayoutProperty('tramos', 'visibility', on ? 'none' : 'visible');
     ch.classList.toggle('off', on);
   };
   document.getElementById('cats').appendChild(ch);

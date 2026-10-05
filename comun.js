@@ -207,6 +207,40 @@
     return null;
   }
 
+  /***** CAPA 3: TRAMOS DE RIESGO (ANERPV, Overhaul, Canacar, SICT/GN) *****/
+  const COLOR_TRAMO = ['match', ['get', 'nivel'], 5, '#a50026', 4, '#e0452c', 3, '#f59e3b', '#f5c26b'];
+
+  async function cargarTramos(map) {
+    let gj;
+    try {
+      const r = await fetch(C.TRAMOS_URL);
+      if (!r.ok) return null;
+      gj = await r.json();
+    } catch (e) { return null; }
+    if (!gj || !Array.isArray(gj.features) || !gj.features.length) return null;
+    gj.features.forEach(f => { f.bbox = turf.bbox(f); });
+    map.addSource('tramos-riesgo', { type: 'geojson', data: gj });
+    map.addLayer({ id: 'tramos-riesgo', type: 'line', source: 'tramos-riesgo',
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': COLOR_TRAMO, 'line-opacity': 0.55,
+               'line-width': ['interpolate', ['linear'], ['zoom'], 4, 3, 8, 7, 12, 12] } });
+    return { features: gj.features, resumen: gj.resumen || {} };
+  }
+
+  /** Tramo de riesgo más alto a menos de "km" del punto, o null */
+  function tramoEn(features, lngLat, km) {
+    const m = km / 100;   // margen aproximado en grados
+    const [x, y] = lngLat;
+    let mejor = null;
+    for (const f of features) {
+      const b = f.bbox;
+      if (x < b[0] - m || x > b[2] + m || y < b[1] - m || y > b[3] + m) continue;
+      if (mejor && f.properties.nivel <= mejor.nivel) continue;
+      if (turf.pointToLineDistance(lngLat, f, { units: 'kilometers' }) <= km) mejor = f.properties;
+    }
+    return mejor;
+  }
+
   window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
-                   cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL };
+                   cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

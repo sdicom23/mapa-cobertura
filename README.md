@@ -61,3 +61,13 @@ robo en transporte individual y robo de vehículo de 4 ruedas. Los pesos están 
 
 `rutasegura.html` y `mapa.html` lo detectan solos: aparece el botón "SESNSP" y la ruta recomendada
 toma en cuenta los municipios de alto riesgo por los que pasa.
+
+## Capas de seguridad
+
+| Capa | Archivo | Fuente | Actualización |
+|---|---|---|---|
+| 1. Índice oficial por municipio | `capas/riesgo_municipal.geojson` | SESNSP (RNID municipal) | Mensual |
+| 2. Incidentes puntuales | `capas/noticias.geojson` + hoja "Eventos" | Prensa, X, reportes del bot | Diaria |
+| 3. Tramos de riesgo | `capas/tramos.geojson` | ANERPV, Overhaul, Canacar, SICT/Guardia Nacional | Trimestral |
+
+En la ruta segura, la seguridad combina las tres capas con los pesos `PESO_INCIDENTES`, `PESO_OFICIAL` y `PESO_TRAMOS` de `config.js`.

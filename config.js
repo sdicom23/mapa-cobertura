@@ -39,12 +39,16 @@ window.CONFIG = {
 
   // Índice oficial por municipio (generado con sesnsp_a_mapa.py)
   RIESGO_MUNICIPAL_URL: 'capas/riesgo_municipal.geojson',
+  // Capa 3: tramos de riesgo según asociaciones (ANERPV, Overhaul, Canacar, SICT/GN)
+  TRAMOS_URL: 'capas/tramos.geojson',
+  DISTANCIA_TRAMO_KM: 3,
 
   // Cómo se elige la ruta recomendada (deben sumar 1)
   PESO_SEGURIDAD: 0.7,
   PESO_COBERTURA: 0.3,
 
-  // Dentro de seguridad: incidentes recientes (noticias/bot) vs. índice oficial SESNSP (deben sumar 1)
-  PESO_INCIDENTES: 0.5,
-  PESO_OFICIAL: 0.5
+  // Dentro de seguridad (se reparten entre las capas disponibles):
+  PESO_INCIDENTES: 0.4,    // capa 2: noticias, X y reportes del bot
+  PESO_OFICIAL: 0.3,       // capa 1: SESNSP por municipio
+  PESO_TRAMOS: 0.3         // capa 3: tramos señalados por asociaciones
 };

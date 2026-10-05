@@ -1,0 +1,603 @@
+{
+"type": "FeatureCollection",
+"actualizado": "2026-10-05",
+"resumen": {
+"estados_overhaul_q2_2026": {
+"Estado de México": 18,
+"Puebla": 17.9,
+"Guanajuato": 10.8,
+"Veracruz": 7.4,
+"San Luis Potosí": 7.2,
+"Jalisco": 6.9,
+"Michoacán": 6.5,
+"Hidalgo": 4.6,
+"Querétaro": 3.8,
+"Tlaxcala": 3.1
+},
+"violencia": "Overhaul Q2 2026: 76% con violencia; Canacar H1 2026: 1,270 unidades robadas y 15 operadores asesinados",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)",
+"mercancias": "Alimentos y bebidas 30%, misceláneos 11%, autopartes 9%, construcción e industrial 9%, combustible 7%",
+"modalidad": "En tránsito 58.8% y con unidad estacionada 39.3% (Overhaul Q2 2026)"
+},
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-99.21,
+19.65
+],
+[
+-99.22,
+19.72
+],
+[
+-99.22,
+19.8
+],
+[
+-99.25,
+19.84
+],
+[
+-99.35,
+19.9
+],
+[
+-99.52,
+19.99
+],
+[
+-99.81,
+20.22
+],
+[
+-99.93,
+20.32
+],
+[
+-99.98,
+20.38
+],
+[
+-100.14,
+20.5
+],
+[
+-100.27,
+20.55
+],
+[
+-100.39,
+20.59
+]
+]
+},
+"properties": {
+"nombre": "57D México–Querétaro",
+"carretera": "57D",
+"nivel": 5,
+"fuentes": "SICT e iniciativa privada: #1 de las 10 carreteras más peligrosas | ANERPV: focos en Coyotepec, Huehuetoca, Tepotzotlán, Soyaniquilpan, Pedro Escobedo, El Marqués y San Juan del Río | Guardia Nacional (Plan Cero Robos): reporta baja de 85.7% en este tramo",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-98.04,
+19.04
+],
+[
+-97.78,
+18.98
+],
+[
+-97.65,
+18.92
+],
+[
+-97.55,
+18.84
+],
+[
+-97.37,
+18.86
+],
+[
+-97.27,
+18.81
+],
+[
+-97.18,
+18.81
+],
+[
+-97.1,
+18.85
+],
+[
+-96.93,
+18.89
+]
+]
+},
+"properties": {
+"nombre": "150D Puebla–Córdoba (Cumbres de Maltrata)",
+"carretera": "150D",
+"nivel": 5,
+"fuentes": "SICT e iniciativa privada: #3 del ranking nacional | Overhaul Q2 2026: México–Veracruz concentra 16% de los robos, el corredor #1 | ANERPV 2026: Puebla y Esperanza concentran 22% de los casos en Puebla; Quecholac y Maltrata como focos",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-100.4,
+20.62
+],
+[
+-100.44,
+20.8
+],
+[
+-100.39,
+21.0
+],
+[
+-100.55,
+21.3
+],
+[
+-100.7,
+21.6
+],
+[
+-100.74,
+21.8
+],
+[
+-100.88,
+22.0
+],
+[
+-100.98,
+22.15
+]
+]
+},
+"properties": {
+"nombre": "57 Querétaro–San Luis Potosí",
+"carretera": "57",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #2 del ranking nacional | Overhaul 2025: Federal 57 Querétaro–SLP concentra 10% de los robos del Bajío | ANERPV: foco en San José Iturbide; Canacar la señala como ruta crítica",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-100.98,
+22.15
+],
+[
+-100.92,
+22.4
+],
+[
+-100.82,
+22.7
+],
+[
+-100.72,
+23.0
+],
+[
+-100.66,
+23.35
+],
+[
+-100.64,
+23.65
+]
+]
+},
+"properties": {
+"nombre": "57 San Luis Potosí–Matehuala",
+"carretera": "57",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #4 del ranking nacional | ANERPV: foco en Guadalcázar",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-100.43,
+20.59
+],
+[
+-100.68,
+20.55
+],
+[
+-100.82,
+20.53
+],
+[
+-100.995,
+20.515
+],
+[
+-101.19,
+20.57
+],
+[
+-101.35,
+20.68
+],
+[
+-101.43,
+20.94
+],
+[
+-101.68,
+21.12
+]
+]
+},
+"properties": {
+"nombre": "45D Querétaro–Irapuato–León",
+"carretera": "45D",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #5 del ranking nacional (Querétaro–Irapuato) | Overhaul 2025: Federal 45D concentra 16% de los robos del Bajío | Overhaul Q2 2026: Querétaro–León con 8% de los robos",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-98.88,
+19.32
+],
+[
+-98.67,
+19.35
+],
+[
+-98.55,
+19.34
+],
+[
+-98.43,
+19.28
+],
+[
+-98.38,
+19.2
+],
+[
+-98.2,
+19.08
+]
+]
+},
+"properties": {
+"nombre": "150D México–Puebla",
+"carretera": "150D",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #6 del ranking nacional | ANERPV: foco en Tlahuapan | Guardia Nacional (Plan Cero Robos): reporta baja de 90% en este tramo",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-99.88,
+19.8
+],
+[
+-99.7,
+19.9
+],
+[
+-99.53,
+19.95
+],
+[
+-99.42,
+20.0
+],
+[
+-99.32,
+20.04
+],
+[
+-99.15,
+20.02
+],
+[
+-98.98,
+19.95
+],
+[
+-98.82,
+19.88
+],
+[
+-98.68,
+19.75
+],
+[
+-98.57,
+19.59
+],
+[
+-98.47,
+19.42
+],
+[
+-98.45,
+19.3
+]
+]
+},
+"properties": {
+"nombre": "Arco Norte (40D Libramiento Norte de la CDMX)",
+"carretera": "40D",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #8 del ranking nacional | Noticias 2025-2026: varios operadores baleados y un asesinato cerca de Tula",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-99.88,
+19.8
+],
+[
+-100.44,
+19.9
+],
+[
+-100.83,
+19.86
+],
+[
+-101.15,
+19.75
+],
+[
+-101.76,
+19.98
+],
+[
+-102.2,
+20.15
+],
+[
+-102.55,
+20.3
+],
+[
+-102.77,
+20.35
+],
+[
+-103.07,
+20.63
+]
+]
+},
+"properties": {
+"nombre": "15D Atlacomulco–Maravatío–Zapotlanejo",
+"carretera": "15D",
+"nivel": 4,
+"fuentes": "SICT e iniciativa privada: #10 del ranking nacional | Overhaul Q1 y Q2 2026: Atlacomulco–Zapotlanejo entre los corredores de mayor riesgo (8%) | Overhaul Q1 2026: Michoacán con el mayor crecimiento anual",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-98.04,
+19.04
+],
+[
+-97.9,
+19.1
+],
+[
+-97.75,
+19.25
+],
+[
+-97.61,
+19.37
+],
+[
+-97.5,
+19.48
+],
+[
+-97.24,
+19.56
+]
+]
+},
+"properties": {
+"nombre": "140D Amozoc–Perote",
+"carretera": "140D",
+"nivel": 4,
+"fuentes": "Overhaul Q2 2026: Amozoc–Perote con 8% de los robos | ANERPV: Tepeyahualco entre los municipios con incidencia",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-99.05,
+19.6
+],
+[
+-98.98,
+19.71
+],
+[
+-98.98,
+19.84
+],
+[
+-98.88,
+19.95
+],
+[
+-98.78,
+20.05
+]
+]
+},
+"properties": {
+"nombre": "85 México–Pachuca",
+"carretera": "85",
+"nivel": 3,
+"fuentes": "SICT e iniciativa privada: #7 del ranking nacional; 85D Ecatepec–Tizayuca como foco rojo adicional",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-101.93,
+21.36
+],
+[
+-102.33,
+21.25
+],
+[
+-102.46,
+21.17
+],
+[
+-102.76,
+20.82
+],
+[
+-103.07,
+20.63
+],
+[
+-103.3,
+20.66
+]
+]
+},
+"properties": {
+"nombre": "80 Lagos de Moreno–Guadalajara",
+"carretera": "80",
+"nivel": 3,
+"fuentes": "SICT e iniciativa privada: #9 del ranking nacional | Overhaul 2025: Federal 80D Guadalajara–Lagos con 6% de los robos del Bajío",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-100.98,
+22.15
+],
+[
+-101.38,
+21.91
+],
+[
+-101.59,
+21.86
+],
+[
+-101.93,
+21.36
+]
+]
+},
+"properties": {
+"nombre": "80 San Luis Potosí–Lagos de Moreno",
+"carretera": "80",
+"nivel": 3,
+"fuentes": "SICT e iniciativa privada: foco rojo adicional",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-96.47,
+18.77
+],
+[
+-96.1,
+18.45
+],
+[
+-95.6,
+18.2
+],
+[
+-94.91,
+17.95
+],
+[
+-94.62,
+18.0
+]
+]
+},
+"properties": {
+"nombre": "145D La Tinaja–Minatitlán",
+"carretera": "145D",
+"nivel": 3,
+"fuentes": "Overhaul Q2 2026: La Tinaja–Minatitlán con 8% de los robos",
+"horario": "Mayor riesgo: martes a viernes; de 19:00 a 07:00 (madrugada 03:00-06:00 la franja más crítica)"
+}
+}
+]
+}
