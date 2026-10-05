@@ -100,9 +100,10 @@
       const cap = capas.find(c => (c.layers || [c.id]).includes(f.layer.id)) || {};
       const op = cap.op;
       const operador = f.properties.operador || cap.nombre || '';
-      let tecnologia, calidad, etiqueta, color, rango = 0;
+      let tecnologia, calidad, etiqueta, color, cat = '', rango = 0;
       if (op && op.niveles) {
-        const n = op.niveles[f.properties[op.campoNivel || 'cat']] || {};
+        cat = String(f.properties[op.campoNivel || 'cat'] || '');
+        const n = op.niveles[cat] || {};
         tecnologia = op.tecnologia || '';
         calidad = n.calidad || 'regular';
         etiqueta = n.etiqueta || '';
@@ -117,10 +118,10 @@
         const prev = res.find(r => r.operador === operador);
         if (prev) {
           if (rango > prev._r || (rango === prev._r && orden[calidad] > orden[prev.calidad]))
-            Object.assign(prev, { tecnologia, calidad, etiqueta, color, _r: rango });
+            Object.assign(prev, { tecnologia, calidad, etiqueta, color, cat, _r: rango });
           return;
         }
-        res.push({ operador, tecnologia, calidad, etiqueta, color, _r: rango });
+        res.push({ operador, tecnologia, calidad, etiqueta, color, cat, _r: rango });
         return;
       }
       const k = operador + '|' + tecnologia + '|' + calidad;
@@ -169,6 +170,49 @@
 
   function esc(s) {
     return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+
+  /***** ESCALA DE COLORES PARA RUTAS *****/
+  const SIN_SENAL = { k: 'sin', etiqueta: 'Sin señal', color: '#8b0000' };
+
+  /** Niveles para colorear la ruta, del mejor al peor, terminando en "sin".
+   *  Si el operador trae niveles de señal (config "niveles") usa esos mismos colores del fondo. */
+  function escalaRuta(capas) {
+    const op = (capas.find(c => c.op && c.op.niveles) || {}).op;
+    const lista = op
+      ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color }))
+      : [{ k: 'buena', etiqueta: 'Buena', color: '#1D9E75' }, { k: 'regular', etiqueta: 'Regular', color: '#EF9F27' }];
+    return [...lista, SIN_SENAL];
+  }
+
+  /** Mejor nivel (clave de la escala) en un punto */
+  function nivelEn(map, lngLat, capas, escala) {
+    let mejor = escala.length - 1;   // "sin"
+    coberturaEn(map, lngLat, capas).forEach(c => {
+      let i = escala.findIndex(e => e.k === c.cat);
+      if (i < 0) i = escala.findIndex(e => e.k === c.calidad);
+      if (i < 0) i = 0;
+      if (i < mejor) mejor = i;
+    });
+    return escala[mejor].k;
+  }
+
+  /** Expresión de color MapLibre para la propiedad "nivel" de los segmentos */
+  function colorEscala(escala) {
+    return ['match', ['get', 'nivel'], ...escala.flatMap(e => [e.k, e.color]), '#888'];
+  }
+
+  /** Leyenda de líneas */
+  function leyendaEscala(contenedor, escala) {
+    contenedor.innerHTML = escala.map(e =>
+      `<span class="ley"><span class="linea" style="background:${e.color}"></span>${esc(e.etiqueta)}</span>`).join('');
+  }
+
+  /** Resumen "■ 120 km · ■ 30 km ..." (omite niveles en cero) */
+  function resumenKm(km, escala) {
+    return escala.filter(e => km[e.k] >= 0.05).map(e =>
+      `<span class="sq" style="background:${e.color};opacity:1"></span> ${km[e.k] < 10 ? km[e.k].toFixed(1) : km[e.k].toFixed(0)} km`).join(' · ');
   }
 
   /***** INCIDENCIAS *****/
@@ -295,6 +339,6 @@
     return mejor;
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

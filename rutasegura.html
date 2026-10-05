@@ -59,7 +59,7 @@ const map = new maplibregl.Map({
 });
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-let capas = [], eventos = [], rutas = [], sel = 0, oficial = null, tramos = null;
+let capas = [], eventos = [], rutas = [], sel = 0, oficial = null, tramos = null, escala = [];
 
 map.on('load', async () => {
   const [cob, ev] = await Promise.all([U.cargarCoberturas(map, 0.18), U.cargarEventos()]);
@@ -68,6 +68,7 @@ map.on('load', async () => {
   tramos = await U.cargarTramos(map);
   if (tramos) document.getElementById('bTramos').style.display = '';
   capas = cob.capas;
+  escala = U.escalaRuta(capas);
   eventos = ev.features;
   if (cob.demo || ev.demo) {
     const d = document.getElementById('demo');
@@ -100,8 +101,7 @@ map.on('load', async () => {
     paint: { 'line-color': '#ffffff', 'line-width': 10 } });
   map.addLayer({ id: 'sel-linea', type: 'line', source: 'tramos',
     layout: { 'line-cap': 'round', 'line-join': 'round' },
-    paint: { 'line-width': 6, 'line-color': ['match', ['get', 'nivel'],
-      'buena', '#1D9E75', 'regular', '#EF9F27', 'sin', '#E24B4A', '#185FA5'] } });
+    paint: { 'line-width': 6, 'line-color': U.colorEscala(escala) } });
   map.on('click', 'alternas', e => seleccionar(e.features[0].properties.i));
 
   new maplibregl.Marker({ color: '#185FA5' }).setLngLat([O[1], O[0]]).addTo(map);
@@ -171,8 +171,7 @@ function nivelRiesgo(ind) {
 
 /***** COBERTURA: % del trayecto con señal *****/
 function coberturaRuta(r) {
-  const rango = { buena: 2, regular: 1, sin: 0 };
-  const km = { buena: 0, regular: 0, sin: 0 };
+  const km = Object.fromEntries(escala.map(e => [e.k, 0]));
   const segs = [];   // tramos de la ruta coloreados por cobertura (no confundir con la capa global 'tramos')
   let sumaNivel = 0, sumaTramo = 0;
   const munis = {}, nombresTramo = {};
@@ -180,11 +179,7 @@ function coberturaRuta(r) {
     const fin = Math.min(d + C.PASO_RUTA_KM, r.km);
     const a = turf.along(r.linea, d).geometry.coordinates;
     const b = turf.along(r.linea, fin).geometry.coordinates;
-    let nivel = 'sin';
-    U.coberturaEn(map, turf.along(r.linea, (d + fin) / 2).geometry.coordinates, capas).forEach(c => {
-      const n = rango[c.calidad] !== undefined ? c.calidad : 'buena';
-      if (rango[n] > rango[nivel]) nivel = n;
-    });
+    const nivel = U.nivelEn(map, turf.along(r.linea, (d + fin) / 2).geometry.coordinates, capas, escala);
     km[nivel] += fin - d;
     segs.push(turf.lineString([a, b], { nivel }));
     if (tramos) {
@@ -259,9 +254,8 @@ function pintarTarjetas() {
       <div class="t"><span>Ruta ${letra(r.i)}${r.reco ? '<span class="pill reco">Recomendada</span>' : ''}</span>
       <span class="pill ${nr.k}">${nr.t}</span></div>
       <div class="sub">${r.km.toFixed(0)} km · ${dur(r.seg)}${extra} · ${r.riesgo.incidentes} incidentes · ${r.cob.pct}% cobertura</div>
-      <div class="barra"><span style="width:${p(r.cob.km.buena)}%;background:#1D9E75"></span>
-      <span style="width:${p(r.cob.km.regular)}%;background:#EF9F27"></span>
-      <span style="width:${p(r.cob.km.sin)}%;background:#E24B4A"></span></div></div>`;
+      <div class="barra">${escala.map(e => `<span style="width:${p(r.cob.km[e.k])}%;background:${e.color}"></span>`).join('')}</div>
+      <div class="sub">${U.resumenKm(r.cob.km, escala)}</div></div>`;
   }).join('');
 }
 

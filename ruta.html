@@ -22,11 +22,7 @@
 </div>
 
 <div class="panel abajo">
-  <div class="fila">
-    <span class="ley"><span class="linea" style="background:#1D9E75"></span>Buena</span>
-    <span class="ley"><span class="linea" style="background:#EF9F27"></span>Regular</span>
-    <span class="ley"><span class="linea" style="background:#E24B4A"></span>Sin señal</span>
-  </div>
+  <div class="fila" id="leyenda"></div>
   <div class="fila" id="operadores"></div>
 </div>
 
@@ -46,11 +42,13 @@ const map = new maplibregl.Map({
 });
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-let capas = [], ruta = null, largo = 0;
+let capas = [], ruta = null, largo = 0, escala = [];
 
 map.on('load', async () => {
   const r = await U.cargarCoberturas(map, 0.22);
   capas = r.capas;
+  escala = U.escalaRuta(capas);
+  U.leyendaEscala(document.getElementById('leyenda'), escala);
   if (r.demo) document.getElementById('demo').style.display = 'inline-block';
 
   try {
@@ -71,8 +69,7 @@ map.on('load', async () => {
     paint: { 'line-color': '#ffffff', 'line-width': 9 } });
   map.addLayer({ id: 'ruta-linea', type: 'line', source: 'ruta',
     layout: { 'line-cap': 'round', 'line-join': 'round' },
-    paint: { 'line-width': 6, 'line-color': ['match', ['get', 'nivel'],
-      'buena', '#1D9E75', 'regular', '#EF9F27', 'sin', '#E24B4A', '#888'] } });
+    paint: { 'line-width': 6, 'line-color': U.colorEscala(escala) } });
 
   new maplibregl.Marker({ color: '#185FA5' }).setLngLat([O[1], O[0]]).addTo(map);
   new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([D[1], D[0]]).addTo(map);
@@ -83,10 +80,9 @@ map.on('load', async () => {
 });
 
 function evaluar() {
-  const rango = { buena: 2, regular: 1, sin: 0 };
   const paso = C.PASO_RUTA_KM;
   const tramos = [];
-  const km = { buena: 0, regular: 0, sin: 0 };
+  const km = Object.fromEntries(escala.map(e => [e.k, 0]));
   let cortes = 0, previo = null;
 
   for (let d = 0; d < largo; d += paso) {
@@ -94,11 +90,7 @@ function evaluar() {
     const a = turf.along(ruta, d).geometry.coordinates;
     const b = turf.along(ruta, fin).geometry.coordinates;
     const medio = turf.along(ruta, (d + fin) / 2).geometry.coordinates;
-    let nivel = 'sin';
-    U.coberturaEn(map, medio, capas).forEach(c => {
-      const n = rango[c.calidad] !== undefined ? c.calidad : 'buena';
-      if (rango[n] > rango[nivel]) nivel = n;
-    });
+    const nivel = U.nivelEn(map, medio, capas, escala);
     km[nivel] += fin - d;
     if (nivel === 'sin' && previo !== 'sin') cortes++;
     previo = nivel;
@@ -110,8 +102,8 @@ function evaluar() {
   const h = Math.floor(window._duracion / 3600), m = Math.round(window._duracion % 3600 / 60);
   document.getElementById('info').innerHTML =
     `<b>${largo.toFixed(0)} km · ${h ? h + ' h ' : ''}${m} min · ${100 - pct(km.sin)}% con cobertura</b><br>` +
-    `<span class="sub">🟢 ${km.buena.toFixed(0)} km · 🟡 ${km.regular.toFixed(0)} km · 🔴 ${km.sin.toFixed(1)} km` +
-    `${cortes ? ` en ${cortes} tramo${cortes > 1 ? 's' : ''}` : ''}</span>`;
+    `<span class="sub">${U.resumenKm(km, escala)}` +
+    `${cortes && km.sin >= 0.05 ? ` (sin señal en ${cortes} tramo${cortes > 1 ? 's' : ''})` : ''}</span>`;
 }
 </script>
 </body>
