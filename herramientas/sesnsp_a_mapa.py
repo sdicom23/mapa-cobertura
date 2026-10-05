@@ -31,8 +31,31 @@ def norm(s):
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
+def abrir_excel(ruta):
+    """Lee un .xls/.xlsx. Busca la fila de encabezados (la que menciona 'municipio') y une todas las hojas."""
+    import pandas as pd
+    hojas = pd.read_excel(ruta, sheet_name=None, header=None, dtype=str)
+    filas, encabezado = [], None
+    for df in hojas.values():
+        df = df.fillna('')
+        datos = df.values.tolist()
+        idx = next((i for i, r in enumerate(datos[:40])
+                    if any('municipio' in norm(c) for c in r) and any(norm(c) in MESES or 'delito' in norm(c) for c in r)), None)
+        if idx is None:
+            continue
+        if encabezado is None:
+            encabezado = [str(c) for c in datos[idx]]
+            filas.append(encabezado)
+        filas.extend([str(c) for c in r] for r in datos[idx + 1:] if any(str(c).strip() for c in r))
+    if not filas:
+        sys.exit('No encontré en el Excel una tabla con columnas de municipio y meses/delitos.')
+    return filas
+
+
 def abrir(ruta):
-    """Devuelve las filas de un CSV (también dentro de un .zip), detectando la codificación."""
+    """Devuelve las filas de un CSV (también dentro de un .zip) o de un Excel."""
+    if ruta.lower().endswith(('.xls', '.xlsx')):
+        return abrir_excel(ruta)
     if ruta.lower().endswith('.zip'):
         z = zipfile.ZipFile(ruta)
         nombre = next(n for n in z.namelist() if n.lower().endswith('.csv'))
