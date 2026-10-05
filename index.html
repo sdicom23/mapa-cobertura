@@ -61,8 +61,8 @@ function ponerPunto(lngLat) {
   U.cuandoListo(map, () => {
     const cob = U.coberturaEn(map, lngLat, capas);
     const lineas = cob.map(c =>
-      `<span class="sq" style="background:${C.COLORES_TECNOLOGIA[c.tecnologia] || '#9aa0a6'}"></span> ` +
-      `<b>${U.esc(c.operador)}</b> ${U.esc(c.tecnologia)} · ${U.esc(c.calidad)}`);
+      `<span class="sq" style="background:${c.color || '#9aa0a6'}"></span> ` +
+      `<b>${U.esc(c.operador)}</b> ${U.esc(c.tecnologia)} · ${U.esc(c.etiqueta || c.calidad)}`);
     document.getElementById('info').innerHTML =
       `<div class="sub">${lngLat[1].toFixed(5)}, ${lngLat[0].toFixed(5)}</div>` +
       (lineas.length ? lineas.join('<br>') : '🔴 Sin cobertura registrada en este punto');

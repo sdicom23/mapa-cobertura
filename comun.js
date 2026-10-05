@@ -38,18 +38,38 @@
     return turf.featureCollection(f);
   }
 
-  /** Agrega las capas de cobertura al mapa. Devuelve { capas:[{id,nombre}], demo:bool } */
+  // Color de una capa: por nivel de señal (si el operador define "niveles") o por tecnología
+  function colorOp(op) {
+    if (!op || !op.niveles) return colorTec();
+    const pares = [];
+    Object.entries(op.niveles).forEach(([k, v]) => pares.push(k, v.color));
+    return ['match', ['to-string', ['get', op.campoNivel || 'cat']], ...pares, '#9aa0a6'];
+  }
+
+  let cargadas = [];   // operadores reales cargados (para la leyenda)
+
+  /** Agrega las capas de cobertura al mapa. Devuelve { capas:[{id,nombre,layers}], demo:bool }
+   *  Un operador puede tener "archivo" (uno) o "archivos" (varios por rango de zoom). */
   async function cargarCoberturas(map, opacidad) {
     const capas = [];
     for (const op of C.OPERADORES) {
-      if (!(await existe(op.archivo))) continue;
-      const abs = new URL(op.archivo, location.href).href;
-      map.addSource('cob_' + op.id, { type: 'vector', url: 'pmtiles://' + abs });
-      map.addLayer({
-        id: 'cob_' + op.id, type: 'fill', source: 'cob_' + op.id, 'source-layer': op.capa,
-        paint: { 'fill-color': colorTec(), 'fill-opacity': opacidad }
+      const lista = op.archivos || (op.archivo ? [{ url: op.archivo }] : []);
+      const ok = [];
+      for (const a of lista) if (await existe(a.url)) ok.push(a);
+      if (!ok.length) continue;
+      const layers = [];
+      ok.forEach((a, i) => {
+        const id = 'cob_' + op.id + (i ? '_' + i : '');
+        map.addSource(id, { type: 'vector', url: 'pmtiles://' + new URL(a.url, location.href).href });
+        const capa = { id, type: 'fill', source: id, 'source-layer': op.capa,
+          paint: { 'fill-color': colorOp(op), 'fill-opacity': opacidad, 'fill-antialias': false } };
+        if (a.minzoom !== undefined) capa.minzoom = a.minzoom;
+        if (a.maxzoom !== undefined) capa.maxzoom = a.maxzoom;
+        map.addLayer(capa);
+        layers.push(id);
       });
-      capas.push({ id: 'cob_' + op.id, nombre: op.nombre });
+      capas.push({ id: layers[0], nombre: op.nombre, layers, op });
+      cargadas.push(op);
     }
     if (capas.length) return { capas, demo: false };
 
@@ -60,26 +80,53 @@
         filter: ['==', ['get', 'operador'], op.nombre],
         paint: { 'fill-color': colorTec(), 'fill-opacity': opacidad }
       });
-      capas.push({ id: 'cob_' + op.id, nombre: op.nombre });
+      capas.push({ id: 'cob_' + op.id, nombre: op.nombre, layers: ['cob_' + op.id] });
     });
     return { capas, demo: true };
   }
 
-  /** Coberturas en un punto de pantalla: [{operador, tecnologia, calidad}] sin repetir */
+  /** Todos los ids de capa de una lista de operadores */
+  function idsCapas(capas) { return capas.flatMap(c => c.layers || [c.id]); }
+
+  /** Coberturas en un punto: [{operador, tecnologia, calidad, etiqueta, color}] — la mejor por operador */
   function coberturaEn(map, lngLat, capas) {
-    const ids = capas.filter(c => map.getLayoutProperty(c.id, 'visibility') !== 'none').map(c => c.id);
+    const ids = idsCapas(capas).filter(id => map.getLayer(id) && map.getLayoutProperty(id, 'visibility') !== 'none');
     if (!ids.length) return [];
     const fs = map.queryRenderedFeatures(map.project(lngLat), { layers: ids });
     const vistos = new Set();
     const res = [];
+    const orden = { buena: 2, regular: 1 };
     fs.forEach(f => {
-      const operador = f.properties.operador || (capas.find(c => c.id === f.layer.id) || {}).nombre || '';
-      const tecnologia = String(f.properties[C.CAMPO_TECNOLOGIA] || '');
-      const calidad = String(f.properties[C.CAMPO_CALIDAD] || 'buena').toLowerCase();
+      const cap = capas.find(c => (c.layers || [c.id]).includes(f.layer.id)) || {};
+      const op = cap.op;
+      const operador = f.properties.operador || cap.nombre || '';
+      let tecnologia, calidad, etiqueta, color, rango = 0;
+      if (op && op.niveles) {
+        const n = op.niveles[f.properties[op.campoNivel || 'cat']] || {};
+        tecnologia = op.tecnologia || '';
+        calidad = n.calidad || 'regular';
+        etiqueta = n.etiqueta || '';
+        color = n.color;
+        rango = Number(f.properties.nivel) || 0;
+      } else {
+        tecnologia = String(f.properties[C.CAMPO_TECNOLOGIA] || '');
+        calidad = String(f.properties[C.CAMPO_CALIDAD] || 'buena').toLowerCase();
+        color = C.COLORES_TECNOLOGIA[tecnologia];
+      }
+      if (op && op.niveles) {   // por nivel: quedarse sólo con la mejor señal del operador
+        const prev = res.find(r => r.operador === operador);
+        if (prev) {
+          if (rango > prev._r || (rango === prev._r && orden[calidad] > orden[prev.calidad]))
+            Object.assign(prev, { tecnologia, calidad, etiqueta, color, _r: rango });
+          return;
+        }
+        res.push({ operador, tecnologia, calidad, etiqueta, color, _r: rango });
+        return;
+      }
       const k = operador + '|' + tecnologia + '|' + calidad;
       if (vistos.has(k)) return;
       vistos.add(k);
-      res.push({ operador, tecnologia, calidad });
+      res.push({ operador, tecnologia, calidad, etiqueta: '', color });
     });
     return res;
   }
@@ -95,7 +142,8 @@
       b.onclick = () => {
         sel = o.k;
         contenedor.querySelectorAll('.btn').forEach(x => x.classList.toggle('on', x === b));
-        capas.forEach(c => map.setLayoutProperty(c.id, 'visibility', (sel === 'todos' || sel === c.id) ? 'visible' : 'none'));
+        capas.forEach(c => (c.layers || [c.id]).forEach(id =>
+          map.setLayoutProperty(id, 'visibility', (sel === 'todos' || sel === c.id) ? 'visible' : 'none')));
         if (onCambio) onCambio(sel);
       };
       contenedor.appendChild(b);
@@ -103,14 +151,20 @@
   }
 
   function leyendaTecnologias(contenedor) {
-    Object.entries(C.COLORES_TECNOLOGIA).forEach(([t, c]) => {
+    const conNiveles = cargadas.filter(op => op.niveles);
+    const pares = conNiveles.length
+      ? conNiveles.flatMap(op => Object.values(op.niveles).map(n => [n.etiqueta, n.color]))
+      : Object.entries(C.COLORES_TECNOLOGIA);
+    pares.forEach(([t, c]) => {
       contenedor.insertAdjacentHTML('beforeend',
         `<span class="ley"><span class="sq" style="background:${c}"></span>${esc(t)}</span>`);
     });
   }
 
+  // Espera a que el mapa termine de cargar/dibujar todas las capas (incluye fuentes PMTiles recién agregadas)
   function cuandoListo(map, fn) {
-    if (map.isMoving() || !map.areTilesLoaded()) map.once('idle', fn); else fn();
+    map.once('idle', fn);
+    map.triggerRepaint();
   }
 
   function esc(s) {
@@ -241,6 +295,6 @@
     return mejor;
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

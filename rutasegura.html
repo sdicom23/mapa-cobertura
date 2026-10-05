@@ -173,7 +173,7 @@ function nivelRiesgo(ind) {
 function coberturaRuta(r) {
   const rango = { buena: 2, regular: 1, sin: 0 };
   const km = { buena: 0, regular: 0, sin: 0 };
-  const tramos = [];
+  const segs = [];   // tramos de la ruta coloreados por cobertura (no confundir con la capa global 'tramos')
   let sumaNivel = 0, sumaTramo = 0;
   const munis = {}, nombresTramo = {};
   for (let d = 0; d < r.km; d += C.PASO_RUTA_KM) {
@@ -186,7 +186,7 @@ function coberturaRuta(r) {
       if (rango[n] > rango[nivel]) nivel = n;
     });
     km[nivel] += fin - d;
-    tramos.push(turf.lineString([a, b], { nivel }));
+    segs.push(turf.lineString([a, b], { nivel }));
     if (tramos) {
       const t = U.tramoEn(tramos.features, turf.along(r.linea, (d + fin) / 2).geometry.coordinates, C.DISTANCIA_TRAMO_KM);
       if (t) {
@@ -210,7 +210,7 @@ function coberturaRuta(r) {
     prom: sumaNivel / r.km,
     focos: Object.values(munis).sort((x, y) => y.indice - x.indice).slice(0, 3).map(m => m.municipio || m.estado)
   };
-  return { km, tramos, pct: Math.round((1 - km.sin / r.km) * 100) };
+  return { km, tramos: segs, pct: Math.round((1 - km.sin / r.km) * 100) };
 }
 
 function evaluarTodo() {
@@ -272,7 +272,7 @@ function alternar(btn, ids) {
   ids().forEach(id => map.setLayoutProperty(id, 'visibility', vis));
 }
 document.getElementById('bCalor').onclick = e => alternar(e.currentTarget, () => ['calor']);
-document.getElementById('bCob').onclick = e => alternar(e.currentTarget, () => capas.map(c => c.id));
+document.getElementById('bCob').onclick = e => alternar(e.currentTarget, () => U.idsCapas(capas));
 document.getElementById('bOficial').onclick = e => alternar(e.currentTarget, () => ['oficial', 'oficial-borde']);
 document.getElementById('bTramos').onclick = e => alternar(e.currentTarget, () => ['tramos-riesgo']);
 

@@ -10,7 +10,21 @@ window.CONFIG = {
   // Capas de cobertura. Sube cada .pmtiles a la carpeta "capas/" del repositorio.
   // "capa" es el nombre que usaste con tippecanoe -l <capa>
   OPERADORES: [
-    { id: 'att',    nombre: 'AT&T',   archivo: 'capas/cobertura_att.pmtiles',    capa: 'cobertura' },
+    // AT&T 4G (CRT, 2T 2026). Va en 2 archivos por el límite de 100 MB de GitHub:
+    // zoom 4-8 (rejilla ~550 m) y zoom 9-11 (detalle; se sobre-escala al acercar más).
+    { id: 'att', nombre: 'AT&T', capa: 'cobertura', tecnologia: 'LTE',
+      archivos: [
+        { url: 'capas/att4g_low.pmtiles',  maxzoom: 9 },
+        { url: 'capas/att4g_high.pmtiles', minzoom: 9 }
+      ],
+      campoNivel: 'cat',   // la capa trae niveles de señal en vez de tecnología
+      niveles: {
+        alta:          { etiqueta: 'Alta (≥ -100 dBm)',        color: '#1a9850', calidad: 'buena' },
+        media:         { etiqueta: 'Media (-111 a -100 dBm)',  color: '#d9b81f', calidad: 'buena' },
+        baja:          { etiqueta: 'Baja (-121 a -111 dBm)',   color: '#f46d43', calidad: 'regular' },
+        extendida:     { etiqueta: 'Extendida (≈ -101 dBm)',   color: '#4f8fc0', calidad: 'regular' },
+        extendida_alt: { etiqueta: 'Extendida alterna',        color: '#9ec3e0', calidad: 'regular' }
+      } },
     { id: 'telcel', nombre: 'Telcel', archivo: 'capas/cobertura_telcel.pmtiles', capa: 'cobertura' }
   ],
 
