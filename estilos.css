@@ -17,4 +17,6 @@ html, body { margin:0; height:100%; font-family:-apple-system,"Segoe UI",Roboto,
 .sq { width:11px; height:11px; border-radius:2px; opacity:.75; display:inline-block; vertical-align:-1px; }
 .linea { width:16px; height:4px; border-radius:2px; display:inline-block; vertical-align:2px; }
 
-.tip { margin-top:5px; padding:5px 8px; background:#F3F1EA; border-radius:8px; font-size:12px; line-height:1.4; color:var(--tx); }
+.tip { margin-top:6px; padding:6px 9px; background:#F3F1EA; border-radius:8px; font-size:12px; line-height:1.4; color:var(--tx); }
+.tip ul { margin:3px 0 0; padding-left:16px; }
+.tip li { margin:1px 0; }

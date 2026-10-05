@@ -108,7 +108,7 @@
         calidad = n.calidad || 'regular';
         etiqueta = n.etiqueta || '';
         color = n.color;
-        n_tip = n.tip || '';
+        n_tip = n.tip || null;
         rango = Number(f.properties.nivel) || 0;
       } else {
         tecnologia = String(f.properties[C.CAMPO_TECNOLOGIA] || '');
@@ -163,18 +163,35 @@
     });
   }
 
-  /** Tip de la ruta: el del peor nivel con al menos "minKm" km (de peor a mejor: sin, extendidas, baja) */
-  function tipRuta(km, escala, minKm = 1) {
-    const peores = [...escala].reverse();
-    for (const e of peores) {
-      if ((km[e.k] || 0) >= minKm && e.tip && !['alta', 'media', 'buena'].includes(e.k))
-        return `<div class="tip">💡 <b>${esc(e.etiqueta)} · ${km[e.k].toFixed(km[e.k] < 10 ? 1 : 0)} km:</b> ${esc(e.tip)}</div>`;
-    }
-    const mejor = escala.find(e => (km[e.k] || 0) > 0);
-    return mejor && mejor.tip ? `<div class="tip">💡 ${esc(mejor.tip)}</div>` : '';
+  /** Recuadro "Qué esperar en campo". tip = texto o { telemetria, voz, practica } */
+  function tipHTML(tip, titulo) {
+    if (!tip) return '';
+    const cab = `<b>💡 ${titulo ? esc(titulo) + ' — ' : ''}Qué esperar en campo:</b>`;
+    if (typeof tip === 'string') return `<div class="tip">${cab}<br>${esc(tip)}</div>`;
+    const li = (t, v) => v ? `<li><b>${t}:</b> ${esc(v)}</li>` : '';
+    return `<div class="tip">${cab}<ul>` +
+      li('Telemetría IoT (GPS, LTE-M, mensajes cortos)', tip.telemetria) +
+      li('Llamadas y datos de celular', tip.voz) +
+      li('En la práctica', tip.practica) + `</ul></div>`;
   }
 
-  // Espera a que el mapa termine de cargar/dibujar todas las capas (incluye fuentes PMTiles recién agregadas)
+  /** Texto plano del tip (para el title de la leyenda) */
+  function tipTexto(tip) {
+    if (!tip) return '';
+    if (typeof tip === 'string') return tip;
+    return `Telemetría: ${tip.telemetria || ''}\nLlamadas y datos: ${tip.voz || ''}\nEn la práctica: ${tip.practica || ''}`;
+  }
+
+  /** Tip de la ruta: el del peor nivel con al menos "minKm" km (sin señal → extendidas → baja); si no, el del mejor */
+  function tipRuta(km, escala, minKm = 1) {
+    for (const e of [...escala].reverse()) {
+      if ((km[e.k] || 0) >= minKm && e.tip && !['alta', 'media', 'buena'].includes(e.k))
+        return tipHTML(e.tip, `${e.etiqueta} · ${km[e.k].toFixed(km[e.k] < 10 ? 1 : 0)} km`);
+    }
+    const mejor = escala.find(e => (km[e.k] || 0) > 0);
+    return mejor ? tipHTML(mejor.tip, mejor.etiqueta) : '';
+  }
+
   function cuandoListo(map, fn) {
     map.once('idle', fn);
     map.triggerRepaint();
@@ -193,9 +210,9 @@
   function escalaRuta(capas) {
     const op = (capas.find(c => c.op && c.op.niveles) || {}).op;
     const lista = op
-      ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color, tip: v.tip || '' }))
+      ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color, tip: v.tip || null }))
       : [{ k: 'buena', etiqueta: 'Buena', color: '#1D9E75' }, { k: 'regular', etiqueta: 'Regular', color: '#EF9F27' }];
-    return [...lista, { ...SIN_SENAL, tip: C.TIP_SIN_SENAL || '' }];
+    return [...lista, { ...SIN_SENAL, tip: C.TIP_SIN_SENAL || null }];
   }
 
   /** Mejor nivel (clave de la escala) en un punto */
@@ -218,7 +235,7 @@
   /** Leyenda de líneas */
   function leyendaEscala(contenedor, escala) {
     contenedor.innerHTML = escala.map(e =>
-      `<span class="ley" title="${esc(e.tip || '')}"><span class="linea" style="background:${e.color}"></span>${esc(e.etiqueta)}</span>`).join('');
+      `<span class="ley" title="${esc(tipTexto(e.tip))}"><span class="linea" style="background:${e.color}"></span>${esc(e.etiqueta)}</span>`).join('');
   }
 
   /** Resumen "■ 120 km · ■ 30 km ..." (omite niveles en cero) */
@@ -351,6 +368,6 @@
     return mejor;
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, tipHTML, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

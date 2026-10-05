@@ -56,9 +56,9 @@ map.on('load', async () => {
 map.on('click', e => ponerPunto([e.lngLat.lng, e.lngLat.lat]));
 
 function tips(cob) {
+  if (!cob.length) return U.tipHTML(C.TIP_SIN_SENAL, 'Sin cobertura');
   const conTip = cob.filter(c => c.tip);
-  if (!cob.length) return C.TIP_SIN_SENAL ? `<div class="tip">💡 ${U.esc(C.TIP_SIN_SENAL)}</div>` : '';
-  return conTip.map(c => `<div class="tip">💡 ${conTip.length > 1 ? '<b>' + U.esc(c.operador) + ':</b> ' : ''}${U.esc(c.tip)}</div>`).join('');
+  return conTip.map(c => U.tipHTML(c.tip, (conTip.length > 1 ? c.operador + ' · ' : '') + c.etiqueta)).join('');
 }
 
 function ponerPunto(lngLat) {

@@ -20,21 +20,33 @@ window.CONFIG = {
       campoNivel: 'cat',   // la capa trae niveles de señal en vez de tecnología
       niveles: {
         alta:          { etiqueta: 'Alta (≥ -100 dBm)',        color: '#1a9850', calidad: 'buena',
-                         tip: 'Señal fuerte: datos, voz y telemetría sin problema, incluso dentro de cabina o en interiores.' },
+                         tip: { telemetria: 'Funciona sin problema, con reportes en tiempo real.',
+                           voz: 'Estables, incluso dentro de la cabina y en interiores.',
+                           practica: 'Cualquier equipo con antena interna trabaja bien.' } },
         media:         { etiqueta: 'Media (-111 a -100 dBm)',  color: '#d9b81f', calidad: 'buena',
-                         tip: 'Señal estable para telemetría y datos. En interiores, sótanos o cabinas blindadas puede bajar un nivel.' },
+                         tip: { telemetria: 'Funciona bien; en interiores puede haber algún reintento ocasional.',
+                           voz: 'Estables en exteriores; en sótanos, edificios o cabinas blindadas puede bajar la calidad.',
+                           practica: 'La antena interna suele bastar; para equipos fijos en interior conviene antena externa.' } },
         baja:          { etiqueta: 'Baja (-121 a -111 dBm)',   color: '#f46d43', calidad: 'regular',
-                         tip: 'La telemetría IoT suele funcionar, con reintentos o reportes atrasados. Voz y datos pueden fallar dentro de cabina. Ayuda una antena externa o un equipo con LTE B28 (700 MHz).' },
+                         tip: { telemetria: 'Normalmente funciona, aunque puede haber reintentos o reportes atrasados.',
+                           voz: 'Pueden fallar, sobre todo dentro de la cabina o con antenas de poca ganancia.',
+                           practica: 'Un equipo con antena externa o con LTE B28/700 MHz responde mejor ahí.' } },
         extendida:     { etiqueta: 'Extendida (≈ -101 dBm)',   color: '#4f8fc0', calidad: 'regular',
-                         tip: 'Cobertura en el límite. Usa antena externa y un equipo que guarde reportes (buffer) para enviarlos al recuperar señal.' },
+                         tip: { telemetria: 'Funciona en exteriores con reintentos frecuentes; usa un equipo con buffer para no perder reportes.',
+                           voz: 'Poco confiables; son probables los cortes.',
+                           practica: 'Antena externa de buena ganancia y equipo con LTE B28/700 MHz.' } },
         extendida_alt: { etiqueta: 'Extendida alterna',        color: '#9ec3e0', calidad: 'regular',
-                         tip: 'Cobertura extendida estimada: responde mejor en exteriores y con antena externa. No está garantizada en interiores.' }
+                         tip: { telemetria: 'Posible en exteriores, sin garantía; espera reportes atrasados.',
+                           voz: 'Es muy probable que fallen.',
+                           practica: 'Antena externa y buffer en el equipo; no se recomienda para equipos en interior.' } }
       } },
     { id: 'telcel', nombre: 'Telcel', archivo: 'capas/cobertura_telcel.pmtiles', capa: 'cobertura' }
   ],
 
-  // Tip para tramos o puntos sin cobertura (los de cada nivel están en "niveles" del operador)
-  TIP_SIN_SENAL: 'Sin cobertura AT&T reportada. El equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal. Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.',
+  // Tip (qué esperar en campo) para tramos o puntos sin cobertura (los de cada nivel están en "niveles" del operador)
+  TIP_SIN_SENAL: { telemetria: 'No hay transmisión; el equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal.',
+                   voz: 'Sin servicio AT&T.',
+                   practica: 'Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.' },
 
   // Nombres de los campos en tus capas
   CAMPO_TECNOLOGIA: 'tecnologia',

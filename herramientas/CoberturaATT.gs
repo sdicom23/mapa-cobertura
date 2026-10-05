@@ -15,14 +15,35 @@ const COB_TXT = {
   5: '🟢 Alta (≥ -100 dBm)'
 };
 
+// Qué esperar en campo por nivel (mismo texto que el mapa)
 const COB_TIP = {
-  0: 'Sin cobertura AT&T reportada. El equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal. Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.',
-  1: 'Cobertura extendida estimada: responde mejor en exteriores y con antena externa. No está garantizada en interiores.',
-  2: 'Cobertura en el límite. Usa antena externa y un equipo que guarde reportes (buffer) para enviarlos al recuperar señal.',
-  3: 'La telemetría IoT suele funcionar, con reintentos o reportes atrasados. Voz y datos pueden fallar dentro de cabina. Ayuda una antena externa o un equipo con LTE B28 (700 MHz).',
-  4: 'Señal estable para telemetría y datos. En interiores, sótanos o cabinas blindadas puede bajar un nivel.',
-  5: 'Señal fuerte: datos, voz y telemetría sin problema, incluso dentro de cabina o en interiores.'
+  0: { telemetria: 'No hay transmisión; el equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal.',
+       voz: 'Sin servicio AT&T.',
+       practica: 'Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.' },
+  1: { telemetria: 'Posible en exteriores, sin garantía; espera reportes atrasados.',
+       voz: 'Es muy probable que fallen.',
+       practica: 'Antena externa y buffer en el equipo; no se recomienda para equipos en interior.' },
+  2: { telemetria: 'Funciona en exteriores con reintentos frecuentes; usa un equipo con buffer para no perder reportes.',
+       voz: 'Poco confiables; son probables los cortes.',
+       practica: 'Antena externa de buena ganancia y equipo con LTE B28/700 MHz.' },
+  3: { telemetria: 'Normalmente funciona, aunque puede haber reintentos o reportes atrasados.',
+       voz: 'Pueden fallar, sobre todo dentro de la cabina o con antenas de poca ganancia.',
+       practica: 'Un equipo con antena externa o con LTE B28/700 MHz responde mejor ahí.' },
+  4: { telemetria: 'Funciona bien; en interiores puede haber algún reintento ocasional.',
+       voz: 'Estables en exteriores; en sótanos, edificios o cabinas blindadas puede bajar la calidad.',
+       practica: 'La antena interna suele bastar; para equipos fijos en interior conviene antena externa.' },
+  5: { telemetria: 'Funciona sin problema, con reportes en tiempo real.',
+       voz: 'Estables, incluso dentro de la cabina y en interiores.',
+       practica: 'Cualquier equipo con antena interna trabaja bien.' }
 };
+
+function tipTexto_(c, titulo) {
+  const t = COB_TIP[c];
+  return '💡 Qué esperar en campo' + (titulo ? ' (' + titulo + ')' : '') + ':\n' +
+         '• Telemetría IoT (GPS, LTE-M, mensajes cortos): ' + t.telemetria + '\n' +
+         '• Llamadas y datos de celular: ' + t.voz + '\n' +
+         '• En la práctica: ' + t.practica;
+}
 
 function cobTile_(lonF, latF) {
   const key = 'cob_' + lonF + '_' + latF;
@@ -51,7 +72,7 @@ function coberturaPunto(lat, lon) {
   const c = coberturaCodigo(lat, lon);
   return '📍 ' + lat.toFixed(5) + ', ' + lon.toFixed(5) + '\n' +
          'AT&T 4G: ' + COB_TXT[c] + '\n' +
-         '💡 ' + COB_TIP[c] + '\n' +
+         tipTexto_(c) + '\n' +
          '🗺️ ' + COB_BASE + '?lat=' + lat + '&lon=' + lon;
 }
 
@@ -100,7 +121,8 @@ function coberturaRuta(origen, destino) {
   }
   // Tip del peor nivel con al menos ~2 km en la ruta (sin señal → extendidas → baja)
   const peor = [0, 1, 2, 3].find(c => cuenta[c] >= 2);
-  msg += '\n\n💡 ' + (peor !== undefined ? COB_TIP[peor] : COB_TIP[cuenta[5] >= cuenta[4] ? 5 : 4]);
+  const cTip = peor !== undefined ? peor : (cuenta[5] >= cuenta[4] ? 5 : 4);
+  msg += '\n\n' + tipTexto_(cTip, COB_TXT[cTip].replace(/^\S+\s/, '') + (peor !== undefined ? ' · ~' + cuenta[peor] + ' km' : ''));
   msg += '\n🗺️ ' + COB_BASE + 'ruta.html?o=' + pts[0] + ',' + pts[1] + '&d=' + pts[pts.length - 2] + ',' + pts[pts.length - 1];
   return msg;
 }
