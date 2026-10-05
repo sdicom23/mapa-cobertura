@@ -19,14 +19,22 @@ window.CONFIG = {
       ],
       campoNivel: 'cat',   // la capa trae niveles de señal en vez de tecnología
       niveles: {
-        alta:          { etiqueta: 'Alta (≥ -100 dBm)',        color: '#1a9850', calidad: 'buena' },
-        media:         { etiqueta: 'Media (-111 a -100 dBm)',  color: '#d9b81f', calidad: 'buena' },
-        baja:          { etiqueta: 'Baja (-121 a -111 dBm)',   color: '#f46d43', calidad: 'regular' },
-        extendida:     { etiqueta: 'Extendida (≈ -101 dBm)',   color: '#4f8fc0', calidad: 'regular' },
-        extendida_alt: { etiqueta: 'Extendida alterna',        color: '#9ec3e0', calidad: 'regular' }
+        alta:          { etiqueta: 'Alta (≥ -100 dBm)',        color: '#1a9850', calidad: 'buena',
+                         tip: 'Señal fuerte: datos, voz y telemetría sin problema, incluso dentro de cabina o en interiores.' },
+        media:         { etiqueta: 'Media (-111 a -100 dBm)',  color: '#d9b81f', calidad: 'buena',
+                         tip: 'Señal estable para telemetría y datos. En interiores, sótanos o cabinas blindadas puede bajar un nivel.' },
+        baja:          { etiqueta: 'Baja (-121 a -111 dBm)',   color: '#f46d43', calidad: 'regular',
+                         tip: 'La telemetría IoT suele funcionar, con reintentos o reportes atrasados. Voz y datos pueden fallar dentro de cabina. Ayuda una antena externa o un equipo con LTE B28 (700 MHz).' },
+        extendida:     { etiqueta: 'Extendida (≈ -101 dBm)',   color: '#4f8fc0', calidad: 'regular',
+                         tip: 'Cobertura en el límite. Usa antena externa y un equipo que guarde reportes (buffer) para enviarlos al recuperar señal.' },
+        extendida_alt: { etiqueta: 'Extendida alterna',        color: '#9ec3e0', calidad: 'regular',
+                         tip: 'Cobertura extendida estimada: responde mejor en exteriores y con antena externa. No está garantizada en interiores.' }
       } },
     { id: 'telcel', nombre: 'Telcel', archivo: 'capas/cobertura_telcel.pmtiles', capa: 'cobertura' }
   ],
+
+  // Tip para tramos o puntos sin cobertura (los de cada nivel están en "niveles" del operador)
+  TIP_SIN_SENAL: 'Sin cobertura AT&T reportada. El equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal. Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.',
 
   // Nombres de los campos en tus capas
   CAMPO_TECNOLOGIA: 'tecnologia',

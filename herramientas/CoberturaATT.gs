@@ -15,6 +15,15 @@ const COB_TXT = {
   5: '🟢 Alta (≥ -100 dBm)'
 };
 
+const COB_TIP = {
+  0: 'Sin cobertura AT&T reportada. El equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal. Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.',
+  1: 'Cobertura extendida estimada: responde mejor en exteriores y con antena externa. No está garantizada en interiores.',
+  2: 'Cobertura en el límite. Usa antena externa y un equipo que guarde reportes (buffer) para enviarlos al recuperar señal.',
+  3: 'La telemetría IoT suele funcionar, con reintentos o reportes atrasados. Voz y datos pueden fallar dentro de cabina. Ayuda una antena externa o un equipo con LTE B28 (700 MHz).',
+  4: 'Señal estable para telemetría y datos. En interiores, sótanos o cabinas blindadas puede bajar un nivel.',
+  5: 'Señal fuerte: datos, voz y telemetría sin problema, incluso dentro de cabina o en interiores.'
+};
+
 function cobTile_(lonF, latF) {
   const key = 'cob_' + lonF + '_' + latF;
   const cache = CacheService.getScriptCache();
@@ -42,6 +51,7 @@ function coberturaPunto(lat, lon) {
   const c = coberturaCodigo(lat, lon);
   return '📍 ' + lat.toFixed(5) + ', ' + lon.toFixed(5) + '\n' +
          'AT&T 4G: ' + COB_TXT[c] + '\n' +
+         '💡 ' + COB_TIP[c] + '\n' +
          '🗺️ ' + COB_BASE + '?lat=' + lat + '&lon=' + lon;
 }
 
@@ -88,7 +98,41 @@ function coberturaRuta(origen, destino) {
       msg += '\n• ~' + (h[1] - h[0] + 1) + ' km desde ' + a[0].toFixed(4) + ',' + a[1].toFixed(4);
     });
   }
+  // Tip del peor nivel con al menos ~2 km en la ruta (sin señal → extendidas → baja)
+  const peor = [0, 1, 2, 3].find(c => cuenta[c] >= 2);
+  msg += '\n\n💡 ' + (peor !== undefined ? COB_TIP[peor] : COB_TIP[cuenta[5] >= cuenta[4] ? 5 : 4]);
+  msg += '\n🗺️ ' + COB_BASE + 'ruta.html?o=' + pts[0] + ',' + pts[1] + '&d=' + pts[pts.length - 2] + ',' + pts[pts.length - 1];
   return msg;
+}
+
+/** Mensaje de ayuda para el bot (por ejemplo, con /ayuda o /cobertura sin parámetros). */
+function ayudaCobertura() {
+  return '📶 *Cobertura AT&T 4G*\n\n' +
+    '*Un punto:* comparte tu ubicación 📎 o escribe `lat,lon`\n' +
+    '   ej. `19.4326,-99.1332`\n\n' +
+    '*Una ruta:* `ruta origen > destino`\n' +
+    '   ej. `ruta CDMX > Oaxaca` o `ruta 19.43,-99.13 > 17.07,-96.73`\n\n' +
+    '*Niveles:*\n' +
+    COB_TXT[5] + '\n' + COB_TXT[4] + '\n' + COB_TXT[3] + '\n' + COB_TXT[2] + '\n' + COB_TXT[1] + '\n' + COB_TXT[0] + '\n\n' +
+    '💡 Tip: en Google Maps mantén presionado un punto para copiar sus coordenadas.';
+}
+
+/**
+ * Router listo para tu doPost de Telegram: pásale el objeto "message" de Telegram y te regresa el texto a enviar.
+ *   - ubicación compartida            → cobertura en ese punto
+ *   - "19.4326,-99.1332"              → cobertura en ese punto
+ *   - "ruta CDMX > Oaxaca"            → cobertura a lo largo de la ruta
+ *   - cualquier otra cosa / "/ayuda"  → mensaje de ayuda
+ * Envía la respuesta con parse_mode: 'Markdown' para que se vean las negritas de la ayuda.
+ */
+function responderCobertura(message) {
+  if (message.location) return coberturaPunto(message.location.latitude, message.location.longitude);
+  const t = String(message.text || '').trim();
+  const m = t.match(/^(-?\d{1,2}(?:\.\d+)?)\s*,\s*(-?\d{1,3}(?:\.\d+)?)$/);
+  if (m) return coberturaPunto(Number(m[1]), Number(m[2]));
+  const r = t.match(/^\/?ruta\s+(.+?)\s*>\s*(.+)$/i);
+  if (r) return coberturaRuta(r[1], r[2]);
+  return ayudaCobertura();
 }
 
 function distKm_(a, b) {
@@ -101,5 +145,6 @@ function distKm_(a, b) {
 /** Prueba rápida desde el editor */
 function testCobertura() {
   Logger.log(coberturaPunto(19.4326, -99.1332));          // CDMX
-  Logger.log(coberturaRuta('Querétaro, Qro', 'San Luis Potosí, SLP'));
+  Logger.log(coberturaRuta('Ciudad de México', 'Oaxaca, Oax'));
+  Logger.log(ayudaCobertura());
 }

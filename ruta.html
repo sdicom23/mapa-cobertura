@@ -74,7 +74,7 @@ map.on('load', async () => {
   new maplibregl.Marker({ color: '#185FA5' }).setLngLat([O[1], O[0]]).addTo(map);
   new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([D[1], D[0]]).addTo(map);
 
-  map.fitBounds(turf.bbox(ruta), { padding: { top: 110, bottom: 120, left: 40, right: 40 }, duration: 0 });
+  map.fitBounds(turf.bbox(ruta), { padding: { top: 170, bottom: 120, left: 40, right: 40 }, duration: 0 });
   U.botonesOperador(document.getElementById('operadores'), map, capas, () => U.cuandoListo(map, evaluar));
   U.cuandoListo(map, evaluar);
 });
@@ -103,7 +103,8 @@ function evaluar() {
   document.getElementById('info').innerHTML =
     `<b>${largo.toFixed(0)} km · ${h ? h + ' h ' : ''}${m} min · ${100 - pct(km.sin)}% con cobertura</b><br>` +
     `<span class="sub">${U.resumenKm(km, escala)}` +
-    `${cortes && km.sin >= 0.05 ? ` (sin señal en ${cortes} tramo${cortes > 1 ? 's' : ''})` : ''}</span>`;
+    `${cortes && km.sin >= 0.05 ? ` (sin señal en ${cortes} tramo${cortes > 1 ? 's' : ''})` : ''}</span>` +
+    U.tipRuta(km, escala);
 }
 </script>
 </body>

@@ -240,7 +240,8 @@ function seleccionar(i) {
     `<span class="sub">${nr.t} · ${r.riesgo.incidentes} incidentes cerca · ${r.cob.pct}% con cobertura</span>` +
     (r.riesgo.focos.length ? `<br><span class="sub">Focos: ${r.riesgo.focos.map(U.esc).join(', ')}</span>` : '') +
     (r.tramos.nombres.length ? `<br><span class="sub">Tramos de riesgo: ${r.tramos.nombres.map(U.esc).join(', ')}</span>` : '') +
-    (r.oficial.focos.length ? `<br><span class="sub">SESNSP${oficial.periodo ? ' ' + U.esc(oficial.periodo) : ''}: ${r.oficial.focos.map(U.esc).join(', ')}</span>` : '');
+    (r.oficial.focos.length ? `<br><span class="sub">SESNSP${oficial.periodo ? ' ' + U.esc(oficial.periodo) : ''}: ${r.oficial.focos.map(U.esc).join(', ')}</span>` : '') +
+    U.tipRuta(r.cob.km, escala);
   pintarTarjetas();
 }
 

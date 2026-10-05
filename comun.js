@@ -100,7 +100,7 @@
       const cap = capas.find(c => (c.layers || [c.id]).includes(f.layer.id)) || {};
       const op = cap.op;
       const operador = f.properties.operador || cap.nombre || '';
-      let tecnologia, calidad, etiqueta, color, cat = '', rango = 0;
+      let tecnologia, calidad, etiqueta, color, cat = '', rango = 0, n_tip = '';
       if (op && op.niveles) {
         cat = String(f.properties[op.campoNivel || 'cat'] || '');
         const n = op.niveles[cat] || {};
@@ -108,6 +108,7 @@
         calidad = n.calidad || 'regular';
         etiqueta = n.etiqueta || '';
         color = n.color;
+        n_tip = n.tip || '';
         rango = Number(f.properties.nivel) || 0;
       } else {
         tecnologia = String(f.properties[C.CAMPO_TECNOLOGIA] || '');
@@ -118,10 +119,10 @@
         const prev = res.find(r => r.operador === operador);
         if (prev) {
           if (rango > prev._r || (rango === prev._r && orden[calidad] > orden[prev.calidad]))
-            Object.assign(prev, { tecnologia, calidad, etiqueta, color, cat, _r: rango });
+            Object.assign(prev, { tecnologia, calidad, etiqueta, color, cat, tip: n_tip, _r: rango });
           return;
         }
-        res.push({ operador, tecnologia, calidad, etiqueta, color, cat, _r: rango });
+        res.push({ operador, tecnologia, calidad, etiqueta, color, cat, tip: n_tip, _r: rango });
         return;
       }
       const k = operador + '|' + tecnologia + '|' + calidad;
@@ -162,6 +163,17 @@
     });
   }
 
+  /** Tip de la ruta: el del peor nivel con al menos "minKm" km (de peor a mejor: sin, extendidas, baja) */
+  function tipRuta(km, escala, minKm = 1) {
+    const peores = [...escala].reverse();
+    for (const e of peores) {
+      if ((km[e.k] || 0) >= minKm && e.tip && !['alta', 'media', 'buena'].includes(e.k))
+        return `<div class="tip">💡 <b>${esc(e.etiqueta)} · ${km[e.k].toFixed(km[e.k] < 10 ? 1 : 0)} km:</b> ${esc(e.tip)}</div>`;
+    }
+    const mejor = escala.find(e => (km[e.k] || 0) > 0);
+    return mejor && mejor.tip ? `<div class="tip">💡 ${esc(mejor.tip)}</div>` : '';
+  }
+
   // Espera a que el mapa termine de cargar/dibujar todas las capas (incluye fuentes PMTiles recién agregadas)
   function cuandoListo(map, fn) {
     map.once('idle', fn);
@@ -181,9 +193,9 @@
   function escalaRuta(capas) {
     const op = (capas.find(c => c.op && c.op.niveles) || {}).op;
     const lista = op
-      ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color }))
+      ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color, tip: v.tip || '' }))
       : [{ k: 'buena', etiqueta: 'Buena', color: '#1D9E75' }, { k: 'regular', etiqueta: 'Regular', color: '#EF9F27' }];
-    return [...lista, SIN_SENAL];
+    return [...lista, { ...SIN_SENAL, tip: C.TIP_SIN_SENAL || '' }];
   }
 
   /** Mejor nivel (clave de la escala) en un punto */
@@ -206,7 +218,7 @@
   /** Leyenda de líneas */
   function leyendaEscala(contenedor, escala) {
     contenedor.innerHTML = escala.map(e =>
-      `<span class="ley"><span class="linea" style="background:${e.color}"></span>${esc(e.etiqueta)}</span>`).join('');
+      `<span class="ley" title="${esc(e.tip || '')}"><span class="linea" style="background:${e.color}"></span>${esc(e.etiqueta)}</span>`).join('');
   }
 
   /** Resumen "■ 120 km · ■ 30 km ..." (omite niveles en cero) */
@@ -339,6 +351,6 @@
     return mejor;
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

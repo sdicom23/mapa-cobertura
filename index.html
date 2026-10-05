@@ -55,6 +55,12 @@ map.on('load', async () => {
 
 map.on('click', e => ponerPunto([e.lngLat.lng, e.lngLat.lat]));
 
+function tips(cob) {
+  const conTip = cob.filter(c => c.tip);
+  if (!cob.length) return C.TIP_SIN_SENAL ? `<div class="tip">💡 ${U.esc(C.TIP_SIN_SENAL)}</div>` : '';
+  return conTip.map(c => `<div class="tip">💡 ${conTip.length > 1 ? '<b>' + U.esc(c.operador) + ':</b> ' : ''}${U.esc(c.tip)}</div>`).join('');
+}
+
 function ponerPunto(lngLat) {
   if (marcador) marcador.remove();
   marcador = new maplibregl.Marker({ color: '#E24B4A' }).setLngLat(lngLat).addTo(map);
@@ -65,7 +71,8 @@ function ponerPunto(lngLat) {
       `<b>${U.esc(c.operador)}</b> ${U.esc(c.tecnologia)} · ${U.esc(c.etiqueta || c.calidad)}`);
     document.getElementById('info').innerHTML =
       `<div class="sub">${lngLat[1].toFixed(5)}, ${lngLat[0].toFixed(5)}</div>` +
-      (lineas.length ? lineas.join('<br>') : '🔴 Sin cobertura registrada en este punto');
+      (lineas.length ? lineas.join('<br>') : '🔴 Sin cobertura registrada en este punto') +
+      tips(cob);
   });
 }
 </script>
