@@ -117,5 +117,53 @@
     return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc };
+  /***** INCIDENCIAS *****/
+  // Peso de cada incidente: más reciente, con violencia y de fuente confiable = más peso
+  function pesoEvento(p, ahora) {
+    const ts = new Date(`${p.fecha}T${p.hora || '12:00'}:00-06:00`).getTime();
+    const dias = Math.max(0, (ahora - ts) / 86400000);
+    return Math.exp(-dias / C.VIDA_MEDIA_DIAS) * (p.violencia === 'Sí' ? 1.5 : 1) * (Number(p.confianza) || 0.5);
+  }
+
+  /** Devuelve { features, demo } con la propiedad "peso" ya calculada */
+  async function cargarEventos() {
+    let gj = null, demo = false;
+    if (C.EVENTOS_URL) {
+      try {
+        const j = await (await fetch(C.EVENTOS_URL)).json();
+        if (j && Array.isArray(j.features)) gj = j;
+      } catch (e) { console.warn('No se pudo leer EVENTOS_URL', e); }
+    }
+    if (!gj) { gj = eventosDemo(); demo = true; }
+    const ahora = Date.now();
+    gj.features.forEach(f => { f.properties.peso = Math.max(pesoEvento(f.properties, ahora), 0.05); });
+    return { features: gj.features, demo };
+  }
+
+  function eventosDemo() {
+    const focos = [
+      [19.72, -99.22, 9], [20.32, -99.94, 7], [19.60, -99.05, 6], [19.84, -98.98, 3], [19.35, -98.67, 5],
+      [19.28, -98.43, 9], [19.04, -98.04, 7], [18.84, -97.55, 8], [18.86, -97.37, 9], [18.81, -97.27, 7],
+      [20.52, -100.81, 5], [20.68, -101.35, 4], [22.15, -100.98, 4], [19.59, -98.57, 4], [19.88, -98.90, 2]
+    ];
+    const tipos = ['Robo de unidad', 'Robo de carga', 'Robo a transportista', 'Bloqueo / ponchallantas',
+                   'Enfrentamiento / balacera', 'Retén falso', 'Asalto a autobús'];
+    let s = 11;
+    const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    const features = [];
+    focos.forEach(([lat, lon, n]) => {
+      for (let i = 0; i < n * 2; i++) {
+        const d = new Date(Date.now() - Math.floor(rnd() * 200) * 86400000);
+        features.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [lon + (rnd() - 0.5) * 0.1, lat + (rnd() - 0.5) * 0.1] },
+          properties: { fecha: d.toISOString().slice(0, 10), hora: '', tipo: tipos[Math.floor(rnd() * tipos.length)],
+                        violencia: rnd() < 0.7 ? 'Sí' : 'No', confianza: 0.6, fuente: 'Ejemplo' }
+        });
+      }
+    });
+    return { type: 'FeatureCollection', features };
+  }
+
+  window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos };
 })();

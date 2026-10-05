@@ -7,6 +7,7 @@ Mini App para el bot de Telegram. Se publica gratis con GitHub Pages.
 | `index.html` | Cobertura en un punto | `?lat=19.43&lon=-99.13` |
 | `ruta.html` | Cobertura a lo largo de una ruta | `?o=19.49,-99.11&d=20.10,-98.75` (lat,lon) |
 | `mapa.html` | Incidencias de seguridad (mapa de calor) | — |
+| `rutasegura.html` | Compara rutas por incidencias y cobertura, recomienda la mejor | `?o=19.43,-99.13&d=18.88,-96.92` (lat,lon) |
 
 Sin capas cargadas, las páginas muestran **datos de ejemplo** (etiqueta amarilla).
 
@@ -32,8 +33,9 @@ Sin capas cargadas, las páginas muestran **datos de ejemplo** (etiqueta amarill
 
 ## Conectar el mapa de incidencias
 
-En `mapa.html`, cambia `const DATA_URL = '';` por la URL `/exec` de tu Apps Script con
-`?accion=eventos&dias=365`.
+Pega la URL `/exec` de tu Apps Script con `?accion=eventos&dias=365` en:
+- `config.js` → `EVENTOS_URL` (para `rutasegura.html`)
+- `mapa.html` → `const DATA_URL`
 
 ## Conectar con el bot
 

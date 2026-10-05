@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Ruta segura</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="estilos.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3.2.1/dist/pmtiles.js"></script>
+<script src="https://unpkg.com/@turf/turf@7.1.0/turf.min.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="config.js"></script>
+<script src="comun.js"></script>
+<style>
+  .rutas { display:flex; flex-direction:column; gap:6px; max-height:34vh; overflow-y:auto; }
+  .tarjeta { border:1px solid var(--bd); border-radius:10px; padding:7px 9px; font-size:12px; line-height:1.45; cursor:pointer; background:#fff; }
+  .tarjeta.sel { border-color:#185FA5; box-shadow:0 0 0 1px #185FA5 inset; }
+  .tarjeta .t { display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:600; }
+  .pill { font-size:11px; padding:1px 8px; border-radius:8px; font-weight:500; }
+  .bajo { background:#E1F5EE; color:#085041; } .medio { background:#FAEEDA; color:#633806; } .alto { background:#FCEBEB; color:#791F1F; }
+  .reco { background:#E6F1FB; color:#0C447C; margin-left:4px; }
+  .barra { display:flex; height:6px; border-radius:3px; overflow:hidden; margin-top:4px; background:#eee; }
+  .capas { display:flex; gap:6px; margin-top:7px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="panel arriba">
+  <h1><span>Ruta segura</span><span class="demo" id="demo">Datos de ejemplo</span></h1>
+  <div class="info" id="info">Calculando rutas…</div>
+</div>
+
+<div class="panel abajo">
+  <div class="rutas" id="rutas"></div>
+  <div class="capas">
+    <button class="btn on" id="bCalor">🔥 Incidencias</button>
+    <button class="btn on" id="bCob">📶 Cobertura</button>
+  </div>
+  <div class="fila" id="operadores" style="margin-top:6px"></div>
+</div>
+
+<script>
+const C = window.CONFIG, U = window.Comun;
+const q = new URLSearchParams(location.search);
+const leer = s => { const p = (s || '').split(',').map(Number); return p.length === 2 && p.every(n => !isNaN(n)) ? p : null; };
+// o y d como lat,lon. Sin parámetros: ejemplo CDMX -> Córdoba, Ver.
+const O = leer(q.get('o')) || [19.4326, -99.1332];
+const D = leer(q.get('d')) || [18.8842, -96.9256];
+
+const map = new maplibregl.Map({
+  container: 'map', style: C.MAPA_BASE,
+  bounds: [[Math.min(O[1], D[1]), Math.min(O[0], D[0])], [Math.max(O[1], D[1]), Math.max(O[0], D[0])]],
+  fitBoundsOptions: { padding: 80 },
+  attributionControl: { compact: true }
+});
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+let capas = [], eventos = [], rutas = [], sel = 0;
+
+map.on('load', async () => {
+  const [cob, ev] = await Promise.all([U.cargarCoberturas(map, 0.18), U.cargarEventos()]);
+  capas = cob.capas;
+  eventos = ev.features;
+  if (cob.demo || ev.demo) {
+    const d = document.getElementById('demo');
+    d.textContent = cob.demo && ev.demo ? 'Datos de ejemplo' : (cob.demo ? 'Cobertura de ejemplo' : 'Incidencias de ejemplo');
+    d.style.display = 'inline-block';
+  }
+
+  // Mapa de calor de incidencias
+  map.addSource('eventos', { type: 'geojson', data: { type: 'FeatureCollection', features: eventos } });
+  map.addLayer({
+    id: 'calor', type: 'heatmap', source: 'eventos',
+    paint: {
+      'heatmap-weight': ['get', 'peso'],
+      'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 5, 1, 10, 2.2],
+      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 5, 16, 9, 30, 12, 45],
+      'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'],
+        0, 'rgba(254,224,139,0)', 0.2, '#fee08b', 0.45, '#fdae61', 0.7, '#f46d43', 1, '#d7191c'],
+      'heatmap-opacity': 0.75
+    }
+  });
+
+  // Rutas: alternativas en gris, seleccionada coloreada por cobertura
+  map.addSource('alternas', { type: 'geojson', data: turf.featureCollection([]) });
+  map.addSource('tramos', { type: 'geojson', data: turf.featureCollection([]) });
+  map.addLayer({ id: 'alternas', type: 'line', source: 'alternas',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#7a7a7a', 'line-width': 5, 'line-dasharray': [1.5, 1.5] } });
+  map.addLayer({ id: 'sel-borde', type: 'line', source: 'tramos',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': '#ffffff', 'line-width': 10 } });
+  map.addLayer({ id: 'sel-linea', type: 'line', source: 'tramos',
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-width': 6, 'line-color': ['match', ['get', 'nivel'],
+      'buena', '#1D9E75', 'regular', '#EF9F27', 'sin', '#E24B4A', '#185FA5'] } });
+  map.on('click', 'alternas', e => seleccionar(e.features[0].properties.i));
+
+  new maplibregl.Marker({ color: '#185FA5' }).setLngLat([O[1], O[0]]).addTo(map);
+  new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([D[1], D[0]]).addTo(map);
+
+  try {
+    const url = `${C.OSRM_URL}${O[1]},${O[0]};${D[1]},${D[0]}?overview=full&geometries=geojson&alternatives=3`;
+    const j = await (await fetch(url)).json();
+    if (!j.routes || !j.routes.length) throw new Error('sin ruta');
+    rutas = j.routes.slice(0, 3).map((r, i) => ({
+      i, linea: turf.lineString(r.geometry.coordinates), km: r.distance / 1000, seg: r.duration
+    }));
+  } catch (e) {
+    document.getElementById('info').textContent = '❌ No se pudo calcular la ruta. Intenta de nuevo.';
+    return;
+  }
+
+  // Encuadrar todas las rutas para poder leer la cobertura de cada una
+  const todas = turf.featureCollection(rutas.map(r => r.linea));
+  map.fitBounds(turf.bbox(todas), { padding: { top: 110, bottom: 250, left: 40, right: 40 }, duration: 0 });
+
+  rutas.forEach(r => { r.riesgo = riesgoRuta(r); });
+  U.botonesOperador(document.getElementById('operadores'), map, capas, () => U.cuandoListo(map, evaluarTodo));
+  U.cuandoListo(map, evaluarTodo);
+});
+
+/***** RIESGO: incidentes ponderados cerca de la ruta, por cada 100 km *****/
+function riesgoRuta(r) {
+  const bbox = turf.bbox(turf.buffer(r.linea, C.RADIO_RIESGO_KM, { units: 'kilometers' }));
+  let suma = 0, n = 0;
+  const focos = {};
+  eventos.forEach(f => {
+    const [x, y] = f.geometry.coordinates;
+    if (x < bbox[0] || x > bbox[2] || y < bbox[1] || y > bbox[3]) return;
+    if (turf.pointToLineDistance(f.geometry.coordinates, r.linea, { units: 'kilometers' }) > C.RADIO_RIESGO_KM) return;
+    suma += f.properties.peso;
+    n++;
+    const lugar = f.properties.lugar;
+    if (lugar) focos[lugar] = (focos[lugar] || 0) + f.properties.peso;
+  });
+  const top = Object.entries(focos).sort((a, b) => b[1] - a[1]).slice(0, 3).map(e => e[0]);
+  return { indice: suma / r.km * 100, incidentes: n, focos: top };
+}
+
+function nivelRiesgo(ind) {
+  return ind < 1 ? { k: 'bajo', t: 'Riesgo bajo' } : ind < 3 ? { k: 'medio', t: 'Riesgo medio' } : { k: 'alto', t: 'Riesgo alto' };
+}
+
+/***** COBERTURA: % del trayecto con señal *****/
+function coberturaRuta(r) {
+  const rango = { buena: 2, regular: 1, sin: 0 };
+  const km = { buena: 0, regular: 0, sin: 0 };
+  const tramos = [];
+  for (let d = 0; d < r.km; d += C.PASO_RUTA_KM) {
+    const fin = Math.min(d + C.PASO_RUTA_KM, r.km);
+    const a = turf.along(r.linea, d).geometry.coordinates;
+    const b = turf.along(r.linea, fin).geometry.coordinates;
+    let nivel = 'sin';
+    U.coberturaEn(map, turf.along(r.linea, (d + fin) / 2).geometry.coordinates, capas).forEach(c => {
+      const n = rango[c.calidad] !== undefined ? c.calidad : 'buena';
+      if (rango[n] > rango[nivel]) nivel = n;
+    });
+    km[nivel] += fin - d;
+    tramos.push(turf.lineString([a, b], { nivel }));
+  }
+  return { km, tramos, pct: Math.round((1 - km.sin / r.km) * 100) };
+}
+
+function evaluarTodo() {
+  const capaVisible = map.getLayoutProperty('sel-linea', 'visibility');
+  rutas.forEach(r => { r.cob = coberturaRuta(r); });
+
+  // Puntaje combinado (menor = mejor)
+  const maxR = Math.max(...rutas.map(r => r.riesgo.indice), 0.001);
+  rutas.forEach(r => {
+    r.puntaje = C.PESO_SEGURIDAD * (r.riesgo.indice / maxR) + C.PESO_COBERTURA * (1 - r.cob.pct / 100);
+  });
+  const mejor = rutas.reduce((a, b) => (b.puntaje < a.puntaje ? b : a));
+  rutas.forEach(r => { r.reco = r === mejor; });
+  if (capaVisible !== 'none') seleccionar(mejor.i);
+  pintarTarjetas();
+}
+
+function seleccionar(i) {
+  sel = Number(i);
+  const r = rutas[sel];
+  map.getSource('tramos').setData(turf.featureCollection(r.cob.tramos));
+  map.getSource('alternas').setData(turf.featureCollection(
+    rutas.filter(x => x.i !== sel).map(x => turf.feature(x.linea.geometry, { i: x.i }))));
+  const nr = nivelRiesgo(r.riesgo.indice);
+  document.getElementById('info').innerHTML =
+    `<b>Ruta ${letra(sel)} · ${r.km.toFixed(0)} km · ${dur(r.seg)}</b><br>` +
+    `<span class="sub">${nr.t} · ${r.riesgo.incidentes} incidentes cerca · ${r.cob.pct}% con cobertura</span>` +
+    (r.riesgo.focos.length ? `<br><span class="sub">Focos: ${r.riesgo.focos.map(U.esc).join(', ')}</span>` : '');
+  pintarTarjetas();
+}
+
+function pintarTarjetas() {
+  const base = Math.min(...rutas.map(r => r.seg));
+  document.getElementById('rutas').innerHTML = rutas.map(r => {
+    const nr = nivelRiesgo(r.riesgo.indice);
+    const extra = r.seg - base > 60 ? ` (+${Math.round((r.seg - base) / 60)} min)` : '';
+    const p = v => (v / r.km * 100).toFixed(1);
+    return `<div class="tarjeta${r.i === sel ? ' sel' : ''}" onclick="seleccionar(${r.i})">
+      <div class="t"><span>Ruta ${letra(r.i)}${r.reco ? '<span class="pill reco">Recomendada</span>' : ''}</span>
+      <span class="pill ${nr.k}">${nr.t}</span></div>
+      <div class="sub">${r.km.toFixed(0)} km · ${dur(r.seg)}${extra} · ${r.riesgo.incidentes} incidentes · ${r.cob.pct}% cobertura</div>
+      <div class="barra"><span style="width:${p(r.cob.km.buena)}%;background:#1D9E75"></span>
+      <span style="width:${p(r.cob.km.regular)}%;background:#EF9F27"></span>
+      <span style="width:${p(r.cob.km.sin)}%;background:#E24B4A"></span></div></div>`;
+  }).join('');
+}
+
+/***** CAPAS ON/OFF *****/
+function alternar(btn, ids) {
+  btn.classList.toggle('on');
+  const vis = btn.classList.contains('on') ? 'visible' : 'none';
+  ids().forEach(id => map.setLayoutProperty(id, 'visibility', vis));
+}
+document.getElementById('bCalor').onclick = e => alternar(e.currentTarget, () => ['calor']);
+document.getElementById('bCob').onclick = e => alternar(e.currentTarget, () => capas.map(c => c.id));
+
+const letra = i => 'ABC'[i];
+const dur = s => { const h = Math.floor(s / 3600), m = Math.round(s % 3600 / 60); return (h ? h + ' h ' : '') + m + ' min'; };
+</script>
+</body>
+</html>

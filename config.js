@@ -27,5 +27,15 @@ window.CONFIG = {
 
   // Ruta: servicio gratuito de rutas (demo pública de OSRM)
   OSRM_URL: 'https://router.project-osrm.org/route/v1/driving/',
-  PASO_RUTA_KM: 0.5
+  PASO_RUTA_KM: 0.5,
+
+  // Incidencias: URL /exec de tu Apps Script con ?accion=eventos&dias=365
+  // Vacía = datos de ejemplo
+  EVENTOS_URL: '',
+  VIDA_MEDIA_DIAS: 90,     // un incidente de hace 90 días pesa ~37% de uno de hoy
+  RADIO_RIESGO_KM: 3,      // incidentes a menos de esta distancia de la ruta cuentan para su riesgo
+
+  // Cómo se elige la ruta recomendada (deben sumar 1)
+  PESO_SEGURIDAD: 0.7,
+  PESO_COBERTURA: 0.3
 };
