@@ -37,6 +37,7 @@
   <div class="capas">
     <button class="btn on" id="bCalor">🔥 Incidencias</button>
     <button class="btn on" id="bCob">📶 Cobertura</button>
+    <button class="btn on" id="bOficial" style="display:none">🏛️ SESNSP</button>
   </div>
   <div class="fila" id="operadores" style="margin-top:6px"></div>
 </div>
@@ -57,10 +58,12 @@ const map = new maplibregl.Map({
 });
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-let capas = [], eventos = [], rutas = [], sel = 0;
+let capas = [], eventos = [], rutas = [], sel = 0, oficial = null;
 
 map.on('load', async () => {
   const [cob, ev] = await Promise.all([U.cargarCoberturas(map, 0.18), U.cargarEventos()]);
+  oficial = await U.cargarRiesgoMunicipal(map, 0.35);
+  if (oficial) document.getElementById('bOficial').style.display = '';
   capas = cob.capas;
   eventos = ev.features;
   if (cob.demo || ev.demo) {
@@ -140,6 +143,16 @@ function riesgoRuta(r) {
   return { indice: suma / r.km * 100, incidentes: n, focos: top };
 }
 
+// Nivel final: el peor entre incidentes recientes e índice oficial
+function nivelRuta(r) {
+  const a = nivelRiesgo(r.riesgo.indice);
+  if (!oficial) return a;
+  const p = r.oficial.prom;
+  const b = p < 1 ? { k: 'bajo', t: 'Riesgo bajo' } : p < 2 ? { k: 'medio', t: 'Riesgo medio' } : { k: 'alto', t: 'Riesgo alto' };
+  const orden = { bajo: 0, medio: 1, alto: 2 };
+  return orden[b.k] > orden[a.k] ? b : a;
+}
+
 function nivelRiesgo(ind) {
   return ind < 1 ? { k: 'bajo', t: 'Riesgo bajo' } : ind < 3 ? { k: 'medio', t: 'Riesgo medio' } : { k: 'alto', t: 'Riesgo alto' };
 }
@@ -149,6 +162,8 @@ function coberturaRuta(r) {
   const rango = { buena: 2, regular: 1, sin: 0 };
   const km = { buena: 0, regular: 0, sin: 0 };
   const tramos = [];
+  let sumaNivel = 0;
+  const munis = {};
   for (let d = 0; d < r.km; d += C.PASO_RUTA_KM) {
     const fin = Math.min(d + C.PASO_RUTA_KM, r.km);
     const a = turf.along(r.linea, d).geometry.coordinates;
@@ -160,7 +175,18 @@ function coberturaRuta(r) {
     });
     km[nivel] += fin - d;
     tramos.push(turf.lineString([a, b], { nivel }));
+    if (oficial) {
+      const m = U.municipioEn(oficial.features, turf.along(r.linea, (d + fin) / 2).geometry.coordinates);
+      if (m) {
+        sumaNivel += m.nivel * (fin - d);
+        if (!munis[m.cve]) munis[m.cve] = m;
+      }
+    }
   }
+  r.oficial = {
+    prom: sumaNivel / r.km,
+    focos: Object.values(munis).sort((x, y) => y.indice - x.indice).slice(0, 3).map(m => m.municipio)
+  };
   return { km, tramos, pct: Math.round((1 - km.sin / r.km) * 100) };
 }
 
@@ -170,8 +196,11 @@ function evaluarTodo() {
 
   // Puntaje combinado (menor = mejor)
   const maxR = Math.max(...rutas.map(r => r.riesgo.indice), 0.001);
+  const maxO = Math.max(...rutas.map(r => r.oficial.prom), 0.001);
+  const pI = oficial ? C.PESO_INCIDENTES : 1, pO = oficial ? C.PESO_OFICIAL : 0;
   rutas.forEach(r => {
-    r.puntaje = C.PESO_SEGURIDAD * (r.riesgo.indice / maxR) + C.PESO_COBERTURA * (1 - r.cob.pct / 100);
+    r.seguridad = pI * (r.riesgo.indice / maxR) + pO * (r.oficial.prom / maxO);
+    r.puntaje = C.PESO_SEGURIDAD * r.seguridad + C.PESO_COBERTURA * (1 - r.cob.pct / 100);
   });
   const mejor = rutas.reduce((a, b) => (b.puntaje < a.puntaje ? b : a));
   rutas.forEach(r => { r.reco = r === mejor; });
@@ -185,18 +214,19 @@ function seleccionar(i) {
   map.getSource('tramos').setData(turf.featureCollection(r.cob.tramos));
   map.getSource('alternas').setData(turf.featureCollection(
     rutas.filter(x => x.i !== sel).map(x => turf.feature(x.linea.geometry, { i: x.i }))));
-  const nr = nivelRiesgo(r.riesgo.indice);
+  const nr = nivelRuta(r);
   document.getElementById('info').innerHTML =
     `<b>Ruta ${letra(sel)} · ${r.km.toFixed(0)} km · ${dur(r.seg)}</b><br>` +
     `<span class="sub">${nr.t} · ${r.riesgo.incidentes} incidentes cerca · ${r.cob.pct}% con cobertura</span>` +
-    (r.riesgo.focos.length ? `<br><span class="sub">Focos: ${r.riesgo.focos.map(U.esc).join(', ')}</span>` : '');
+    (r.riesgo.focos.length ? `<br><span class="sub">Focos: ${r.riesgo.focos.map(U.esc).join(', ')}</span>` : '') +
+    (r.oficial.focos.length ? `<br><span class="sub">SESNSP${oficial.periodo ? ' ' + U.esc(oficial.periodo) : ''}: ${r.oficial.focos.map(U.esc).join(', ')}</span>` : '');
   pintarTarjetas();
 }
 
 function pintarTarjetas() {
   const base = Math.min(...rutas.map(r => r.seg));
   document.getElementById('rutas').innerHTML = rutas.map(r => {
-    const nr = nivelRiesgo(r.riesgo.indice);
+    const nr = nivelRuta(r);
     const extra = r.seg - base > 60 ? ` (+${Math.round((r.seg - base) / 60)} min)` : '';
     const p = v => (v / r.km * 100).toFixed(1);
     return `<div class="tarjeta${r.i === sel ? ' sel' : ''}" onclick="seleccionar(${r.i})">
@@ -217,6 +247,7 @@ function alternar(btn, ids) {
 }
 document.getElementById('bCalor').onclick = e => alternar(e.currentTarget, () => ['calor']);
 document.getElementById('bCob').onclick = e => alternar(e.currentTarget, () => capas.map(c => c.id));
+document.getElementById('bOficial').onclick = e => alternar(e.currentTarget, () => ['oficial', 'oficial-borde']);
 
 const letra = i => 'ABC'[i];
 const dur = s => { const h = Math.floor(s / 3600), m = Math.round(s % 3600 / 60); return (h ? h + ' h ' : '') + m + ' min'; };

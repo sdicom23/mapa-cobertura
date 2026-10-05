@@ -44,3 +44,17 @@ En `Cobertura.gs`, cambia `CFG.MAPA_URL` por la dirección de este sitio, termin
 ```
 https://sdicom23.github.io/mapa-cobertura/
 ```
+
+## Índice oficial SESNSP (robo a transportista por municipio)
+
+1. Descarga del SESNSP la base **"Incidencia delictiva municipal – Fuero común – Delitos"** (CSV).
+2. En la carpeta `herramientas/` ejecuta:
+
+   ```bash
+   python sesnsp_a_mapa.py ARCHIVO_DEL_SESNSP.csv --meses 12
+   ```
+
+3. Sube el `riesgo_municipal.geojson` que genera a la carpeta `capas/`.
+
+`rutasegura.html` y `mapa.html` lo detectan solos: aparece el botón "SESNSP" y la ruta recomendada
+toma en cuenta los municipios de alto riesgo por los que pasa.

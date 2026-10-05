@@ -165,5 +165,38 @@
     return { type: 'FeatureCollection', features };
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos };
+  /***** ÍNDICE OFICIAL POR MUNICIPIO (SESNSP) *****/
+  const COLOR_NIVEL = ['match', ['get', 'nivel'], 1, '#fee08b', 2, '#fdae61', 3, '#f46d43', 4, '#a50026', '#cccccc'];
+
+  /** Agrega la capa si existe capas/riesgo_municipal.geojson. Devuelve { features, periodo } o null */
+  async function cargarRiesgoMunicipal(map, opacidad, antesDe) {
+    let gj;
+    try {
+      const r = await fetch(C.RIESGO_MUNICIPAL_URL);
+      if (!r.ok) return null;
+      gj = await r.json();
+    } catch (e) { return null; }
+    if (!gj || !Array.isArray(gj.features) || !gj.features.length) return null;
+    gj.features.forEach(f => { f.bbox = turf.bbox(f); });
+    map.addSource('oficial', { type: 'geojson', data: gj });
+    map.addLayer({ id: 'oficial', type: 'fill', source: 'oficial',
+      paint: { 'fill-color': COLOR_NIVEL, 'fill-opacity': opacidad } }, antesDe);
+    map.addLayer({ id: 'oficial-borde', type: 'line', source: 'oficial', minzoom: 7,
+      paint: { 'line-color': '#a50026', 'line-width': 0.4, 'line-opacity': 0.4 } }, antesDe);
+    return { features: gj.features, periodo: gj.periodo || '' };
+  }
+
+  /** Municipio (con índice) que contiene el punto, o null */
+  function municipioEn(features, lngLat) {
+    const [x, y] = lngLat;
+    for (const f of features) {
+      const b = f.bbox;
+      if (x < b[0] || x > b[2] || y < b[1] || y > b[3]) continue;
+      if (turf.booleanPointInPolygon(lngLat, f)) return f.properties;
+    }
+    return null;
+  }
+
+  window.Comun = { cargarCoberturas, coberturaEn, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+                   cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL };
 })();

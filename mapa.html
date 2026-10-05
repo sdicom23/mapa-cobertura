@@ -141,7 +141,7 @@ function actualizar() {
   document.getElementById('resumen').textContent =
     `${lista.length} incidentes · ${conViolencia} con violencia · ${etiqueta}`;
 
-  document.querySelectorAll('.chip').forEach(ch => {
+  document.querySelectorAll('.chip[data-cat]').forEach(ch => {
     const n = todos.filter(f => f.properties.cat === ch.dataset.cat &&
       f.properties.ts >= Date.now() - diasSel * 86400000).length;
     ch.querySelector('.n').textContent = n;
@@ -154,6 +154,7 @@ map.on('load', async () => {
   todos = preparar(gj);
   if (demo) document.getElementById('demo').style.display = 'inline-block';
 
+  await cargarOficial();
   map.addSource('eventos', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
 
   map.addLayer({
@@ -202,6 +203,38 @@ map.on('load', async () => {
   crearChips();
   actualizar();
 });
+
+/***** ÍNDICE OFICIAL SESNSP POR MUNICIPIO (si existe capas/riesgo_municipal.geojson) *****/
+async function cargarOficial() {
+  let gj;
+  try {
+    const r = await fetch('capas/riesgo_municipal.geojson');
+    if (!r.ok) return;
+    gj = await r.json();
+  } catch (e) { return; }
+  if (!gj.features || !gj.features.length) return;
+  map.addSource('oficial', { type: 'geojson', data: gj });
+  map.addLayer({ id: 'oficial', type: 'fill', source: 'oficial', paint: {
+    'fill-color': ['match', ['get', 'nivel'], 1, '#fee08b', 2, '#fdae61', 3, '#f46d43', 4, '#a50026', '#ccc'],
+    'fill-opacity': 0.35 } });
+  map.on('click', 'oficial', e => {
+    if (map.queryRenderedFeatures(e.point, { layers: ['puntos'] }).length) return;
+    const p = e.features[0].properties;
+    new maplibregl.Popup({ offset: 6 }).setLngLat(e.lngLat).setHTML(
+      `<div class="pop"><div class="pop-t">${esc(p.municipio)}, ${esc(p.estado)}</div>` +
+      `<div>${p.robos} robos a transportista · ${p.con_violencia} con violencia</div>` +
+      `<div class="pop-s">SESNSP ${esc(p.periodo || gj.periodo || '')}</div></div>`).addTo(map);
+  });
+  const ch = document.createElement('div');
+  ch.className = 'chip';
+  ch.innerHTML = `<span class="dot" style="background:#a50026;border-radius:2px"></span>Índice oficial SESNSP`;
+  ch.onclick = () => {
+    const on = map.getLayoutProperty('oficial', 'visibility') !== 'none';
+    map.setLayoutProperty('oficial', 'visibility', on ? 'none' : 'visible');
+    ch.classList.toggle('off', on);
+  };
+  document.getElementById('cats').appendChild(ch);
+}
 
 /***** CONTROLES *****/
 document.getElementById('periodos').addEventListener('click', e => {

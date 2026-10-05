@@ -35,7 +35,14 @@ window.CONFIG = {
   VIDA_MEDIA_DIAS: 90,     // un incidente de hace 90 días pesa ~37% de uno de hoy
   RADIO_RIESGO_KM: 3,      // incidentes a menos de esta distancia de la ruta cuentan para su riesgo
 
+  // Índice oficial por municipio (generado con sesnsp_a_mapa.py)
+  RIESGO_MUNICIPAL_URL: 'capas/riesgo_municipal.geojson',
+
   // Cómo se elige la ruta recomendada (deben sumar 1)
   PESO_SEGURIDAD: 0.7,
-  PESO_COBERTURA: 0.3
+  PESO_COBERTURA: 0.3,
+
+  // Dentro de seguridad: incidentes recientes (noticias/bot) vs. índice oficial SESNSP (deben sumar 1)
+  PESO_INCIDENTES: 0.5,
+  PESO_OFICIAL: 0.5
 };
