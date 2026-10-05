@@ -221,7 +221,7 @@ async function cargarOficial() {
     if (map.queryRenderedFeatures(e.point, { layers: ['puntos'] }).length) return;
     const p = e.features[0].properties;
     new maplibregl.Popup({ offset: 6 }).setLngLat(e.lngLat).setHTML(
-      `<div class="pop"><div class="pop-t">${esc(p.municipio)}, ${esc(p.estado)}</div>` +
+      `<div class="pop"><div class="pop-t">${esc([p.municipio, p.estado].filter(Boolean).join(', '))}</div>` +
       `<div>${p.robos} robos a transportista · ${p.con_violencia} con violencia</div>` +
       `<div class="pop-s">SESNSP ${esc(p.periodo || gj.periodo || '')}</div></div>`).addTo(map);
   });

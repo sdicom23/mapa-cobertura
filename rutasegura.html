@@ -185,7 +185,7 @@ function coberturaRuta(r) {
   }
   r.oficial = {
     prom: sumaNivel / r.km,
-    focos: Object.values(munis).sort((x, y) => y.indice - x.indice).slice(0, 3).map(m => m.municipio)
+    focos: Object.values(munis).sort((x, y) => y.indice - x.indice).slice(0, 3).map(m => m.municipio || m.estado)
   };
   return { km, tramos, pct: Math.round((1 - km.sin / r.km) * 100) };
 }
