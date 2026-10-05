@@ -1,29 +1,42 @@
 #!/usr/bin/env python3
 """
-SESNSP -> capa de riesgo municipal para el mapa
-================================================
-Lee la base de datos abiertos del SESNSP (incidencia delictiva municipal, fuero común),
-toma los delitos de ROBO A TRANSPORTISTA de los últimos N meses, los suma por municipio
-y genera la capa que usan rutasegura.html y mapa.html.
+SESNSP (incidencia delictiva MUNICIPAL, fuero común) -> capa de riesgo para el mapa
+====================================================================================
+Toma TODO lo relacionado con robo a transporte, lo suma por municipio y genera la capa
+que usan rutasegura.html y mapa.html.
 
 Uso:
-    python sesnsp_a_mapa.py ARCHIVO_SESNSP.csv [otro.csv ...] --meses 12
+    python sesnsp_a_mapa.py RNID-Delitos_Municipal-2026-ago2026.xlsx [--meses 12]
+    (acepta .xlsx, .xls, .csv o .zip con el CSV)
 
-Salidas (en la carpeta actual):
-    riesgo_municipal.geojson  -> súbelo a capas/ del repositorio
-    riesgo_municipal.csv      -> resumen para revisar o pegar en Google Sheets (hoja "RiesgoMunicipal")
+Salidas (carpeta actual):
+    riesgo_municipal.geojson -> súbelo a capas/ del repositorio
+    riesgo_municipal.csv     -> resumen por municipio (para revisar o pegar en Google Sheets)
 
 Necesita municipios_base.geojson en la misma carpeta.
-Acepta el formato ancho (columnas Enero..Diciembre) y el formato largo (columna de mes + total).
 """
-import argparse, csv, io, json, re, sys, unicodedata, zipfile
-from collections import defaultdict
+import argparse, json, re, sys, unicodedata
+import pandas as pd
 
 MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio',
          'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
-DELITO = re.compile(r'transportista')          # robo a transportista
-VIOLENCIA = re.compile(r'con violencia')
-SIN_VIOLENCIA = re.compile(r'sin violencia')
+
+# Categorías: (campo, texto a buscar en "Subtipo de delito", peso con violencia, peso sin violencia)
+# Pesos = qué tanto afecta a una ruta de carga. Ajústalos si quieres.
+CATEGORIAS = [
+    ('transportista',         r'robo a transportista',                 1.5, 1.0),
+    ('transporte_colectivo',  r'robo en transporte publico colectivo', 0.3, 0.05),
+    ('transporte_pub_indiv',  r'robo en transporte publico individual', 0.2, 0.05),
+    ('transporte_individual', r'robo en transporte individual',        0.2, 0.05),
+    ('vehiculo',              r'robo de vehiculo automotor - coche',   0.05, 0.0),
+]
+NOMBRES = {
+    'transportista': 'Robo a transportista',
+    'transporte_colectivo': 'Robo en transporte público colectivo',
+    'transporte_pub_indiv': 'Robo en transporte público individual',
+    'transporte_individual': 'Robo en transporte individual',
+    'vehiculo': 'Robo de vehículo (4 ruedas)',
+}
 
 
 def norm(s):
@@ -31,98 +44,16 @@ def norm(s):
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
-def abrir_excel(ruta):
-    """Lee un .xls/.xlsx. Busca la fila de encabezados (la que menciona 'municipio') y une todas las hojas."""
-    import pandas as pd
-    hojas = pd.read_excel(ruta, sheet_name=None, header=None, dtype=str)
-    filas, encabezado = [], None
-    for df in hojas.values():
-        df = df.fillna('')
-        datos = df.values.tolist()
-        idx = next((i for i, r in enumerate(datos[:40])
-                    if any('municipio' in norm(c) for c in r) and any(norm(c) in MESES or 'delito' in norm(c) for c in r)), None)
-        if idx is None:
-            continue
-        if encabezado is None:
-            encabezado = [str(c) for c in datos[idx]]
-            filas.append(encabezado)
-        filas.extend([str(c) for c in r] for r in datos[idx + 1:] if any(str(c).strip() for c in r))
-    if not filas:
-        sys.exit('No encontré en el Excel una tabla con columnas de municipio y meses/delitos.')
-    return filas
-
-
-def abrir(ruta):
-    """Devuelve las filas de un CSV (también dentro de un .zip) o de un Excel."""
-    if ruta.lower().endswith(('.xls', '.xlsx')):
-        return abrir_excel(ruta)
-    if ruta.lower().endswith('.zip'):
-        z = zipfile.ZipFile(ruta)
-        nombre = next(n for n in z.namelist() if n.lower().endswith('.csv'))
-        datos = z.read(nombre)
-    else:
-        datos = open(ruta, 'rb').read()
+def leer(ruta):
+    r = ruta.lower()
+    if r.endswith(('.xlsx', '.xls')):
+        return pd.read_excel(ruta, dtype=str)
     for enc in ('utf-8-sig', 'latin-1'):
         try:
-            texto = datos.decode(enc)
-            break
+            return pd.read_csv(ruta, dtype=str, encoding=enc, sep=None, engine='python')
         except UnicodeDecodeError:
             continue
-    muestra = texto[:5000]
-    sep = ';' if muestra.count(';') > muestra.count(',') else ','
-    return list(csv.reader(io.StringIO(texto), delimiter=sep))
-
-
-def numero(v):
-    v = str(v).strip().replace(',', '')
-    try:
-        return float(v) if v else 0.0
-    except ValueError:
-        return 0.0
-
-
-def procesar(filas):
-    """Devuelve dict {(anio, mes): {cve: [con_violencia, sin_violencia, sin_dato]}}"""
-    enc = [norm(h) for h in filas[0]]
-    col_cve = next((i for i, h in enumerate(enc) if ('mun' in h and ('cve' in h or 'clave' in h))), None)
-    col_anio = next((i for i, h in enumerate(enc) if h in ('ano', 'anio', 'year') or h.startswith('ano')), None)
-    cols_texto = [i for i, h in enumerate(enc) if any(k in h for k in ('delito', 'subtipo', 'modalidad', 'tipo', 'bien juridico'))]
-    cols_mes = {i: MESES.index(h) + 1 for i, h in enumerate(enc) if h in MESES}
-    col_mes = next((i for i, h in enumerate(enc) if h == 'mes'), None)
-    col_total = next((i for i, h in enumerate(enc) if h in ('total', 'incidencia', 'delitos', 'numero de delitos', 'cantidad')), None)
-    col_fecha = next((i for i, h in enumerate(enc) if 'fecha' in h or 'periodo' in h), None)
-
-    if col_cve is None or not cols_texto:
-        sys.exit(f'No reconozco las columnas de este archivo: {filas[0]}')
-    if not cols_mes and (col_total is None or (col_mes is None and col_fecha is None)):
-        sys.exit(f'No encuentro columnas de meses ni de total: {filas[0]}')
-
-    res = defaultdict(lambda: defaultdict(lambda: [0.0, 0.0, 0.0]))
-    nacional = defaultdict(float)
-    for f in filas[1:]:
-        if len(f) < len(enc):
-            continue
-        texto = norm(' '.join(f[i] for i in cols_texto))
-        cve = re.sub(r'\D', '', f[col_cve]).zfill(5)
-        if cols_mes:
-            anio = int(numero(f[col_anio])) if col_anio is not None else 0
-            pares = [(m, numero(f[i])) for i, m in cols_mes.items()]
-        else:
-            if col_mes is not None:
-                anio = int(numero(f[col_anio])) if col_anio is not None else 0
-                mv = norm(f[col_mes])
-                m = MESES.index(mv) + 1 if mv in MESES else int(numero(mv))
-            else:
-                fe = re.findall(r'\d+', f[col_fecha])
-                anio, m = (int(fe[0]), int(fe[1])) if len(fe) >= 2 else (0, 0)
-            pares = [(m, numero(f[col_total]))]
-        for m, v in pares:
-            nacional[(anio, m)] += v          # para saber qué meses ya tienen datos
-            if not v or not DELITO.search(texto):
-                continue
-            k = 0 if VIOLENCIA.search(texto) and not SIN_VIOLENCIA.search(texto) else (1 if SIN_VIOLENCIA.search(texto) else 2)
-            res[(anio, m)][cve][k] += v
-    return res, nacional
+    sys.exit('No pude leer el archivo')
 
 
 def main():
@@ -132,74 +63,112 @@ def main():
     ap.add_argument('--base', default='municipios_base.geojson')
     a = ap.parse_args()
 
-    total = defaultdict(lambda: defaultdict(lambda: [0.0, 0.0, 0.0]))
-    nacional = defaultdict(float)
+    largo = []
     for ruta in a.archivos:
         print(f'Leyendo {ruta} ...')
-        r, n = procesar(abrir(ruta))
-        for p, d in r.items():
-            for cve, v in d.items():
-                for k in range(3):
-                    total[p][cve][k] += v[k]
-        for p, v in n.items():
-            nacional[p] += v
+        df = leer(ruta)
+        col = {norm(c): c for c in df.columns}
+        c_anio = next(col[k] for k in col if k in ('ano', 'anio') or k.startswith('ano'))
+        c_cve = next(col[k] for k in col if 'mun' in k and ('cve' in k or 'clave' in k))
+        c_sub = next(col[k] for k in col if 'subtipo' in k)
+        c_mod = next(col[k] for k in col if 'modalidad' in k)
+        meses = [(col[k], MESES.index(k) + 1) for k in col if k in MESES]
+        for c, m in meses:
+            df[c] = pd.to_numeric(df[c], errors='coerce')
+        # Meses con datos en el país (los vacíos son meses aún no publicados)
+        for c, m in meses:
+            if df[c].notna().any() and df[c].fillna(0).sum() > 0:
+                pass
+        sub = df[c_sub].map(norm)
+        viol = df[c_mod].map(norm).str.contains('con violencia')
+        for campo, patron, _, _ in CATEGORIAS:
+            sel = sub.str.contains(patron, regex=True)
+            if not sel.any():
+                continue
+            parte = df[sel]
+            for c, m in meses:
+                v = parte[c]
+                if v.isna().all():
+                    continue
+                largo.append(pd.DataFrame({
+                    'periodo': (pd.to_numeric(parte[c_anio]).astype(int) * 100 + m).values,
+                    'cve': parte[c_cve].str.replace(r'\D', '', regex=True).str.zfill(5).values,
+                    'campo': campo, 'violencia': viol[sel].values, 'n': v.fillna(0).values}))
+    if not largo:
+        sys.exit('No encontré delitos de robo a transporte en el archivo.')
+    d = pd.concat(largo)
+    periodos = sorted(p for p, n in d.groupby('periodo')['n'].sum().items() if n > 0)[-a.meses:]
+    d = d[d.periodo.isin(periodos)]
+    ini, fin = periodos[0], periodos[-1]
+    etiqueta = f'{MESES[ini % 100 - 1][:3]} {ini // 100} - {MESES[fin % 100 - 1][:3]} {fin // 100}'
+    print(f'Periodo: {etiqueta} ({len(periodos)} meses)')
 
-    con_datos = sorted(p for p, v in nacional.items() if v > 0)
-    if not con_datos:
-        sys.exit('El archivo no tiene meses con datos.')
-    ventana = con_datos[-a.meses:]
-    print(f'Periodo: {ventana[0][1]:02d}/{ventana[0][0]} a {ventana[-1][1]:02d}/{ventana[-1][0]} ({len(ventana)} meses)')
+    tabla = d.pivot_table(index='cve', columns=['campo', 'violencia'], values='n', aggfunc='sum', fill_value=0)
 
-    suma = defaultdict(lambda: [0.0, 0.0, 0.0])
-    for p in ventana:
-        for cve, v in total.get(p, {}).items():
-            for k in range(3):
-                suma[cve][k] += v[k]
+    def val(cve, campo, v):
+        try:
+            return float(tabla.loc[cve, (campo, v)])
+        except KeyError:
+            return 0.0
 
     base = json.load(open(a.base, encoding='utf-8'))
-    nombres = {f['properties']['cve']: f['properties'] for f in base['features']}
+    geo = {f['properties']['cve']: f for f in base['features']}
 
-    # Índice: con violencia pesa 1.5
-    indices = {cve: v[0] * 1.5 + v[1] + v[2] for cve, v in suma.items() if sum(v) > 0}
-    valores = sorted(indices.values())
-
-    def corte(q):
-        return valores[min(len(valores) - 1, int(q * len(valores)))] if valores else 0
-    c50, c80, c95 = corte(0.5), corte(0.8), corte(0.95)
-
-    def nivel(x):
-        return 4 if x >= c95 else 3 if x >= c80 else 2 if x >= c50 else 1
-
-    periodo = f'{ventana[0][1]:02d}/{ventana[0][0]}-{ventana[-1][1]:02d}/{ventana[-1][0]}'
-    salida, filas = [], []
-    for f in base['features']:
-        cve = f['properties']['cve']
-        if cve not in indices:
+    filas = []
+    for cve in tabla.index:
+        p = {'cve': cve}
+        indice = robos = cv = 0.0
+        for campo, _, pcv, psv in CATEGORIAS:
+            c, s = val(cve, campo, True), val(cve, campo, False)
+            p[campo] = int(c + s)
+            p[campo + '_cv'] = int(c)
+            indice += c * pcv + s * psv
+            robos += c + s
+            cv += c
+        if robos == 0:
             continue
-        v = suma[cve]
-        props = {
-            'cve': cve, 'municipio': f['properties']['municipio'], 'estado': f['properties']['estado'],
-            'robos': int(round(sum(v))), 'con_violencia': int(round(v[0])),
-            'indice': round(indices[cve], 1), 'nivel': nivel(indices[cve]), 'periodo': periodo
-        }
-        salida.append({'type': 'Feature', 'geometry': f['geometry'], 'properties': props})
-        filas.append(props)
+        p.update({'robos': int(robos), 'con_violencia': int(cv), 'indice': round(indice, 1)})
+        filas.append(p)
 
-    sin_mapa = [c for c in indices if c not in nombres]
-    json.dump({'type': 'FeatureCollection', 'periodo': periodo, 'features': salida},
+    # Nivel 1-4 por percentiles del índice (sólo municipios con índice > 0)
+    vals = sorted(f['indice'] for f in filas if f['indice'] > 0)
+    corte = lambda q: vals[min(len(vals) - 1, int(q * len(vals)))]
+    c50, c80, c95 = corte(0.5), corte(0.8), corte(0.95)
+    for f in filas:
+        x = f['indice']
+        f['nivel'] = 0 if x == 0 else 4 if x >= c95 else 3 if x >= c80 else 2 if x >= c50 else 1
+        if f['transportista'] == 0:      # sin robo a transportista no puede ser nivel alto para carga
+            f['nivel'] = min(f['nivel'], 2)
+
+    salida, sin_mapa = [], []
+    for f in filas:
+        g = geo.get(f['cve'])
+        if not g:
+            sin_mapa.append(f['cve'])
+            continue
+        f['municipio'] = g['properties']['municipio']
+        f['estado'] = g['properties']['estado']
+        f['periodo'] = etiqueta
+        if f['nivel'] == 0:
+            continue
+        salida.append({'type': 'Feature', 'geometry': g['geometry'], 'properties': f})
+
+    json.dump({'type': 'FeatureCollection', 'periodo': etiqueta, 'escala': 'municipal',
+               'categorias': NOMBRES, 'features': salida},
               open('riesgo_municipal.geojson', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-    filas.sort(key=lambda r: -r['indice'])
-    with open('riesgo_municipal.csv', 'w', newline='', encoding='utf-8') as fh:
-        w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()) if filas else ['cve'])
-        w.writeheader()
-        w.writerows(filas)
 
-    print(f'Municipios con robo a transportista: {len(salida)}  |  total robos: {int(sum(sum(v) for v in suma.values()))}')
-    if sin_mapa:
-        print(f'Aviso: {len(sin_mapa)} claves sin polígono (municipios nuevos o "otros"): {sin_mapa[:10]}')
-    print('Top 10:')
-    for r in filas[:10]:
-        print(f"  {r['municipio']}, {r['estado']}: {r['robos']} robos ({r['con_violencia']} con violencia)")
+    cols = ['cve', 'municipio', 'estado', 'nivel', 'indice', 'robos', 'con_violencia'] + \
+           [x for c in CATEGORIAS for x in (c[0], c[0] + '_cv')]
+    out = pd.DataFrame([f for f in filas if 'municipio' in f])[cols].sort_values('indice', ascending=False)
+    out.to_csv('riesgo_municipal.csv', index=False, encoding='utf-8')
+
+    print(f'Municipios en el mapa: {len(salida)} | sin polígono: {len(sin_mapa)} {sin_mapa[:8]}')
+    print('Totales en el país:')
+    for campo, _, _, _ in CATEGORIAS:
+        print(f"  {NOMBRES[campo]:<40} {int(out[campo].sum()):>7}  ({int(out[campo + '_cv'].sum())} con violencia)")
+    print('Top 15 por índice de riesgo para transporte:')
+    for _, r in out.head(15).iterrows():
+        print(f"  {r.municipio + ', ' + r.estado:<45} transportista {r.transportista:>4} | índice {r.indice:>7} | nivel {r.nivel}")
 
 
 if __name__ == '__main__':

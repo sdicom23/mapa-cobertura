@@ -1,0 +1,1392 @@
+cve,municipio,estado,nivel,indice,robos,con_violencia,transportista,transportista_cv,transporte_colectivo,transporte_colectivo_cv,transporte_pub_indiv,transporte_pub_indiv_cv,transporte_individual,transporte_individual_cv,vehiculo,vehiculo_cv
+21114,Puebla,Puebla,4,366.9,2991,905,122,113,1066,249,56,40,509,134,1238,369
+15033,Ecatepec de Morelos,México,4,324.0,1763,1138,136,103,283,204,33,25,360,77,951,729
+15057,Naucalpan de Juárez,México,4,297.9,1183,627,122,102,297,266,20,14,440,62,304,183
+15121,Cuautitlán Izcalli,México,4,294.1,1165,554,139,119,208,181,17,12,417,43,384,199
+15104,Tlalnepantla de Baz,México,4,276.9,1221,617,127,109,209,174,13,9,387,38,485,287
+15025,Chalco,México,4,181.6,441,262,109,78,66,61,5,4,90,37,171,82
+24028,San Luis Potosí,San Luis Potosí,4,164.6,414,112,136,51,0,0,0,0,0,0,278,61
+15106,Toluca,México,4,162.8,1025,285,64,46,125,88,41,23,566,74,229,54
+15081,Tecámac,México,4,144.7,665,371,75,45,80,59,6,4,224,32,280,231
+15058,Nezahualcóyotl,México,4,120.7,609,280,46,28,139,114,26,14,229,42,169,82
+21132,San Martín Texmelucan,Puebla,4,117.0,202,117,75,71,2,2,1,1,29,21,95,22
+15031,Chimalhuacán,México,4,110.2,380,273,52,46,76,66,6,5,79,21,167,135
+15039,Ixtapaluca,México,4,108.1,311,195,55,42,69,61,11,11,79,32,97,49
+15109,Tultitlán,México,4,105.3,498,264,53,31,76,57,6,5,131,26,232,145
+16053,Morelia,Michoacán de Ocampo,4,99.3,637,229,66,42,13,2,10,8,8,2,540,175
+21074,Huejotzingo,Puebla,4,91.2,182,91,60,56,3,2,1,1,8,3,110,29
+15122,Valle de Chalco Solidaridad,México,4,87.8,344,221,38,29,96,84,5,3,49,11,156,94
+16102,Uruapan,Michoacán de Ocampo,4,78.0,295,204,45,39,24,20,0,0,0,0,226,145
+15095,Tepotzotlán,México,4,74.2,122,81,48,39,14,10,1,1,25,5,34,26
+09007,Iztapalapa,Ciudad de México,4,73.4,673,292,2,2,273,84,29,7,155,155,214,44
+15070,La Paz,México,4,69.9,280,179,32,16,81,75,2,0,34,9,131,79
+21063,Esperanza,Puebla,4,67.0,69,60,44,44,1,1,0,0,0,0,24,15
+21015,Amozoc,Puebla,4,65.8,262,164,36,35,16,11,3,3,23,12,184,103
+15013,Atizapán de Zaragoza,México,4,61.4,333,129,21,17,82,66,10,8,133,10,87,28
+09015,Cuauhtémoc,Ciudad de México,2,58.9,882,114,0,0,666,24,81,24,58,58,77,8
+21041,Cuautlancingo,Puebla,4,58.5,249,115,35,32,13,1,1,1,22,12,178,69
+21170,Tepeyahualco,Puebla,4,57.9,89,85,37,37,0,0,0,0,0,0,52,48
+21110,Palmar de Bravo,Puebla,4,54.1,83,64,35,34,0,0,0,0,4,4,44,26
+21004,Acatzingo,Puebla,4,53.5,100,78,34,33,1,0,0,0,6,4,59,41
+15099,Texcoco,México,4,52.1,219,101,32,18,11,8,3,2,66,12,107,61
+15024,Cuautitlán,México,4,50.4,221,120,32,10,23,16,5,5,45,6,116,83
+15035,Huehuetoca,México,4,49.0,138,93,25,24,27,23,5,4,28,6,53,36
+15045,Jilotepec,México,4,48.6,93,62,33,26,2,0,1,0,14,0,43,36
+21034,Coronango,Puebla,4,48.4,114,53,31,31,4,2,0,0,1,1,78,19
+21180,Tlahuapan,Puebla,4,48.1,54,36,32,31,0,0,0,0,4,2,18,3
+15020,Coacalco de Berriozábal,México,4,47.3,297,103,17,10,82,47,9,4,109,9,80,33
+15120,Zumpango,México,4,45.6,207,129,20,15,39,28,4,2,58,15,86,69
+21136,San Miguel Xoxtla,Puebla,4,43.5,61,47,29,27,1,0,0,0,0,0,31,20
+25006,Culiacán,Sinaloa,2,40.2,911,801,0,0,0,0,1,0,1,1,909,800
+21156,Tehuacán,Puebla,4,39.8,203,68,22,22,25,0,1,1,30,16,125,29
+27004,Centro,Tabasco,4,35.8,384,122,24,2,27,4,0,0,51,1,282,115
+15060,Nicolás Romero,México,4,34.8,173,76,15,12,35,27,5,2,43,8,75,27
+09005,Gustavo A. Madero,Ciudad de México,4,34.7,488,115,4,4,182,42,28,5,25,25,249,39
+15108,Tultepec,México,4,30.4,178,105,14,10,14,12,3,2,45,9,102,72
+09016,Miguel Hidalgo,Ciudad de México,4,30.2,314,94,3,2,134,10,31,1,75,75,71,6
+14098,San Pedro Tlaquepaque,Jalisco,4,28.8,546,241,9,9,3,2,9,9,12,12,513,209
+15079,Soyaniquilpan de Juárez,México,4,28.1,47,44,18,17,0,0,0,0,2,1,27,26
+17007,Cuernavaca,Morelos,4,28.1,445,238,9,8,11,8,4,1,10,7,411,214
+15115,Xonacatlán,México,4,27.8,49,29,17,17,2,2,0,0,14,5,16,5
+15051,Lerma,México,4,27.3,162,42,11,10,15,11,6,6,101,8,29,7
+02004,Tijuana,Baja California,4,27.2,2344,238,10,6,17,2,3,0,17,4,2297,226
+15071,Polotitlán,México,4,27.1,42,35,18,16,0,0,0,0,1,1,23,18
+15037,Huixquilucan,México,4,26.0,138,46,12,6,16,14,2,1,75,14,33,11
+09012,Tlalpan,Ciudad de México,4,25.4,366,80,4,4,143,6,15,1,43,43,161,26
+21115,Quecholac,Puebla,4,23.9,52,42,15,14,0,0,0,0,4,3,33,25
+21154,Tecamachalco,Puebla,4,23.7,150,80,12,11,1,1,0,0,21,14,116,54
+15054,Metepec,México,4,23.5,213,39,7,4,13,10,7,6,161,11,25,8
+24035,Soledad de Graciano Sánchez,San Luis Potosí,4,23.1,94,28,18,8,1,0,0,0,0,0,75,20
+15061,Nopaltepec,México,4,23.0,45,43,14,14,0,0,0,0,5,3,26,26
+09017,Venustiano Carranza,Ciudad de México,3,22.8,274,84,1,1,90,17,40,8,43,43,100,15
+15091,Teoloyucan,México,3,22.2,77,56,11,10,11,11,1,1,14,3,40,31
+16088,Tarímbaro,Michoacán de Ocampo,3,22.1,78,40,15,11,1,0,0,0,1,0,61,29
+22014,Querétaro,Querétaro,2,20.8,878,119,0,0,44,2,14,5,103,59,717,53
+20184,San Juan Bautista Tuxtepec,Oaxaca,3,19.8,23,18,13,13,0,0,0,0,0,0,10,5
+19039,Monterrey,Nuevo León,3,19.8,164,63,7,2,9,2,37,31,22,19,89,9
+09003,Coyoacán,Ciudad de México,2,19.8,340,56,0,0,158,12,30,8,29,29,123,7
+16079,Salvador Escalante,Michoacán de Ocampo,3,19.1,49,42,12,11,0,0,0,0,0,0,37,31
+15016,Axapusco,México,3,18.8,65,57,11,10,0,0,0,0,5,2,49,45
+21045,Chalchicomula de Sesma,Puebla,3,18.8,32,18,12,12,1,0,0,0,5,2,14,4
+09014,Benito Juárez,Ciudad de México,2,18.6,316,35,0,0,202,8,33,5,20,20,61,2
+13069,Tizayuca,Hidalgo,3,18.4,176,112,3,1,7,6,5,5,50,46,111,54
+20548,Tepelmeme Villa de Morelos,Oaxaca,3,18.1,16,14,12,12,0,0,0,0,0,0,4,2
+16066,Pátzcuaro,Michoacán de Ocampo,3,18.1,105,51,11,10,0,0,0,0,0,0,94,41
+21164,Tepeaca,Puebla,3,17.9,82,38,11,9,1,1,0,0,8,3,62,25
+14039,Guadalajara,Jalisco,3,17.9,1390,234,1,1,5,4,9,9,16,15,1359,205
+16084,Tangamandapio,Michoacán de Ocampo,3,17.8,54,45,11,10,0,0,0,0,0,0,43,35
+16110,Zinapécuaro,Michoacán de Ocampo,3,17.3,50,36,11,10,0,0,0,0,0,0,39,26
+09010,Álvaro Obregón,Ciudad de México,2,17.2,233,72,0,0,57,3,18,6,58,58,100,5
+15023,Coyotepec,México,3,16.8,41,34,9,7,10,9,0,0,5,4,17,14
+14097,Tlajomulco de Zúñiga,Jalisco,3,16.7,182,98,7,6,7,1,6,5,5,5,157,81
+15059,Nextlalpan,México,3,16.6,84,71,7,7,3,3,1,1,22,9,51,51
+14053,Lagos de Moreno,Jalisco,3,16.2,119,89,8,8,0,0,0,0,1,1,110,80
+15118,Zinacantepec,México,3,15.9,124,33,7,5,6,5,4,2,55,5,52,16
+14101,Tonalá,Jalisco,3,15.9,301,121,5,5,2,2,7,7,8,7,279,100
+16043,Jacona,Michoacán de Ocampo,3,14.8,78,65,8,8,0,0,0,0,0,0,70,57
+15084,Temascalapa,México,3,14.7,23,22,9,9,2,2,0,0,1,0,11,11
+01001,Aguascalientes,Aguascalientes,2,14.6,262,65,0,0,6,0,92,50,11,9,153,6
+09006,Iztacalco,Ciudad de México,2,14.3,191,53,0,0,91,9,11,4,29,29,60,11
+21099,Cañada Morelos,Puebla,3,13.9,24,17,9,9,0,0,0,0,0,0,15,8
+14120,Zapopan,Jalisco,3,13.9,721,190,2,2,1,0,5,5,5,4,708,179
+21065,General Felipe Ángeles,Puebla,3,13.8,18,12,9,9,0,0,0,0,1,1,8,2
+14070,El Salto,Jalisco,3,13.7,157,94,5,5,5,2,2,2,6,5,139,80
+15029,Chicoloapan,México,3,13.1,90,63,2,2,22,17,6,5,19,8,41,31
+21071,Huauchinango,Puebla,3,13.0,136,70,4,4,5,1,4,3,27,14,96,48
+21119,San Andrés Cholula,Puebla,3,12.8,225,55,2,2,39,4,7,4,51,11,126,34
+21142,San Salvador el Seco,Puebla,3,12.8,26,18,8,8,1,0,0,0,2,1,15,9
+20067,Oaxaca de Juárez,Oaxaca,3,12.7,187,21,8,8,0,0,0,0,0,0,179,13
+15002,Acolman,México,3,12.7,82,40,5,3,11,10,1,1,25,4,40,22
+13063,Tepeji del Río de Ocampo,Hidalgo,3,12.6,57,43,5,3,2,1,5,5,21,20,24,14
+17011,Jiutepec,Morelos,3,12.3,125,63,6,5,3,0,1,1,4,4,111,53
+16100,Tzintzuntzan,Michoacán de Ocampo,3,12.2,29,18,9,5,0,0,0,0,0,0,20,13
+19006,Apodaca,Nuevo León,3,12.1,68,20,8,2,1,1,6,6,7,7,46,4
+13002,Acaxochitlán,Hidalgo,3,11.8,97,85,1,1,0,0,5,5,36,36,55,43
+09002,Azcapotzalco,Ciudad de México,3,11.4,133,38,2,2,30,3,9,2,26,26,66,5
+02002,Mexicali,Baja California,3,10.9,1110,91,5,2,0,0,1,0,6,1,1098,88
+24020,Matehuala,San Luis Potosí,3,10.9,23,12,9,3,0,0,0,0,0,0,14,9
+15090,Tenango del Valle,México,3,10.9,32,20,6,5,1,1,6,5,8,2,11,7
+15022,Cocotitlán,México,3,10.9,23,19,6,6,4,4,0,0,3,1,10,8
+19021,General Escobedo,Nuevo León,3,10.8,38,13,8,2,0,0,4,4,5,4,21,3
+15001,Acambay de Ruíz Castañeda,México,3,10.8,47,30,7,4,0,0,0,0,6,2,34,24
+16073,Quiroga,Michoacán de Ocampo,3,10.8,23,13,7,7,0,0,0,0,0,0,16,6
+19018,García,Nuevo León,3,10.8,33,21,6,4,2,2,7,7,3,3,15,5
+15100,Tezoyuca,México,3,10.5,27,20,6,6,2,1,1,1,4,2,14,10
+25012,Mazatlán,Sinaloa,2,10.5,275,198,0,0,0,0,1,1,3,3,271,194
+15067,Otzolotepec,México,3,10.5,23,16,6,6,2,2,2,2,4,0,9,6
+15053,Melchor Ocampo,México,3,10.2,50,37,5,3,5,5,0,0,8,3,32,26
+15014,Atlacomulco,México,3,10.0,65,23,5,4,2,1,2,2,22,4,34,12
+15075,San Martín de las Pirámides,México,3,9.9,31,21,6,5,1,0,0,0,8,1,16,15
+19048,Santa Catarina,Nuevo León,3,9.9,19,12,7,3,0,0,4,4,2,2,6,3
+15011,Atenco,México,3,9.8,32,20,6,4,2,2,0,0,3,3,21,11
+16018,Copándaro,Michoacán de Ocampo,3,9.2,24,19,6,5,0,0,0,0,0,0,18,14
+15048,Jocotitlán,México,3,9.2,14,9,6,5,1,1,0,0,3,1,4,2
+13083,Zempoala,Hidalgo,2,9.2,89,74,0,0,2,2,5,4,29,29,53,39
+23005,Benito Juárez,Quintana Roo,3,9.2,285,44,2,2,23,3,9,3,25,3,226,33
+15092,Teotihuacán,México,3,9.1,65,46,3,3,5,5,0,0,16,4,41,34
+13048,Pachuca de Soto,Hidalgo,3,9.1,165,42,1,0,16,9,4,4,24,16,120,13
+09011,Tláhuac,Ciudad de México,2,9.1,116,51,0,0,39,13,7,1,10,10,60,27
+21140,San Pedro Cholula,Puebla,3,8.6,159,43,2,1,15,3,2,0,31,10,109,29
+13077,Tulancingo de Bravo,Hidalgo,2,8.5,151,57,0,0,4,3,8,7,27,24,112,23
+15044,Jaltenco,México,3,8.5,35,26,4,4,2,2,0,0,12,3,17,17
+30193,Veracruz,Veracruz de Ignacio de la Llave,3,8.3,252,69,3,0,1,0,10,3,9,6,229,60
+21094,Libres,Puebla,3,8.2,37,16,5,5,0,0,0,0,1,1,31,10
+16069,La Piedad,Michoacán de Ocampo,3,8.2,83,76,3,3,0,0,0,0,0,0,80,73
+13076,Tula de Allende,Hidalgo,3,8.1,83,48,1,1,3,3,6,6,17,17,56,21
+15042,Ixtlahuaca,México,3,8.0,45,12,5,3,2,1,1,1,9,1,28,6
+12001,Acapulco de Juárez,Guerrero,2,8.0,268,160,0,0,0,0,0,0,0,0,268,160
+29006,Calpulalpan,Tlaxcala,3,7.9,13,12,5,5,0,0,0,0,1,0,7,7
+11027,Salamanca,Guanajuato,3,7.9,117,71,3,3,0,0,0,0,0,0,114,68
+15076,San Mateo Atenco,México,3,7.8,49,22,2,1,8,8,5,4,20,6,14,3
+15101,Tianguistenco,México,3,7.8,30,17,4,4,0,0,0,0,10,6,16,7
+16006,Apatzingán,Michoacán de Ocampo,3,7.7,95,75,3,2,0,0,0,0,0,0,92,73
+21144,San Salvador Huixcolotla,Puebla,3,7.7,45,14,5,4,0,0,0,0,1,1,39,9
+15065,Otumba,México,3,7.6,32,25,4,4,1,1,1,1,3,0,23,19
+09013,Xochimilco,Ciudad de México,2,7.6,121,24,0,0,57,7,9,4,9,9,46,4
+30181,Tlalixcoyan,Veracruz de Ignacio de la Llave,3,7.5,7,6,5,5,0,0,0,0,0,0,2,1
+21134,San Matías Tlalancaleca,Puebla,3,7.5,17,6,5,5,0,0,0,0,0,0,12,1
+30128,Perote,Veracruz de Ignacio de la Llave,3,7.5,57,23,5,3,0,0,0,0,0,0,52,20
+15028,Chiautla,México,3,7.5,31,22,4,4,2,2,0,0,3,0,22,16
+15018,Calimaya,México,3,7.5,34,9,4,4,0,0,0,0,20,3,10,2
+08037,Juárez,Chihuahua,2,7.5,913,129,0,0,1,0,3,3,6,2,903,124
+15005,Almoloya de Juárez,México,3,7.3,92,27,2,2,4,3,6,5,20,5,60,12
+21108,Oriental,Puebla,3,7.3,46,31,4,4,0,0,0,0,0,0,42,27
+16025,Chilchota,Michoacán de Ocampo,3,7.1,35,24,5,2,0,0,0,0,0,0,30,22
+08019,Chihuahua,Chihuahua,3,7.0,169,18,5,1,0,0,3,1,5,2,156,14
+15009,Amecameca,México,3,6.8,29,10,4,2,2,0,0,0,16,5,7,3
+21149,Santiago Miahuatlán,Puebla,3,6.8,19,11,4,4,0,0,0,0,5,2,10,5
+16108,Zamora,Michoacán de Ocampo,3,6.8,64,38,4,2,0,0,0,0,0,0,60,36
+13013,Atotonilco de Tula,Hidalgo,3,6.7,69,36,1,0,6,5,2,2,16,15,44,14
+28032,Reynosa,Tamaulipas,2,6.7,344,133,0,0,0,0,0,0,0,0,344,133
+24032,Santa María del Río,San Luis Potosí,3,6.6,10,5,5,3,0,0,0,0,0,0,5,2
+21001,Acajete,Puebla,3,6.5,51,35,3,2,1,0,0,0,5,5,42,28
+21053,Chignahuapan,Puebla,3,6.3,60,28,3,3,0,0,0,0,5,3,52,22
+30174,Tierra Blanca,Veracruz de Ignacio de la Llave,3,6.3,16,9,5,2,0,0,0,0,0,0,11,7
+16065,Paracho,Michoacán de Ocampo,3,6.3,9,7,4,4,0,0,0,0,1,1,4,2
+24050,Villa de Reyes,San Luis Potosí,3,6.2,11,7,4,4,0,0,0,0,0,0,7,3
+29013,Huamantla,Tlaxcala,3,6.2,15,8,4,4,0,0,0,0,0,0,11,4
+19026,Guadalupe,Nuevo León,3,6.2,66,19,3,0,3,1,8,8,5,5,47,5
+21019,Atlixco,Puebla,3,6.0,95,28,1,0,0,0,4,3,46,8,44,17
+21129,San José Miahuatlán,Puebla,3,6.0,7,4,4,4,0,0,0,0,0,0,3,0
+17009,Huitzilac,Morelos,2,5.8,114,105,0,0,1,1,0,0,2,2,111,102
+13051,Mineral de la Reforma,Hidalgo,3,5.7,85,28,1,1,5,5,3,1,11,8,65,13
+21118,Los Reyes de Juárez,Puebla,3,5.5,17,4,4,3,0,0,0,0,0,0,13,1
+30039,Coatzacoalcos,Veracruz de Ignacio de la Llave,3,5.5,174,43,1,1,2,1,8,5,6,4,157,32
+15087,Temoaya,México,3,5.4,20,10,3,2,2,1,0,0,8,3,7,4
+24021,Mexquitic de Carmona,San Luis Potosí,3,5.2,17,5,5,0,0,0,0,0,0,0,12,5
+30207,Tres Valles,Veracruz de Ignacio de la Llave,3,5.2,12,7,4,2,0,0,0,0,0,0,8,5
+09008,La Magdalena Contreras,Ciudad de México,3,5.2,77,15,1,0,29,3,3,0,8,8,36,4
+12029,Chilpancingo de los Bravo,Guerrero,2,5.2,168,104,0,0,0,0,0,0,0,0,168,104
+15062,Ocoyoacac,México,3,5.2,50,20,1,1,2,2,2,1,30,6,15,10
+29025,San Pablo del Monte,Tlaxcala,3,5.2,15,14,3,3,0,0,0,0,1,1,11,10
+16030,Ecuandureo,Michoacán de Ocampo,3,5.2,23,18,3,3,0,0,0,0,0,0,20,15
+26030,Hermosillo,Sonora,3,5.0,248,46,2,1,0,0,0,0,2,1,244,44
+30048,Cosoleacaque,Veracruz de Ignacio de la Llave,3,4.9,23,9,4,1,0,0,0,0,0,0,19,8
+30087,Xalapa,Veracruz de Ignacio de la Llave,3,4.8,170,13,2,2,3,1,7,4,2,1,156,5
+21128,San José Chiapa,Puebla,3,4.8,28,25,3,1,0,0,0,0,1,0,24,24
+16022,Charo,Michoacán de Ocampo,3,4.7,24,15,3,2,0,0,0,0,0,0,21,13
+16012,Buenavista,Michoacán de Ocampo,3,4.7,29,25,3,1,0,0,0,0,0,0,26,24
+16020,Cuitzeo,Michoacán de Ocampo,3,4.6,22,14,3,2,0,0,0,0,0,0,19,12
+21208,Zacatlán,Puebla,3,4.5,52,24,2,2,0,0,0,0,3,2,47,20
+16059,Nuevo Urecho,Michoacán de Ocampo,3,4.5,4,4,3,3,0,0,0,0,0,0,1,1
+19031,Juárez,Nuevo León,3,4.4,39,18,1,0,2,1,10,10,5,5,21,2
+14093,Tepatitlán de Morelos,Jalisco,3,4.3,70,29,2,2,0,0,0,0,0,0,68,27
+15010,Apaxco,México,3,4.2,14,4,3,1,1,1,0,0,5,1,5,1
+14002,Acatlán de Juárez,Jalisco,3,4.2,32,26,2,2,0,0,0,0,0,0,30,24
+13067,Tezontepec de Aldama,Hidalgo,2,4.2,40,26,0,0,2,1,4,4,13,13,21,8
+23008,Solidaridad,Quintana Roo,3,4.0,70,8,3,1,0,0,0,0,3,0,64,7
+14067,Puerto Vallarta,Jalisco,3,4.0,134,33,1,1,5,0,4,2,2,2,122,28
+30124,Papantla,Veracruz de Ignacio de la Llave,3,4.0,38,16,2,2,0,0,2,2,0,0,34,12
+13061,Tepeapulco,Hidalgo,3,4.0,35,20,1,0,2,1,2,2,10,9,20,8
+06007,Manzanillo,Colima,3,4.0,65,0,4,0,0,0,0,0,0,0,61,0
+21176,Tilapa,Puebla,3,4.0,7,5,3,1,0,0,0,0,2,2,2,2
+25008,Elota,Sinaloa,2,4.0,84,79,0,0,0,0,0,0,0,0,84,79
+16019,Cotija,Michoacán de Ocampo,3,3.9,10,9,2,2,2,2,0,0,0,0,6,5
+25009,Escuinapa,Sinaloa,3,3.9,61,57,1,0,0,0,0,0,0,0,60,57
+15103,Tlalmanalco,México,3,3.9,27,15,1,1,6,5,0,0,5,2,15,7
+27002,Cárdenas,Tabasco,3,3.9,42,28,2,1,1,0,0,0,0,0,39,27
+21106,Ocoyucan,Puebla,3,3.8,20,6,2,2,2,1,0,0,4,1,12,2
+21117,Rafael Lara Grajales,Puebla,3,3.8,15,12,2,2,0,0,0,0,2,2,11,8
+21096,Mazapiltepec de Juárez,Puebla,3,3.8,19,17,2,2,0,0,0,0,0,0,17,15
+15110,Valle de Bravo,México,3,3.8,15,5,2,2,0,0,2,1,8,0,3,2
+05035,Torreón,Coahuila de Zaragoza,3,3.7,62,22,1,0,3,2,4,4,9,0,45,16
+27006,Cunduacán,Tabasco,3,3.6,33,11,3,0,1,0,0,0,0,0,29,11
+21104,Nopalucan,Puebla,3,3.6,11,10,2,2,0,0,0,0,1,1,8,7
+13075,Tolcayuca,Hidalgo,3,3.5,28,20,1,0,0,0,1,1,11,8,15,11
+27008,Huimanguillo,Tabasco,3,3.5,32,11,2,2,0,0,0,0,0,0,30,9
+24046,Villa de Arriaga,San Luis Potosí,3,3.5,14,13,2,2,0,0,0,0,0,0,12,11
+30045,Cosamaloapan de Carpio,Veracruz de Ignacio de la Llave,3,3.5,15,11,2,2,0,0,0,0,0,0,13,9
+14035,Encarnación de Díaz,Jalisco,3,3.5,18,12,2,2,0,0,0,0,0,0,16,10
+21197,Xicotepec,Puebla,3,3.5,23,6,2,2,1,0,0,0,4,0,16,4
+16050,Maravatío,Michoacán de Ocampo,3,3.5,19,12,2,2,0,0,0,0,0,0,17,10
+30134,Puente Nacional,Veracruz de Ignacio de la Llave,3,3.5,4,2,3,1,0,0,0,0,0,0,1,1
+21022,Atzitzihuacán,Puebla,3,3.4,7,6,2,2,0,0,0,0,1,1,4,3
+14044,Ixtlahuacán de los Membrillos,Jalisco,3,3.4,15,9,2,2,0,0,0,0,0,0,13,7
+15073,San Antonio la Isla,México,3,3.4,9,4,2,2,0,0,1,1,3,0,3,1
+25018,Navolato,Sinaloa,2,3.4,65,62,0,0,0,0,0,0,2,2,63,60
+29008,Cuapiaxtla,Tlaxcala,3,3.4,11,10,2,2,0,0,0,0,0,0,9,8
+30065,Emiliano Zapata,Veracruz de Ignacio de la Llave,3,3.4,24,10,2,2,0,0,0,0,0,0,22,8
+14083,Tala,Jalisco,3,3.4,53,37,1,0,1,1,0,0,2,2,49,34
+15027,Chapultepec,México,3,3.4,7,5,2,2,0,0,0,0,2,1,3,2
+08017,Cuauhtémoc,Chihuahua,3,3.3,62,8,2,2,0,0,0,0,0,0,60,6
+30099,Maltrata,Veracruz de Ignacio de la Llave,3,3.2,48,44,1,0,0,0,0,0,0,0,47,44
+01011,San Francisco de los Romo,Aguascalientes,3,3.2,15,6,2,2,0,0,1,0,0,0,12,4
+29027,Tenancingo,Tlaxcala,3,3.2,6,6,2,2,0,0,0,0,0,0,4,4
+21040,Cuautinchán,Puebla,3,3.2,8,7,2,2,0,0,0,0,0,0,6,5
+02001,Ensenada,Baja California,3,3.2,350,27,1,1,2,0,3,1,0,0,344,25
+24055,Zaragoza,San Luis Potosí,2,3.1,7,2,3,0,0,0,0,0,0,0,4,2
+25004,Concordia,Sinaloa,2,3.1,17,13,2,1,0,0,0,0,0,0,15,12
+16101,Tzitzio,Michoacán de Ocampo,2,3.1,4,4,2,2,0,0,0,0,0,0,2,2
+08045,Meoqui,Chihuahua,2,3.1,8,4,2,2,0,0,0,0,0,0,6,2
+19020,General Bravo,Nuevo León,2,3.1,4,4,2,2,0,0,0,0,0,0,2,2
+15088,Tenancingo,México,2,3.1,16,3,2,1,0,0,0,0,11,0,3,2
+21177,Tlacotepec de Benito Juárez,Puebla,2,3.1,25,13,1,1,0,0,0,0,8,6,16,6
+17018,Temixco,Morelos,2,3.0,45,27,1,1,0,0,0,0,1,1,43,25
+16010,Arteaga,Michoacán de Ocampo,2,3.0,14,11,2,1,0,0,0,0,0,0,12,10
+24017,Guadalcázar,San Luis Potosí,2,3.0,3,3,2,2,0,0,0,0,0,0,1,1
+20232,San Lucas Ojitlán,Oaxaca,2,3.0,2,2,2,2,0,0,0,0,0,0,0,0
+20176,San Juan Bautista Coixtlahuaca,Oaxaca,2,3.0,3,2,2,2,0,0,0,0,0,0,1,0
+03003,La Paz,Baja California Sur,2,3.0,120,10,2,1,1,0,0,0,1,0,116,9
+19046,San Nicolás de los Garza,Nuevo León,2,3.0,30,14,1,0,2,1,6,6,1,0,20,7
+16052,Lázaro Cárdenas,Michoacán de Ocampo,2,3.0,51,29,1,1,0,0,1,0,0,0,49,28
+16017,Contepec,Michoacán de Ocampo,2,3.0,4,3,2,2,0,0,0,0,0,0,2,1
+17029,Yautepec,Morelos,2,3.0,70,31,1,1,0,0,0,0,0,0,69,30
+24056,Villa de Arista,San Luis Potosí,2,3.0,4,3,2,2,0,0,0,0,0,0,2,1
+11023,Pénjamo,Guanajuato,2,3.0,57,31,1,1,0,0,0,0,0,0,56,30
+15036,Hueypoxtla,México,2,3.0,9,7,2,1,0,0,0,0,2,1,5,5
+22016,San Juan del Río,Querétaro,2,3.0,134,28,0,0,2,1,2,0,11,6,119,21
+16016,Coeneo,Michoacán de Ocampo,2,3.0,4,3,2,2,0,0,0,0,0,0,2,1
+21124,San Gabriel Chilac,Puebla,2,3.0,3,2,2,2,0,0,0,0,0,0,1,0
+16091,Tingüindín,Michoacán de Ocampo,2,2.8,36,35,1,0,0,0,0,0,0,0,35,35
+16105,Vista Hermosa,Michoacán de Ocampo,2,2.8,11,6,2,1,0,0,0,0,0,0,9,5
+08032,Hidalgo del Parral,Chihuahua,2,2.7,29,5,2,1,0,0,0,0,0,0,27,4
+13057,Singuilucan,Hidalgo,2,2.7,30,20,0,0,2,1,1,1,8,8,19,10
+10005,Durango,Durango,2,2.7,130,21,0,0,0,0,5,5,6,6,119,10
+26029,Guaymas,Sonora,2,2.7,93,34,1,0,0,0,0,0,0,0,92,34
+15072,Rayón,México,2,2.6,6,1,2,1,0,0,0,0,3,0,1,0
+30131,Poza Rica de Hidalgo,Veracruz de Ignacio de la Llave,2,2.6,197,45,0,0,2,1,0,0,0,0,195,44
+21044,Cuyoaco,Puebla,2,2.6,11,4,2,1,0,0,0,0,0,0,9,3
+16034,Hidalgo,Michoacán de Ocampo,2,2.6,18,7,2,0,1,1,0,0,0,0,15,6
+11007,Celaya,Guanajuato,2,2.6,141,52,0,0,0,0,0,0,0,0,141,52
+16107,Zacapu,Michoacán de Ocampo,2,2.6,14,3,2,1,0,0,0,0,0,0,12,2
+22006,Corregidora,Querétaro,2,2.6,117,25,0,0,1,1,4,3,5,3,107,18
+20515,Santo Domingo Tehuantepec,Oaxaca,2,2.6,36,23,1,1,0,0,0,0,0,0,35,22
+20079,Salina Cruz,Oaxaca,2,2.5,30,10,2,0,0,0,0,0,0,0,28,10
+30177,Tlacolulan,Veracruz de Ignacio de la Llave,2,2.5,2,1,2,1,0,0,0,0,0,0,0,0
+24024,Rioverde,San Luis Potosí,2,2.5,4,1,2,1,0,0,0,0,0,0,2,0
+30054,Chacaltianguis,Veracruz de Ignacio de la Llave,2,2.5,3,1,2,1,0,0,0,0,0,0,1,0
+15003,Aculco,México,2,2.5,15,4,2,0,0,0,0,0,5,0,8,4
+09004,Cuajimalpa de Morelos,Ciudad de México,2,2.5,31,12,0,0,8,0,4,1,8,8,11,3
+32010,Fresnillo,Zacatecas,2,2.5,67,10,2,0,0,0,0,0,0,0,65,10
+21085,Izúcar de Matamoros,Puebla,2,2.4,25,5,1,1,0,0,1,0,8,2,15,2
+11003,San Miguel de Allende,Guanajuato,2,2.2,63,25,1,0,0,0,0,0,0,0,62,25
+17004,Ayala,Morelos,2,2.2,29,15,1,1,0,0,0,0,0,0,28,14
+12038,Zihuatanejo de Azueta,Guerrero,2,2.2,59,44,0,0,0,0,0,0,0,0,59,44
+22011,El Marqués,Querétaro,2,2.2,126,15,0,0,1,1,1,0,12,5,112,9
+15093,Tepetlaoxtoc,México,2,2.2,15,11,1,1,1,0,0,0,2,1,11,9
+19012,Ciénega de Flores,Nuevo León,2,2.2,7,5,1,1,1,1,1,1,1,1,3,1
+21166,Tepeojuma,Puebla,2,2.1,10,5,1,1,0,0,0,0,4,2,5,2
+11017,Irapuato,Guanajuato,2,2.1,153,43,0,0,0,0,0,0,0,0,153,43
+17012,Jojutla,Morelos,2,2.1,35,19,1,0,1,0,0,0,1,0,32,19
+21148,Santa Isabel Cholula,Puebla,2,2.1,13,10,1,1,0,0,0,0,1,1,11,8
+11020,León,Guanajuato,2,2.0,221,39,0,0,0,0,0,0,0,0,221,39
+27012,Macuspana,Tabasco,2,2.0,9,1,2,0,0,0,0,0,0,0,7,1
+05033,San Pedro,Coahuila de Zaragoza,2,2.0,4,1,2,0,0,0,0,0,0,0,2,1
+14063,Ocotlán,Jalisco,2,2.0,19,12,1,1,0,0,0,0,0,0,18,11
+06010,Villa de Álvarez,Colima,2,2.0,44,0,2,0,0,0,0,0,0,0,42,0
+17028,Xochitepec,Morelos,2,2.0,44,36,0,0,1,1,0,0,0,0,43,35
+15012,Atizapán,México,2,2.0,7,4,1,1,1,1,0,0,2,0,3,2
+15056,Morelos,México,2,2.0,6,3,1,1,0,0,0,0,5,2,0,0
+14124,Zapotlanejo,Jalisco,2,2.0,18,11,1,1,0,0,0,0,0,0,17,10
+08062,Saucillo,Chihuahua,2,2.0,3,0,2,0,0,0,0,0,0,0,1,0
+13039,Mineral del Monte,Hidalgo,2,2.0,14,8,1,0,0,0,1,1,3,3,9,4
+21038,Cuapiaxtla de Madero,Puebla,2,1.9,15,8,1,1,0,0,0,0,0,0,14,7
+21103,Nicolás Bravo,Puebla,2,1.9,8,8,1,1,0,0,0,0,0,0,7,7
+11035,Santa Cruz de Juventino Rosas,Guanajuato,2,1.9,12,9,1,1,0,0,0,0,0,0,11,8
+28027,Nuevo Laredo,Tamaulipas,2,1.9,40,9,1,1,0,0,0,0,0,0,39,8
+16082,Tacámbaro,Michoacán de Ocampo,2,1.9,15,10,1,1,0,0,0,0,0,0,14,9
+30160,Álamo Temapache,Veracruz de Ignacio de la Llave,2,1.9,14,8,1,1,0,0,0,0,0,0,13,7
+26018,Cajeme,Sonora,2,1.9,114,35,0,0,0,0,0,0,1,1,113,34
+13030,Ixmiquilpan,Hidalgo,2,1.9,35,13,0,0,0,0,0,0,9,8,26,5
+13022,Epazoyucan,Hidalgo,2,1.9,10,3,1,1,0,0,0,0,3,2,6,0
+11032,San José Iturbide,Guanajuato,2,1.9,73,38,0,0,0,0,0,0,0,0,73,38
+14006,Ameca,Jalisco,2,1.9,22,9,1,1,0,0,0,0,0,0,21,8
+11005,Apaseo el Grande,Guanajuato,2,1.9,54,37,0,0,0,0,0,0,0,0,54,37
+21012,Aljojuca,Puebla,2,1.8,6,3,1,1,0,0,0,0,1,1,4,1
+30105,Medellín de Bravo,Veracruz de Ignacio de la Llave,2,1.8,14,6,1,1,0,0,0,0,0,0,13,5
+21091,Juan Galindo,Puebla,2,1.8,8,4,1,1,0,0,1,1,0,0,6,2
+14103,Tonila,Jalisco,2,1.8,9,6,1,1,0,0,0,0,0,0,8,5
+15068,Ozumba,México,2,1.8,8,2,1,1,1,1,0,0,0,0,6,0
+16008,Aquila,Michoacán de Ocampo,2,1.8,7,7,1,1,0,0,0,0,0,0,6,6
+21152,Soltepec,Puebla,2,1.8,7,6,1,1,0,0,0,0,0,0,6,5
+13004,Agua Blanca de Iturbide,Hidalgo,2,1.8,13,12,0,0,0,0,2,2,6,6,5,4
+13008,Apan,Hidalgo,2,1.8,24,12,0,0,1,0,5,3,4,4,14,5
+13021,Emiliano Zapata,Hidalgo,2,1.8,15,13,0,0,1,1,0,0,6,6,8,6
+15125,Tonanitla,México,2,1.8,9,6,1,0,1,1,0,0,2,1,5,4
+13066,Villa de Tezontepec,Hidalgo,2,1.8,17,12,0,0,1,1,0,0,7,6,9,5
+30004,Actopan,Veracruz de Ignacio de la Llave,2,1.8,7,3,1,1,0,0,0,0,1,1,5,1
+21186,Tlatlauquitepec,Puebla,2,1.8,7,4,1,1,0,0,0,0,2,0,4,3
+30123,Pánuco,Veracruz de Ignacio de la Llave,2,1.7,8,5,1,1,0,0,0,0,0,0,7,4
+17020,Tepoztlán,Morelos,2,1.7,19,11,1,0,0,0,0,0,1,1,17,10
+14048,Jesús María,Jalisco,2,1.7,7,5,1,1,0,0,0,0,0,0,6,4
+21017,Atempan,Puebla,2,1.7,6,3,1,1,0,0,0,0,1,0,4,2
+21151,Santo Tomás Hueyotlipan,Puebla,2,1.7,2,2,1,1,0,0,0,0,1,1,0,0
+15055,Mexicaltzingo,México,2,1.7,13,3,1,0,0,0,1,1,7,0,4,2
+29005,Apizaco,Tlaxcala,2,1.7,10,5,1,1,0,0,0,0,0,0,9,4
+20324,San Pedro Pochutla,Oaxaca,2,1.6,4,3,1,1,0,0,0,0,0,0,3,2
+29031,Tetla de la Solidaridad,Tlaxcala,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+16080,Senguio,Michoacán de Ocampo,2,1.6,3,2,1,1,0,0,0,0,0,0,2,1
+30023,Atzalan,Veracruz de Ignacio de la Llave,2,1.6,4,3,1,1,0,0,0,0,0,0,3,2
+14105,Tototlán,Jalisco,2,1.6,10,4,1,1,0,0,0,0,0,0,9,3
+20005,Asunción Ixtaltepec,Oaxaca,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+14107,Tuxcueca,Jalisco,2,1.6,4,4,1,1,0,0,0,0,0,0,3,3
+30026,Banderilla,Veracruz de Ignacio de la Llave,2,1.6,9,2,1,1,0,0,0,0,0,0,8,1
+20385,Santa Cruz Xoxocotlán,Oaxaca,2,1.6,24,3,1,1,0,0,0,0,0,0,23,2
+14051,Juanacatlán,Jalisco,2,1.6,4,3,1,1,0,0,0,0,0,0,3,2
+30115,Nogales,Veracruz de Ignacio de la Llave,2,1.6,8,2,1,1,0,0,0,0,0,0,7,1
+08011,Camargo,Chihuahua,2,1.6,5,1,1,1,0,0,0,0,1,0,3,0
+21082,Ixcaquixtla,Puebla,2,1.6,4,2,1,1,0,0,0,0,0,0,3,1
+14123,Zapotlán del Rey,Jalisco,2,1.6,6,4,1,1,0,0,0,0,0,0,5,3
+21069,Huaquechula,Puebla,2,1.6,5,1,1,1,0,0,0,0,1,0,3,0
+16063,Panindícuaro,Michoacán de Ocampo,2,1.6,4,2,1,1,0,0,0,0,0,0,3,1
+16067,Penjamillo,Michoacán de Ocampo,2,1.6,5,4,1,1,0,0,0,0,0,0,4,3
+21211,Zaragoza,Puebla,2,1.6,6,2,1,1,0,0,0,0,1,0,4,1
+29023,Natívitas,Tlaxcala,2,1.6,5,4,1,1,0,0,0,0,0,0,4,3
+29041,Papalotla de Xicohténcatl,Tlaxcala,2,1.6,3,3,1,1,0,0,0,0,0,0,2,2
+29052,San José Teacalco,Tlaxcala,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+16027,Chucándiro,Michoacán de Ocampo,2,1.6,4,2,1,1,0,0,0,0,0,0,3,1
+16037,Huaniqueo,Michoacán de Ocampo,2,1.6,3,2,1,1,0,0,0,0,0,0,2,1
+16048,Lagunillas,Michoacán de Ocampo,2,1.6,8,4,1,1,0,0,0,0,0,0,7,3
+16111,Ziracuaretiro,Michoacán de Ocampo,2,1.6,10,4,1,1,0,0,0,0,0,0,9,3
+16087,Taretan,Michoacán de Ocampo,2,1.6,6,4,1,1,0,0,0,0,0,0,5,3
+21207,Zacapoaxtla,Puebla,2,1.6,4,3,1,1,0,0,0,0,0,0,3,2
+21130,San Juan Atenco,Puebla,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+21122,San Felipe Teotlalcingo,Puebla,2,1.6,5,2,1,1,0,0,0,0,1,0,3,1
+14018,La Barca,Jalisco,2,1.6,19,4,1,1,0,0,0,0,0,0,18,3
+30192,Vega de Alatorre,Veracruz de Ignacio de la Llave,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+30175,Tihuatlán,Veracruz de Ignacio de la Llave,2,1.6,45,26,0,0,1,1,0,0,0,0,44,25
+14121,Zapotiltic,Jalisco,2,1.6,6,3,1,1,0,0,0,0,0,0,5,2
+15069,Papalotla,México,2,1.6,2,2,1,1,0,0,0,0,0,0,1,1
+24051,Villa Hidalgo,San Luis Potosí,2,1.6,5,3,1,1,0,0,0,0,0,0,4,2
+15019,Capulhuac,México,2,1.6,4,1,1,1,0,0,0,0,2,0,1,0
+20044,Loma Bonita,Oaxaca,2,1.6,3,2,1,1,0,0,0,0,0,0,2,1
+13056,Santiago Tulantepec de Lugo Guerrero,Hidalgo,2,1.6,16,3,1,0,0,0,0,0,3,3,12,0
+14013,Atotonilco el Alto,Jalisco,2,1.6,10,2,1,1,0,0,0,0,0,0,9,1
+25001,Ahome,Sinaloa,2,1.6,60,28,0,0,0,0,0,0,1,1,59,27
+14015,Autlán de Navarro,Jalisco,2,1.6,5,3,1,1,0,0,0,0,0,0,4,2
+21062,Epatlán,Puebla,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+30136,Rafael Lucio,Veracruz de Ignacio de la Llave,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+30119,Otatitlán,Veracruz de Ignacio de la Llave,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+30038,Coatepec,Veracruz de Ignacio de la Llave,2,1.5,23,7,1,0,0,0,0,0,1,1,21,6
+20397,Heroica Ciudad de Tlaxiaco,Oaxaca,2,1.5,3,1,1,1,0,0,0,0,0,0,2,0
+20568,Zapotitlán Palmas,Oaxaca,2,1.5,3,1,1,1,0,0,0,0,0,0,2,0
+30058,Chicontepec,Veracruz de Ignacio de la Llave,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+20018,Concepción Buenavista,Oaxaca,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+20570,Zimatlán de Álvarez,Oaxaca,2,1.5,5,1,1,1,0,0,0,0,0,0,4,0
+20333,San Pedro Totolápam,Oaxaca,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+21033,Cohuecan,Puebla,2,1.5,3,1,1,1,0,0,0,0,0,0,2,0
+20338,Villa de Etla,Oaxaca,2,1.5,3,1,1,1,0,0,0,0,0,0,2,0
+16011,Briseñas,Michoacán de Ocampo,2,1.5,4,1,1,1,0,0,0,0,0,0,3,0
+15034,Ecatzingo,México,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+25014,Rosario,Sinaloa,2,1.5,33,30,0,0,0,0,0,0,0,0,33,30
+21105,Ocotepec,Puebla,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+19050,Vallecillo,Nuevo León,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+32016,General Pánfilo Natera,Zacatecas,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+29028,Teolocholco,Tlaxcala,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+11042,Valle de Santiago,Guanajuato,2,1.5,39,29,0,0,0,0,0,0,0,0,39,29
+29014,Hueyotlipan,Tlaxcala,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+16013,Carácuaro,Michoacán de Ocampo,2,1.5,2,1,1,1,0,0,0,0,0,0,1,0
+20192,San Juan Chilateca,Oaxaca,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+24043,Tierra Nueva,San Luis Potosí,2,1.5,5,1,1,1,0,0,0,0,0,0,4,0
+20045,Magdalena Apasco,Oaxaca,2,1.5,1,1,1,1,0,0,0,0,0,0,0,0
+15096,Tequixquiac,México,2,1.5,9,1,1,0,1,0,0,0,6,1,1,0
+13082,Zapotlán de Juárez,Hidalgo,2,1.4,14,10,0,0,1,1,0,0,5,4,8,5
+15030,Chiconcuac,México,2,1.4,19,10,0,0,1,1,1,1,3,3,14,5
+17008,Emiliano Zapata,Morelos,2,1.4,35,19,0,0,1,0,1,0,2,2,31,17
+19010,El Carmen,Nuevo León,2,1.4,5,2,1,0,0,0,2,1,1,1,1,0
+19041,Pesquería,Nuevo León,2,1.4,3,1,1,0,2,1,0,0,0,0,0,0
+15082,Tejupilco,México,2,1.4,10,5,1,0,0,0,1,0,1,0,7,5
+13007,Almoloya,Hidalgo,2,1.4,11,10,0,0,0,0,3,3,3,3,5,4
+21051,Chietla,Puebla,2,1.4,13,8,0,0,0,0,0,0,7,6,6,2
+28022,Matamoros,Tamaulipas,2,1.4,87,27,0,0,0,0,0,0,0,0,87,27
+11037,Silao de la Victoria,Guanajuato,2,1.4,58,28,0,0,0,0,0,0,0,0,58,28
+30074,Huiloapan de Cuauhtémoc,Veracruz de Ignacio de la Llave,2,1.4,6,4,1,0,0,0,0,0,1,1,4,3
+12068,La Unión de Isidoro Montes de Oca,Guerrero,2,1.3,31,26,0,0,0,0,0,0,0,0,31,26
+02005,Playas de Rosarito,Baja California,2,1.3,150,22,0,0,1,0,0,0,1,1,148,21
+17006,Cuautla,Morelos,2,1.3,148,23,0,0,3,0,0,0,0,0,145,23
+16086,Tanhuato,Michoacán de Ocampo,2,1.3,9,6,1,0,0,0,0,0,0,0,8,6
+16085,Tangancícuaro,Michoacán de Ocampo,2,1.3,21,6,1,0,0,0,0,0,0,0,20,6
+25007,Choix,Sinaloa,2,1.3,26,26,0,0,0,0,0,0,0,0,26,26
+13070,Tlahuelilpan,Hidalgo,2,1.3,10,3,1,0,0,0,1,1,0,0,8,2
+32007,Concepción del Oro,Zacatecas,2,1.2,8,4,1,0,0,0,0,0,0,0,7,4
+30204,Agua Dulce,Veracruz de Ignacio de la Llave,2,1.2,8,4,1,0,0,0,0,0,0,0,7,4
+14040,Hostotipaquillo,Jalisco,2,1.2,6,4,1,0,0,0,0,0,0,0,5,4
+16106,Yurécuaro,Michoacán de Ocampo,2,1.2,25,23,0,0,0,0,0,0,0,0,25,23
+15107,Tonatico,México,2,1.2,5,1,1,0,0,0,0,0,2,0,2,1
+09009,Milpa Alta,Ciudad de México,2,1.2,25,9,0,0,3,0,1,0,4,4,17,5
+27013,Nacajuca,Tabasco,2,1.2,31,5,1,0,0,0,0,0,0,0,30,5
+13041,Mixquiahuala de Juárez,Hidalgo,2,1.2,20,9,0,0,0,0,0,0,5,5,15,4
+15063,Ocuilan,México,2,1.2,16,9,0,0,0,0,0,0,7,4,9,5
+12075,Eduardo Neri,Guerrero,2,1.2,24,23,0,0,0,0,0,0,0,0,24,23
+16045,Jiquilpan,Michoacán de Ocampo,2,1.2,36,24,0,0,0,0,0,0,0,0,36,24
+13060,Tenango de Doria,Hidalgo,2,1.2,11,9,0,0,0,0,1,1,4,4,6,4
+20334,Villa de Tututepec,Oaxaca,2,1.1,2,1,1,0,0,0,0,0,0,0,1,1
+20318,San Pedro Mixtepec,Oaxaca,2,1.1,6,1,1,0,0,0,0,0,0,0,5,1
+19049,Santiago,Nuevo León,2,1.1,5,1,1,0,0,0,0,0,0,0,4,1
+30049,Cotaxtla,Veracruz de Ignacio de la Llave,2,1.1,8,3,1,0,0,0,0,0,0,0,7,3
+24011,Ciudad Fernández,San Luis Potosí,2,1.1,5,1,1,0,0,0,0,0,0,0,4,1
+25010,El Fuerte,Sinaloa,2,1.1,21,21,0,0,0,0,0,0,0,0,21,21
+24040,Tamuín,San Luis Potosí,2,1.1,3,2,1,0,0,0,0,0,0,0,2,2
+11030,San Felipe,Guanajuato,2,1.1,4,1,1,0,0,0,0,0,0,0,3,1
+16076,Sahuayo,Michoacán de Ocampo,2,1.1,8,2,1,0,0,0,0,0,0,0,7,2
+17026,Tlayacapan,Morelos,2,1.1,18,2,1,0,0,0,0,0,0,0,17,2
+08036,Jiménez,Chihuahua,2,1.1,7,2,1,0,0,0,0,0,0,0,6,2
+16005,Angangueo,Michoacán de Ocampo,2,1.1,3,1,1,0,0,0,0,0,0,0,2,1
+32005,Calera,Zacatecas,2,1.1,7,1,1,0,0,0,0,0,0,0,6,1
+23001,Cozumel,Quintana Roo,2,1.0,4,0,1,0,0,0,0,0,0,0,3,0
+05010,Frontera,Coahuila de Zaragoza,2,1.0,4,0,1,0,0,0,0,0,0,0,3,0
+32039,Río Grande,Zacatecas,2,1.0,6,0,1,0,0,0,0,0,0,0,5,0
+12034,Huitzuco de los Figueroa,Guerrero,2,1.0,21,20,0,0,0,0,0,0,0,0,21,20
+16046,Juárez,Michoacán de Ocampo,2,1.0,1,0,1,0,0,0,0,0,0,0,0,0
+24029,San Martín Chalchicuautla,San Luis Potosí,2,1.0,1,0,1,0,0,0,0,0,0,0,0,0
+26055,San Luis Río Colorado,Sonora,2,1.0,110,19,0,0,0,0,0,0,0,0,110,19
+28017,Jaumave,Tamaulipas,2,1.0,2,0,1,0,0,0,0,0,0,0,1,0
+13016,Cuautepec de Hinojosa,Hidalgo,2,1.0,22,6,0,0,0,0,0,0,5,4,17,2
+19017,Galeana,Nuevo León,2,1.0,8,7,0,0,0,0,2,2,2,2,4,3
+06004,Coquimatlán,Colima,2,1.0,2,0,1,0,0,0,0,0,0,0,1,0
+06002,Colima,Colima,2,1.0,53,0,1,0,0,0,0,0,0,0,52,0
+21169,Tepexi de Rodríguez,Puebla,2,1.0,3,0,1,0,0,0,0,0,0,0,2,0
+30063,Chontla,Veracruz de Ignacio de la Llave,2,1.0,2,0,1,0,0,0,0,0,0,0,1,0
+20083,San Agustín de las Juntas,Oaxaca,2,1.0,4,0,1,0,0,0,0,0,0,0,3,0
+20072,San José del Progreso,Oaxaca,2,1.0,1,0,1,0,0,0,0,0,0,0,0,0
+30068,Fortín,Veracruz de Ignacio de la Llave,2,0.9,44,13,0,0,1,1,0,0,0,0,43,12
+14023,Zapotlán el Grande,Jalisco,2,0.9,33,16,0,0,0,0,1,1,0,0,32,15
+11028,Salvatierra,Guanajuato,2,0.9,47,18,0,0,0,0,0,0,0,0,47,18
+28041,Victoria,Tamaulipas,2,0.9,83,17,0,0,0,0,0,0,0,0,83,17
+15064,El Oro,México,2,0.9,9,5,0,0,1,1,2,2,3,0,3,2
+13019,Chilcuautla,Hidalgo,2,0.9,8,4,0,0,1,1,2,2,1,1,4,0
+13074,Tlaxcoapan,Hidalgo,2,0.9,19,8,0,0,0,0,0,0,4,3,15,5
+22012,Pedro Escobedo,Querétaro,2,0.8,25,9,0,0,0,0,0,0,2,2,23,7
+11039,Tarimoro,Guanajuato,2,0.8,18,15,0,0,0,0,0,0,0,0,18,15
+19045,Salinas Victoria,Nuevo León,2,0.8,9,5,0,0,1,1,1,1,1,1,6,2
+13072,Tlanalapa,Hidalgo,2,0.8,7,6,0,0,0,0,0,0,3,3,4,3
+30044,Córdoba,Veracruz de Ignacio de la Llave,2,0.8,56,6,0,0,1,0,2,0,2,2,51,4
+30040,Coatzintla,Veracruz de Ignacio de la Llave,2,0.8,28,15,0,0,0,0,0,0,0,0,28,15
+21054,Chignautla,Puebla,2,0.8,8,6,0,0,1,0,0,0,3,3,4,3
+21067,Guadalupe Victoria,Puebla,2,0.8,12,7,0,0,1,1,0,0,1,1,10,5
+14009,El Arenal,Jalisco,2,0.8,21,15,0,0,0,0,0,0,0,0,21,15
+02003,Tecate,Baja California,2,0.8,106,15,0,0,1,0,1,0,0,0,104,15
+15046,Jilotzingo,México,2,0.8,6,4,0,0,4,2,0,0,0,0,2,2
+12046,Ometepec,Guerrero,2,0.8,25,15,0,0,0,0,0,0,0,0,25,15
+11033,San Luis de la Paz,Guanajuato,2,0.8,33,15,0,0,0,0,0,0,0,0,33,15
+01005,Jesús María,Aguascalientes,2,0.8,31,5,0,0,1,0,4,3,0,0,26,2
+11015,Guanajuato,Guanajuato,2,0.8,51,16,0,0,0,0,0,0,0,0,51,16
+15114,Villa Victoria,México,2,0.8,18,6,0,0,0,0,1,0,4,2,13,4
+27005,Comalcalco,Tabasco,2,0.8,27,15,0,0,0,0,0,0,0,0,27,15
+30189,Tuxpan,Veracruz de Ignacio de la Llave,2,0.7,67,8,0,0,2,1,0,0,0,0,65,7
+08002,Aldama,Chihuahua,2,0.7,23,14,0,0,0,0,0,0,0,0,23,14
+22005,Colón,Querétaro,2,0.7,19,4,0,0,0,0,0,0,4,3,15,1
+19025,General Zuazua,Nuevo León,2,0.7,6,4,0,0,0,0,2,2,1,1,3,1
+16104,Villamar,Michoacán de Ocampo,2,0.7,15,13,0,0,0,0,0,0,0,0,15,13
+12059,Tepecoacuilco de Trujano,Guerrero,2,0.7,15,14,0,0,0,0,0,0,0,0,15,14
+13052,San Agustín Tlaxiaca,Hidalgo,2,0.7,14,5,0,0,0,0,0,0,3,3,11,2
+12035,Iguala de la Independencia,Guerrero,2,0.7,33,13,0,0,0,0,0,0,0,0,33,13
+15047,Jiquipilco,México,2,0.7,12,4,0,0,1,0,1,0,3,2,7,2
+30053,Cuitláhuac,Veracruz de Ignacio de la Llave,2,0.7,11,8,0,0,1,1,0,0,0,0,10,7
+25016,San Ignacio,Sinaloa,2,0.7,15,14,0,0,0,0,0,0,0,0,15,14
+11014,Dolores Hidalgo Cuna de la Independencia Nacional,Guanajuato,2,0.7,23,13,0,0,0,0,0,0,0,0,23,13
+12021,Coyuca de Benítez,Guerrero,2,0.7,19,14,0,0,0,0,0,0,0,0,19,14
+21143,San Salvador el Verde,Puebla,2,0.7,29,8,0,0,1,1,0,0,1,0,27,7
+14066,Poncitlán,Jalisco,2,0.7,13,10,0,0,0,0,0,0,1,1,12,9
+28035,San Fernando,Tamaulipas,2,0.7,22,13,0,0,0,0,0,0,0,0,22,13
+21205,Yehualtepec,Puebla,2,0.7,21,8,0,0,0,0,0,0,2,2,19,6
+16112,Zitácuaro,Michoacán de Ocampo,2,0.7,48,14,0,0,0,0,0,0,0,0,48,14
+16028,Churintzio,Michoacán de Ocampo,2,0.7,17,14,0,0,0,0,0,0,0,0,17,14
+13023,Francisco I. Madero,Hidalgo,2,0.7,20,5,0,0,0,0,0,0,3,3,17,2
+11009,Comonfort,Guanajuato,2,0.7,26,13,0,0,0,0,0,0,0,0,26,13
+32056,Zacatecas,Zacatecas,2,0.7,68,12,0,0,1,0,0,0,0,0,67,12
+12048,Petatlán,Guerrero,2,0.7,15,14,0,0,0,0,0,0,0,0,15,14
+19009,Cadereyta Jiménez,Nuevo León,2,0.6,8,5,0,0,0,0,1,0,2,2,5,3
+07019,Comitán de Domínguez,Chiapas,2,0.6,17,11,0,0,0,0,0,0,0,0,17,11
+10007,Gómez Palacio,Durango,2,0.6,14,11,0,0,0,0,0,0,0,0,14,11
+19044,Sabinas Hidalgo,Nuevo León,2,0.6,5,5,0,0,0,0,0,0,2,2,3,3
+14064,Ojuelos de Jalisco,Jalisco,2,0.6,14,12,0,0,0,0,0,0,0,0,14,12
+26043,Nogales,Sonora,2,0.6,103,12,0,0,0,0,0,0,0,0,103,12
+16055,Múgica,Michoacán de Ocampo,2,0.6,14,12,0,0,0,0,0,0,0,0,14,12
+13010,Atitalaquia,Hidalgo,2,0.6,22,4,0,0,1,0,1,1,1,1,19,2
+25013,Mocorito,Sinaloa,2,0.6,13,12,0,0,0,0,0,0,0,0,13,12
+15038,Isidro Fabela,México,2,0.6,10,7,0,0,0,0,0,0,2,1,8,6
+24025,Salinas,San Luis Potosí,2,0.6,11,11,0,0,0,0,0,0,0,0,11,11
+28033,Río Bravo,Tamaulipas,2,0.6,30,11,0,0,0,0,0,0,0,0,30,11
+28038,Tampico,Tamaulipas,2,0.6,27,12,0,0,0,0,0,0,0,0,27,12
+32055,Villanueva,Zacatecas,2,0.6,14,11,0,0,0,0,0,0,0,0,14,11
+15124,San José del Rincón,México,2,0.5,5,3,0,0,0,0,2,2,0,0,3,1
+13035,Metepec,Hidalgo,2,0.5,7,4,0,0,0,0,0,0,2,2,5,2
+26017,Caborca,Sonora,2,0.5,15,9,0,0,0,0,0,0,0,0,15,9
+11001,Abasolo,Guanajuato,2,0.5,19,10,0,0,0,0,0,0,0,0,19,10
+21161,Tepanco de López,Puebla,2,0.5,15,5,0,0,2,0,0,0,1,1,12,4
+21174,Teziutlán,Puebla,2,0.5,15,2,0,0,4,0,0,0,2,1,9,1
+27007,Emiliano Zapata,Tabasco,2,0.5,8,6,0,0,0,0,0,0,1,1,7,5
+30028,Boca del Río,Veracruz de Ignacio de la Llave,2,0.5,67,8,0,0,0,0,1,0,0,0,66,8
+16024,Cherán,Michoacán de Ocampo,2,0.5,4,4,0,0,1,1,0,0,0,0,3,3
+15043,Xalatlaco,México,2,0.5,10,3,0,0,0,0,1,1,3,0,6,2
+13058,Tasquillo,Hidalgo,2,0.5,4,3,0,0,0,0,0,0,2,2,2,1
+25002,Angostura,Sinaloa,2,0.5,11,9,0,0,0,0,0,0,0,0,11,9
+15007,Amanalco,México,2,0.5,4,3,0,0,0,0,0,0,3,2,1,1
+26042,Navojoa,Sonora,2,0.5,25,10,0,0,0,0,0,0,0,0,25,10
+11046,Yuriria,Guanajuato,2,0.5,22,9,0,0,0,0,0,0,0,0,22,9
+32020,Jerez,Zacatecas,2,0.5,30,6,0,0,0,0,0,0,1,1,29,5
+27016,Teapa,Tabasco,2,0.5,11,9,0,0,0,0,0,0,0,0,11,9
+30003,Acayucan,Veracruz de Ignacio de la Llave,2,0.5,15,7,0,0,0,0,0,0,1,1,14,6
+14113,San Gabriel,Jalisco,2,0.5,4,4,0,0,0,0,1,1,1,1,2,2
+14119,Zacoalco de Torres,Jalisco,2,0.5,15,9,0,0,0,0,0,0,0,0,15,9
+30173,Tezonapa,Veracruz de Ignacio de la Llave,2,0.5,5,4,0,0,0,0,1,1,1,1,3,2
+22017,Tequisquiapan,Querétaro,2,0.5,38,2,0,0,0,0,1,1,3,1,34,0
+32038,Pinos,Zacatecas,2,0.5,17,10,0,0,0,0,0,0,0,0,17,10
+15085,Temascalcingo,México,2,0.5,19,7,0,0,0,0,0,0,1,1,18,6
+25011,Guasave,Sinaloa,2,0.5,16,10,0,0,0,0,0,0,0,0,16,10
+15040,Ixtapan de la Sal,México,2,0.5,7,4,0,0,1,0,0,0,2,1,4,3
+29033,Tlaxcala,Tlaxcala,2,0.5,10,9,0,0,0,0,0,0,0,0,10,9
+10001,Canatlán,Durango,2,0.5,11,10,0,0,0,0,0,0,0,0,11,10
+18020,Bahía de Banderas,Nayarit,2,0.5,84,10,0,0,0,0,0,0,0,0,84,10
+14003,Ahualulco de Mercado,Jalisco,2,0.5,9,6,0,0,0,0,0,0,1,1,8,5
+15017,Ayapango,México,2,0.5,6,3,0,0,0,0,1,1,2,1,3,1
+10038,Vicente Guerrero,Durango,2,0.5,9,9,0,0,0,0,0,0,0,0,9,9
+11004,Apaseo el Alto,Guanajuato,2,0.5,13,9,0,0,0,0,0,0,0,0,13,9
+17017,Puente de Ixtla,Morelos,2,0.5,13,10,0,0,0,0,0,0,0,0,13,10
+26070,General Plutarco Elías Calles,Sonora,2,0.5,14,9,0,0,0,0,0,0,0,0,14,9
+30086,Jalacingo,Veracruz de Ignacio de la Llave,2,0.5,8,4,0,0,1,1,0,0,0,0,7,3
+30077,Isla,Veracruz de Ignacio de la Llave,2,0.5,11,7,0,0,0,0,0,0,1,1,10,6
+21008,Ahuazotepec,Puebla,2,0.5,15,8,0,0,0,0,0,0,1,0,14,8
+07065,Palenque,Chiapas,2,0.5,10,10,0,0,0,0,0,0,0,0,10,10
+13015,Cardonal,Hidalgo,2,0.4,2,2,0,0,0,0,0,0,2,2,0,0
+12061,Tixtla de Guerrero,Guerrero,2,0.4,11,8,0,0,0,0,0,0,0,0,11,8
+26036,Magdalena,Sonora,2,0.4,18,7,0,0,0,0,0,0,0,0,18,7
+30138,Río Blanco,Veracruz de Ignacio de la Llave,2,0.4,17,6,0,0,1,0,0,0,0,0,16,6
+14050,Jocotepec,Jalisco,2,0.4,9,7,0,0,0,0,0,0,0,0,9,7
+13054,San Salvador,Hidalgo,2,0.4,21,7,0,0,0,0,0,0,0,0,21,7
+03008,Los Cabos,Baja California Sur,2,0.4,81,7,0,0,0,0,0,0,0,0,81,7
+26004,Altar,Sonora,2,0.4,8,7,0,0,0,0,0,0,0,0,8,7
+14024,Cocula,Jalisco,2,0.4,10,5,0,0,0,0,0,0,1,1,9,4
+26025,Empalme,Sonora,2,0.4,21,7,0,0,0,0,0,0,0,0,21,7
+15113,Villa Guerrero,México,2,0.4,10,6,0,0,0,0,0,0,2,0,8,6
+16009,Ario,Michoacán de Ocampo,2,0.4,11,7,0,0,0,0,0,0,0,0,11,7
+15111,Villa de Allende,México,2,0.4,7,4,0,0,0,0,0,0,1,1,6,3
+21163,Tepatlaxco de Hidalgo,Puebla,2,0.4,9,4,0,0,0,0,0,0,1,1,8,3
+11029,San Diego de la Unión,Guanajuato,2,0.4,10,7,0,0,0,0,0,0,0,0,10,7
+32017,Guadalupe,Zacatecas,2,0.4,54,7,0,0,0,0,0,0,0,0,54,7
+28007,Camargo,Tamaulipas,2,0.4,9,8,0,0,0,0,0,0,0,0,9,8
+30006,Acultzingo,Veracruz de Ignacio de la Llave,2,0.4,9,8,0,0,0,0,0,0,0,0,9,8
+16049,Madero,Michoacán de Ocampo,2,0.4,9,7,0,0,0,0,0,0,0,0,9,7
+21175,Tianguismanalco,Puebla,2,0.4,9,4,0,0,0,0,0,0,2,1,7,3
+21172,Tetela de Ocampo,Puebla,2,0.4,3,2,0,0,0,0,0,0,2,2,1,0
+21181,Tlaltenango,Puebla,2,0.4,5,3,0,0,1,1,0,0,0,0,4,2
+16075,Los Reyes,Michoacán de Ocampo,2,0.4,7,7,0,0,0,0,0,0,0,0,7,7
+07061,Ocozocoautla de Espinosa,Chiapas,2,0.4,5,5,0,0,0,0,0,0,1,1,4,4
+23009,Tulum,Quintana Roo,2,0.4,18,2,0,0,0,0,0,0,3,1,15,1
+12080,Juchitán,Guerrero,2,0.4,7,7,0,0,0,0,0,0,0,0,7,7
+20043,Juchitán de Zaragoza,Oaxaca,2,0.4,13,8,0,0,0,0,0,0,0,0,13,8
+14094,Tequila,Jalisco,2,0.4,9,7,0,0,0,0,0,0,0,0,9,7
+12053,San Marcos,Guerrero,2,0.4,7,7,0,0,0,0,0,0,0,0,7,7
+21194,Venustiano Carranza,Puebla,2,0.4,20,4,0,0,0,0,0,0,1,1,19,3
+21048,Chiautzingo,Puebla,2,0.4,2,2,0,0,0,0,0,0,2,2,0,0
+12039,Juan R. Escudero,Guerrero,2,0.4,9,7,0,0,0,0,0,0,0,0,9,7
+12015,Buenavista de Cuéllar,Guerrero,2,0.4,9,8,0,0,0,0,0,0,0,0,9,8
+10012,Lerdo,Durango,2,0.4,7,7,0,0,0,0,0,0,0,0,7,7
+30025,Ayahualulco,Veracruz de Ignacio de la Llave,2,0.4,4,4,0,0,0,0,0,0,1,1,3,3
+14079,Gómez Farías,Jalisco,2,0.4,8,7,0,0,0,0,0,0,0,0,8,7
+07099,La Trinitaria,Chiapas,2,0.4,8,7,0,0,0,0,0,0,0,0,8,7
+28003,Altamira,Tamaulipas,2,0.4,33,7,0,0,0,0,0,0,0,0,33,7
+17010,Jantetelco,Morelos,2,0.4,14,7,0,0,0,0,0,0,0,0,14,7
+21102,Nealtican,Puebla,2,0.4,6,5,0,0,0,0,0,0,1,1,5,4
+21100,Naupan,Puebla,1,0.3,4,3,0,0,0,0,0,0,1,1,3,2
+30033,Cazones de Herrera,Veracruz de Ignacio de la Llave,1,0.3,10,6,0,0,0,0,0,0,0,0,10,6
+14001,Acatic,Jalisco,1,0.3,7,3,0,0,0,0,0,0,1,1,6,2
+10023,Pueblo Nuevo,Durango,1,0.3,7,6,0,0,0,0,0,0,0,0,7,6
+14082,Sayula,Jalisco,1,0.3,10,6,0,0,0,0,0,0,0,0,10,6
+21189,Tochtepec,Puebla,1,0.3,13,6,0,0,0,0,0,0,0,0,13,6
+23004,Othón P. Blanco,Quintana Roo,1,0.3,18,1,0,0,1,0,1,1,1,0,15,0
+21168,Tepexco,Puebla,1,0.3,4,3,0,0,0,0,0,0,1,1,3,2
+18001,Acaponeta,Nayarit,1,0.3,12,6,0,0,0,0,0,0,0,0,12,6
+21109,Pahuatlán,Puebla,1,0.3,3,1,0,0,0,0,0,0,3,1,0,0
+15112,Villa del Carbón,México,1,0.3,5,3,0,0,0,0,0,0,2,1,3,2
+15021,Coatepec Harinas,México,1,0.3,8,4,0,0,1,0,0,0,1,0,6,4
+18004,Compostela,Nayarit,1,0.3,40,6,0,0,0,0,0,0,0,0,40,6
+13031,Jacala de Ledezma,Hidalgo,1,0.3,5,2,0,0,0,0,1,0,1,1,3,1
+29010,Chiautempan,Tlaxcala,1,0.3,8,6,0,0,0,0,0,0,0,0,8,6
+19029,Hualahuises,Nuevo León,1,0.3,1,1,0,0,1,1,0,0,0,0,0,0
+30152,Tampico Alto,Veracruz de Ignacio de la Llave,1,0.3,2,2,0,0,1,1,0,0,0,0,1,1
+17033,Temoac,Morelos,1,0.3,13,6,0,0,0,0,0,0,0,0,13,6
+17030,Yecapixtla,Morelos,1,0.3,22,6,0,0,0,0,0,0,0,0,22,6
+15094,Tepetlixpa,México,1,0.3,9,2,0,0,1,0,0,0,4,0,4,2
+16089,Tepalcatepec,Michoacán de Ocampo,1,0.3,7,6,0,0,0,0,0,0,0,0,7,6
+19019,San Pedro Garza García,Nuevo León,1,0.3,4,2,0,0,0,0,0,0,2,1,2,1
+08021,Delicias,Chihuahua,1,0.3,30,1,0,0,2,0,0,0,3,0,25,1
+15050,Juchitepec,México,1,0.3,7,3,0,0,0,0,0,0,2,1,5,2
+27010,Jalpa de Méndez,Tabasco,1,0.3,11,6,0,0,0,0,0,0,0,0,11,6
+32057,Trancoso,Zacatecas,1,0.3,2,1,0,0,1,1,0,0,0,0,1,0
+08022,Dr. Belisario Domínguez,Chihuahua,1,0.3,7,6,0,0,0,0,0,0,0,0,7,6
+30085,Ixtaczoquitlán,Veracruz de Ignacio de la Llave,1,0.3,14,6,0,0,0,0,0,0,0,0,14,6
+30010,Altotonga,Veracruz de Ignacio de la Llave,1,0.3,7,3,0,0,0,0,1,1,0,0,6,2
+21153,Tecali de Herrera,Puebla,1,0.3,6,3,0,0,0,0,0,0,1,1,5,2
+12036,Igualapa,Guerrero,1,0.3,10,6,0,0,0,0,0,0,0,0,10,6
+26016,Benjamín Hill,Sonora,1,0.3,6,6,0,0,0,0,0,0,0,0,6,6
+14114,Villa Corona,Jalisco,1,0.3,7,6,0,0,0,0,0,0,0,0,7,6
+30108,Minatitlán,Veracruz de Ignacio de la Llave,1,0.3,30,5,0,0,0,0,1,0,0,0,29,5
+21090,Juan C. Bonilla,Puebla,1,0.3,15,5,0,0,0,0,0,0,1,0,14,5
+18013,San Pedro Lagunillas,Nayarit,1,0.3,9,6,0,0,0,0,0,0,0,0,9,6
+20039,Heroica Ciudad de Huajuapan de León,Oaxaca,1,0.3,24,6,0,0,0,0,0,0,0,0,24,6
+11041,Uriangato,Guanajuato,1,0.3,10,6,0,0,0,0,0,0,0,0,10,6
+07101,Tuxtla Gutiérrez,Chiapas,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+30089,Jáltipan,Veracruz de Ignacio de la Llave,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+07089,Tapachula,Chiapas,1,0.2,13,4,0,0,0,0,0,0,0,0,13,4
+07078,San Cristóbal de las Casas,Chiapas,1,0.2,20,5,0,0,0,0,0,0,0,0,20,5
+10016,Nombre de Dios,Durango,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+16103,Venustiano Carranza,Michoacán de Ocampo,1,0.2,7,4,0,0,0,0,0,0,0,0,7,4
+16090,Tingambato,Michoacán de Ocampo,1,0.2,9,5,0,0,0,0,0,0,0,0,9,5
+32044,Tabasco,Zacatecas,1,0.2,5,3,0,0,0,0,0,0,0,0,5,3
+16093,Tlalpujahua,Michoacán de Ocampo,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+14055,Magdalena,Jalisco,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+14111,Valle de Guadalupe,Jalisco,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+19014,Doctor Arroyo,Nuevo León,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+30102,Martínez de la Torre,Veracruz de Ignacio de la Llave,1,0.2,17,4,0,0,1,0,0,0,0,0,16,4
+18015,Santiago Ixcuintla,Nayarit,1,0.2,21,4,0,0,0,0,0,0,0,0,21,4
+18016,Tecuala,Nayarit,1,0.2,15,4,0,0,0,0,0,0,0,0,15,4
+18005,Huajicori,Nayarit,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+18006,Ixtlán del Río,Nayarit,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+30097,Lerdo de Tejada,Veracruz de Ignacio de la Llave,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+30109,Misantla,Veracruz de Ignacio de la Llave,1,0.2,5,2,0,0,0,0,0,0,1,1,4,1
+14095,Teuchitlán,Jalisco,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+18017,Tepic,Nayarit,1,0.2,66,5,0,0,0,0,0,0,0,0,66,5
+18018,Tuxpan,Nayarit,1,0.2,10,4,0,0,0,0,0,0,0,0,10,4
+07111,Zinacantán,Chiapas,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+19004,Allende,Nuevo León,1,0.2,1,1,0,0,0,0,1,1,0,0,0,0
+29034,Tlaxco,Tlaxcala,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+19038,Montemorelos,Nuevo León,1,0.2,4,2,0,0,0,0,1,1,0,0,3,1
+10008,Guadalupe Victoria,Durango,1,0.2,5,5,0,0,0,0,0,0,0,0,5,5
+30016,La Antigua,Veracruz de Ignacio de la Llave,1,0.2,25,3,0,0,0,0,0,0,0,0,25,3
+08024,Santa Isabel,Chihuahua,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+32047,Teúl de González Ortega,Zacatecas,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+32048,Tlaltenango de Sánchez Román,Zacatecas,1,0.2,7,4,0,0,0,0,0,0,0,0,7,4
+20327,San Pedro Tapanatepec,Oaxaca,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+32049,Valparaíso,Zacatecas,1,0.2,10,4,0,0,0,0,0,0,0,0,10,4
+32030,Momax,Zacatecas,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+32031,Monte Escobedo,Zacatecas,1,0.2,5,2,0,0,0,0,1,0,0,0,4,2
+30061,Las Choapas,Veracruz de Ignacio de la Llave,1,0.2,7,5,0,0,0,0,0,0,0,0,7,5
+30144,Sayula de Alemán,Veracruz de Ignacio de la Llave,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+32019,Jalpa,Zacatecas,1,0.2,7,5,0,0,0,0,0,0,0,0,7,5
+07059,Ocosingo,Chiapas,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+30196,Yanga,Veracruz de Ignacio de la Llave,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+24008,Cerritos,San Luis Potosí,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+07048,Juárez,Chiapas,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+24013,Ciudad Valles,San Luis Potosí,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+21010,Ajalpan,Puebla,1,0.2,10,4,0,0,1,0,0,0,0,0,9,4
+21023,Atzitzintla,Puebla,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+22013,Peñamiller,Querétaro,1,0.2,2,1,0,0,0,0,0,0,2,1,0,0
+24001,Ahualulco del Sonido 13,San Luis Potosí,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+32036,Ojocaliente,Zacatecas,1,0.2,7,5,0,0,0,0,0,0,0,0,7,5
+29032,Tetlatlahuca,Tlaxcala,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+32046,Tepetongo,Zacatecas,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+26066,Ures,Sonora,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+26071,Benito Juárez,Sonora,1,0.2,7,4,0,0,0,0,0,0,0,0,7,4
+19023,General Treviño,Nuevo León,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+14088,Tecolotlán,Jalisco,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+14086,Tapalpa,Jalisco,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+14100,Tomatlán,Jalisco,1,0.2,3,2,0,0,0,0,0,0,1,1,2,1
+30125,Paso del Macho,Veracruz de Ignacio de la Llave,1,0.2,3,2,0,0,0,0,0,0,1,1,2,1
+07074,Reforma,Chiapas,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+21047,Chiautla,Puebla,1,0.2,6,3,0,0,0,0,0,0,0,0,6,3
+24049,Villa de Ramos,San Luis Potosí,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+13073,Tlanchinol,Hidalgo,1,0.2,2,2,0,0,0,0,0,0,1,1,1,1
+15015,Atlautla,México,1,0.2,5,2,0,0,1,0,0,0,1,0,3,2
+21035,Coxcatlán,Puebla,1,0.2,2,1,0,0,0,0,0,0,1,1,1,0
+31050,Mérida,Yucatán,1,0.2,34,3,0,0,0,0,0,0,0,0,34,3
+25005,Cosalá,Sinaloa,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+32018,Huanusco,Zacatecas,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+15083,Temamatla,México,1,0.2,7,1,0,0,0,0,0,0,2,0,5,1
+20025,Chahuites,Oaxaca,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+13059,Tecozautla,Hidalgo,1,0.2,16,3,0,0,0,0,0,0,1,0,15,3
+13049,Pisaflores,Hidalgo,1,0.2,2,2,0,0,0,0,0,0,1,1,1,1
+14030,Chapala,Jalisco,1,0.2,28,4,0,0,0,0,0,0,0,0,28,4
+32042,Sombrerete,Zacatecas,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+11036,Santiago Maravatío,Guanajuato,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+30014,Amatlán de los Reyes,Veracruz de Ignacio de la Llave,1,0.2,10,5,0,0,0,0,0,0,0,0,10,5
+16015,Coalcomán de Vázquez Pallares,Michoacán de Ocampo,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+16071,Puruándiro,Michoacán de Ocampo,1,0.2,14,3,0,0,0,0,0,0,0,0,14,3
+16072,Queréndaro,Michoacán de Ocampo,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+27014,Paraíso,Tabasco,1,0.2,10,5,0,0,0,0,0,0,0,0,10,5
+08009,Bocoyna,Chihuahua,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+07054,Mazatán,Chiapas,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+21178,Tlacuilotepec,Puebla,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+21179,Tlachichuca,Puebla,1,0.2,9,1,0,0,0,0,0,0,2,1,7,0
+20390,Santa Lucía del Camino,Oaxaca,1,0.2,15,3,0,0,0,0,0,0,0,0,15,3
+16064,Parácuaro,Michoacán de Ocampo,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+28021,El Mante,Tamaulipas,1,0.2,12,5,0,0,0,0,0,0,0,0,12,5
+21157,Tehuitzingo,Puebla,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+21160,Teotlalco,Puebla,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+21150,Huehuetlán el Grande,Puebla,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+28037,Soto la Marina,Tamaulipas,1,0.2,5,4,0,0,0,0,0,0,0,0,5,4
+21138,San Nicolás de los Ranchos,Puebla,1,0.2,5,1,0,0,0,0,0,0,1,1,4,0
+32040,Sain Alto,Zacatecas,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+32008,Cuauhtémoc,Zacatecas,1,0.2,5,5,0,0,0,0,0,0,0,0,5,5
+05018,Monclova,Coahuila de Zaragoza,1,0.2,8,1,0,0,0,0,1,1,0,0,7,0
+21078,Huitzilan de Serdán,Puebla,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+21086,Jalpan,Puebla,1,0.2,5,3,0,0,0,0,0,0,0,0,5,3
+08029,Guadalupe y Calvo,Chihuahua,1,0.2,5,3,0,0,0,0,0,0,0,0,5,3
+08031,Guerrero,Chihuahua,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+32024,Loreto,Zacatecas,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+32025,Luis Moya,Zacatecas,1,0.2,5,3,0,0,0,0,0,0,0,0,5,3
+20057,Matías Romero Avendaño,Oaxaca,1,0.2,7,3,0,0,0,0,0,0,0,0,7,3
+21016,Aquixtla,Puebla,1,0.2,5,2,0,0,0,0,0,0,1,0,4,2
+14014,Atoyac,Jalisco,1,0.2,5,5,0,0,0,0,0,0,0,0,5,5
+01002,Asientos,Aguascalientes,1,0.2,3,2,0,0,0,0,0,0,1,1,2,1
+16040,Indaparapeo,Michoacán de Ocampo,1,0.2,10,5,0,0,0,0,0,0,0,0,10,5
+16032,Erongarícuaro,Michoacán de Ocampo,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+12030,Florencio Villarreal,Guerrero,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+01003,Calvillo,Aguascalientes,1,0.2,11,2,0,0,0,0,1,0,0,0,10,2
+12070,Xochihuehuetlán,Guerrero,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+12055,Taxco de Alarcón,Guerrero,1,0.2,7,5,0,0,0,0,0,0,0,0,7,5
+12057,Técpan de Galeana,Guerrero,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+13079,Xochicoatlán,Hidalgo,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+13068,Tianguistengo,Hidalgo,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+15052,Malinalco,México,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+12011,Atoyac de Álvarez,Guerrero,1,0.2,4,4,0,0,0,0,0,0,0,0,4,4
+17003,Axochiapan,Morelos,1,0.2,18,5,0,0,0,0,0,0,0,0,18,5
+11013,Doctor Mora,Guanajuato,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+11016,Huanímaro,Guanajuato,1,0.2,11,5,0,0,0,0,0,0,0,0,11,5
+11018,Jaral del Progreso,Guanajuato,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+30148,Soledad de Doblado,Veracruz de Ignacio de la Llave,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+07012,Berriozábal,Chiapas,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+17023,Tlalnepantla,Morelos,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+17024,Tlaltizapán de Zapata,Morelos,1,0.2,13,5,0,0,0,0,0,0,0,0,13,5
+15032,Donato Guerra,México,1,0.2,5,0,0,0,0,0,0,0,4,0,1,0
+14061,Mezquitic,Jalisco,1,0.2,5,5,0,0,0,0,0,0,0,0,5,5
+05009,Francisco I. Madero,Coahuila de Zaragoza,1,0.2,5,1,0,0,0,0,1,0,2,0,2,1
+21202,Xochitlán de Vicente Suárez,Puebla,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+14016,Ayotlán,Jalisco,1,0.2,15,2,0,0,0,0,0,0,1,0,14,2
+29004,Atltzayanca,Tlaxcala,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+22018,Tolimán,Querétaro,1,0.2,4,1,0,0,0,0,0,0,1,1,3,0
+14077,San Martín Hidalgo,Jalisco,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+14073,San Juan de los Lagos,Jalisco,1,0.2,18,4,0,0,0,0,0,0,0,0,18,4
+14074,San Julián,Jalisco,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+21203,Xochitlán Todos Santos,Puebla,1,0.2,7,1,0,0,0,0,0,0,1,1,6,0
+18009,Del Nayar,Nayarit,1,0.2,6,4,0,0,0,0,0,0,0,0,6,4
+18012,San Blas,Nayarit,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+17035,Xoxocotla,Morelos,1,0.2,6,5,0,0,0,0,0,0,0,0,6,5
+19036,Mier y Noriega,Nuevo León,1,0.2,1,1,0,0,0,0,0,0,1,1,0,0
+14043,La Huerta,Jalisco,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+14045,Ixtlahuacán del Río,Jalisco,1,0.2,4,3,0,0,0,0,0,0,0,0,4,3
+14046,Jalostotitlán,Jalisco,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+14047,Jamay,Jalisco,1,0.2,9,3,0,0,0,0,0,0,0,0,9,3
+16003,Álvaro Obregón,Michoacán de Ocampo,1,0.2,5,3,0,0,0,0,0,0,0,0,5,3
+15119,Zumpahuacán,México,1,0.2,2,2,0,0,0,0,0,0,1,1,1,1
+26048,Puerto Peñasco,Sonora,1,0.2,16,4,0,0,0,0,0,0,0,0,16,4
+26033,Huatabampo,Sonora,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+26035,Imuris,Sonora,1,0.2,9,3,0,0,0,0,0,0,0,0,9,3
+15074,San Felipe del Progreso,México,1,0.2,13,1,0,0,1,0,0,0,3,0,9,1
+17002,Atlatlahucan,Morelos,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+21003,Acatlán,Puebla,1,0.2,12,4,0,0,0,0,0,0,1,0,11,4
+30141,San Andrés Tuxtla,Veracruz de Ignacio de la Llave,1,0.2,12,2,0,0,0,0,0,0,1,1,11,1
+16001,Acuitzio,Michoacán de Ocampo,1,0.2,11,3,0,0,0,0,0,0,0,0,11,3
+29043,Yauhquemehcan,Tlaxcala,1,0.2,3,3,0,0,0,0,0,0,0,0,3,3
+26002,Agua Prieta,Sonora,1,0.2,16,3,0,0,0,0,0,0,0,0,16,3
+30132,Las Vigas de Ramírez,Veracruz de Ignacio de la Llave,1,0.2,8,5,0,0,0,0,0,0,0,0,8,5
+15098,Texcalyacac,México,1,0.2,2,1,0,0,0,0,0,0,2,1,0,0
+15086,Temascaltepec,México,1,0.2,10,4,0,0,0,0,0,0,1,0,9,4
+13001,Acatlán,Hidalgo,1,0.2,6,1,0,0,0,0,0,0,1,1,5,0
+17013,Jonacatepec de Leandro Valle,Morelos,1,0.2,12,5,0,0,0,0,0,0,0,0,12,5
+17001,Amacuzac,Morelos,1,0.2,5,5,0,0,0,0,0,0,0,0,5,5
+25015,Salvador Alvarado,Sinaloa,1,0.2,10,3,0,0,0,0,0,0,0,0,10,3
+01004,Cosío,Aguascalientes,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+01008,San José de Gracia,Aguascalientes,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+01006,Pabellón de Arteaga,Aguascalientes,1,0.1,3,0,0,0,1,0,0,0,0,0,2,0
+02006,San Quintín,Baja California,1,0.1,24,2,0,0,0,0,0,0,0,0,24,2
+01007,Rincón de Romos,Aguascalientes,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+03001,Comondú,Baja California Sur,1,0.1,8,1,0,0,0,0,0,0,0,0,8,1
+32054,Villa Hidalgo,Zacatecas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32053,Villa González Ortega,Zacatecas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32052,Villa García,Zacatecas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+04005,Hecelchakán,Campeche,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+05002,Acuña,Coahuila de Zaragoza,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+07003,Acapetahua,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07007,Amatenango del Valle,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07009,Arriaga,Chiapas,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+07013,Bochil,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07023,Chamula,Chiapas,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+07034,Frontera Comalapa,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30167,Tepetzintla,Veracruz de Ignacio de la Llave,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+30169,José Azueta,Veracruz de Ignacio de la Llave,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+30142,San Juan Evangelista,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30145,Soconusco,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+08007,Balleza,Chihuahua,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+08010,Buenaventura,Chihuahua,1,0.1,2,1,0,0,0,0,0,0,1,0,1,1
+30121,Ozuluama de Mascareñas,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30129,Platón Sánchez,Veracruz de Ignacio de la Llave,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+30135,Rafael Delgado,Veracruz de Ignacio de la Llave,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+20278,San Miguel Soyaltepec,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20291,San Pablo Coatlán,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20294,San Pablo Huitzo,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20298,San Pablo Villa de Mitla,Oaxaca,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+20198,San Juan Guichicovi,Oaxaca,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+20205,San Juan Lalana,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20212,San Juan Petlapa,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20248,San Mateo del Mar,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20456,Santiago Cacaloxtepec,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20475,Santiago Matatlán,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20409,Santa María del Tule,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20417,Santa María Jacatepec,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20421,Santa María Mixtequilla,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20427,Santa María Petapa,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20439,Santa María Tonameca,Oaxaca,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+07107,Villa Corzo,Chiapas,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+07116,Marqués de Comillas,Chiapas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+08001,Ahumada,Chihuahua,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+08003,Allende,Chihuahua,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+07075,Las Rosas,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07076,Sabanilla,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07085,Soyaló,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07093,Tenejapa,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07102,Tuxtla Chico,Chiapas,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+07103,Tuzantán,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30111,Moloacán,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30114,Nautla,Veracruz de Ignacio de la Llave,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+30116,Oluta,Veracruz de Ignacio de la Llave,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+30118,Orizaba,Veracruz de Ignacio de la Llave,1,0.1,41,1,0,0,0,0,0,0,0,0,41,1
+07062,Ostuacán,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07068,Pichucalco,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30081,Ixhuatlancillo,Veracruz de Ignacio de la Llave,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+30090,Jamapa,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30091,Jesús Carranza,Veracruz de Ignacio de la Llave,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+30093,Jilotepec,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30094,Juan Rodríguez Clara,Veracruz de Ignacio de la Llave,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+30100,Manlio Fabio Altamirano,Veracruz de Ignacio de la Llave,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+20052,Magdalena Tequisistlán,Oaxaca,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+20059,Miahuatlán de Porfirio Díaz,Oaxaca,1,0.1,8,2,0,0,0,0,0,0,0,0,8,2
+20068,Ocotlán de Morelos,Oaxaca,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+20559,San Juan Bautista Valle Nacional,Oaxaca,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+20565,Villa de Zaachila,Oaxaca,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+21002,Acateno,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21006,Ahuacatlán,Puebla,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+21013,Altepexi,Puebla,1,0.1,3,0,0,0,1,0,0,0,0,0,2,0
+21018,Atexcal,Puebla,1,0.1,2,1,0,0,0,0,0,0,1,0,1,1
+20525,Santo Domingo Zanatepec,Oaxaca,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+20530,Santo Tomás Jalieza,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20551,Tlacolula de Matamoros,Oaxaca,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+20553,Tlalixtac de Cabrera,Oaxaca,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+20300,San Pedro Amuzgos,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20301,San Pedro Apóstol,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20337,San Pedro y San Pablo Ayutla,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21050,Chichiquila,Puebla,1,0.1,1,0,0,0,0,0,0,0,1,0,0,0
+21055,Chila,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21057,Honey,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21059,Chinantla,Puebla,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+21060,Domingo Arenas,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+19033,Linares,Nuevo León,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+21025,Ayotoxco de Guerrero,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21026,Calpan,Puebla,1,0.1,8,1,0,0,0,0,0,0,0,0,8,1
+21043,Cuetzalan del Progreso,Puebla,1,0.1,1,0,0,0,0,0,0,0,1,0,0,0
+21049,Chiconcuautla,Puebla,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+20157,San Jacinto Amilpas,Oaxaca,1,0.1,7,1,0,0,0,0,0,0,0,0,7,1
+20166,San José Chiltepec,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20168,San José Estancia Grande,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21021,Atzala,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20084,San Agustín Etla,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20089,San Andrés Dinicuiti,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20107,San Antonio de la Cal,Oaxaca,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+20115,San Bartolo Coyotepec,Oaxaca,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+30059,Chinameca,Veracruz de Ignacio de la Llave,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+30066,Espinal,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30071,Huatusco,Veracruz de Ignacio de la Llave,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+30032,Catemaco,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30034,Cerro Azul,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30047,Coscomatepec,Veracruz de Ignacio de la Llave,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+08049,Nonoava,Chihuahua,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+08050,Nuevo Casas Grandes,Chihuahua,1,0.1,11,1,0,0,0,0,0,0,0,0,11,1
+08057,San Francisco de Borja,Chihuahua,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+08063,Temósachic,Chihuahua,1,0.1,3,1,0,0,0,0,0,0,1,0,2,1
+08065,Urique,Chihuahua,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+08067,Valle de Zaragoza,Chihuahua,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+08040,Madera,Chihuahua,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+08044,Matamoros,Chihuahua,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+08046,Morelos,Chihuahua,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+08047,Moris,Chihuahua,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+17034,Coatetelco,Morelos,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+18002,Ahuacatlán,Nayarit,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+18007,Jala,Nayarit,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+18010,Rosamorada,Nayarit,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+21076,Hueytamalco,Puebla,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+21083,Ixtacamaxtitlán,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21087,Jolalpan,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21088,Jonotla,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21097,Mixtla,Puebla,1,0.1,3,1,0,0,0,0,0,0,1,0,2,1
+21070,Huatlatlauca,Puebla,1,0.1,1,0,0,0,0,0,0,0,1,0,0,0
+19043,Rayones,Nuevo León,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+19051,Villaldama,Nuevo León,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20002,Acatlán de Pérez Figueroa,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20006,Asunción Nochixtlán,Oaxaca,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+20010,El Barrio de la Soledad,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20014,Ciudad Ixtepec,Oaxaca,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+20021,Cosolapa,Oaxaca,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+30001,Acajete,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30007,Camarón de Tejeda,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30009,Alto Lucero de Gutiérrez Barrios,Veracruz de Ignacio de la Llave,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+08018,Cusihuiriachi,Chihuahua,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+08026,Gran Morelos,Chihuahua,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+08027,Guachochi,Chihuahua,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+29044,Zacatelco,Tlaxcala,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+29046,Emiliano Zapata,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29047,Lázaro Cárdenas,Tlaxcala,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+29048,La Magdalena Tlaltelulco,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29058,Santa Catarina Ayometla,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29059,Santa Cruz Quilehtla,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29060,Santa Isabel Xiloxoxtla,Tlaxcala,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+10029,San Luis del Cordero,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+10031,Santa Clara,Durango,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+29026,Santa Cruz Tlaxcala,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29036,Totolac,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29039,Xaloztoc,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29040,Xaltocan,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+10004,Cuencamé,Durango,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+10021,Peñón Blanco,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+10024,Rodeo,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+10026,San Dimas,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+10028,San Juan del Río,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21125,San Gregorio Atzompa,Puebla,1,0.1,2,1,0,0,0,0,0,0,1,0,1,1
+21126,San Jerónimo Tecuanipan,Puebla,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+21127,San Jerónimo Xayacatlán,Puebla,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+21137,San Nicolás Buenos Aires,Puebla,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+16047,Jungapeo,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16097,Turicato,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+16099,Tuzantla,Michoacán de Ocampo,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+16109,Zináparo,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21112,Petlalcingo,Puebla,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+17027,Totolapan,Morelos,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+17031,Zacatepec,Morelos,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+17032,Zacualpan de Amilpas,Morelos,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16081,Susupuato,Michoacán de Ocampo,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+16083,Tancítaro,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16092,Tiquicheo de Nicolás Romero,Michoacán de Ocampo,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+16094,Tlazazalca,Michoacán de Ocampo,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+16095,Tocumbo,Michoacán de Ocampo,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+17015,Miacatlán,Morelos,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+17016,Ocuituco,Morelos,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+17019,Tepalcingo,Morelos,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+17021,Tetecala,Morelos,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+17025,Tlaquiltenango,Morelos,1,0.1,9,2,0,0,0,0,0,0,0,0,9,2
+15117,Zacualpan,México,1,0.1,2,0,0,0,0,0,0,0,2,0,0,0
+15123,Luvianos,México,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+16002,Aguililla,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16035,La Huacana,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+16038,Huetamo,Michoacán de Ocampo,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+16039,Huiramba,Michoacán de Ocampo,1,0.1,7,2,0,0,0,0,0,0,0,0,7,2
+16041,Irimbo,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16042,Ixtlán,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+16044,Jiménez,Michoacán de Ocampo,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+21171,Tepeyahualco de Cuauhtémoc,Puebla,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+16077,San Lucas,Michoacán de Ocampo,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+16023,Chavinda,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+16026,Chinicuila,Michoacán de Ocampo,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+16029,Churumuco,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16033,Gabriel Zamora,Michoacán de Ocampo,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+16054,Morelos,Michoacán de Ocampo,1,0.1,7,2,0,0,0,0,0,0,0,0,7,2
+16056,Nahuatzen,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+16057,Nocupétaro,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16060,Numarán,Michoacán de Ocampo,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+16061,Ocampo,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16068,Peribán,Michoacán de Ocampo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+16070,Purépero,Michoacán de Ocampo,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+11010,Coroneo,Guanajuato,1,0.1,7,1,0,0,0,0,0,0,0,0,7,1
+11011,Cortazar,Guanajuato,1,0.1,11,1,0,0,0,0,0,0,0,0,11,1
+11019,Jerécuaro,Guanajuato,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+11021,Moroleón,Guanajuato,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+11022,Ocampo,Guanajuato,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+11024,Pueblo Nuevo,Guanajuato,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+29021,Nanacamilpa de Mariano Arista,Tlaxcala,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+29024,Panotla,Tlaxcala,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+10032,Santiago Papasquiaro,Durango,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+10039,Nuevo Ideal,Durango,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+11002,Acámbaro,Guanajuato,1,0.1,14,2,0,0,0,0,0,0,0,0,14,2
+11008,Manuel Doblado,Guanajuato,1,0.1,10,2,0,0,0,0,0,0,0,0,10,2
+28039,Tula,Tamaulipas,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+28040,Valle Hermoso,Tamaulipas,1,0.1,7,2,0,0,0,0,0,0,0,0,7,2
+29001,Amaxac de Guerrero,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29003,Atlangatepec,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29007,El Carmen Tequexquitla,Tlaxcala,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+29009,Cuaxomulco,Tlaxcala,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+29017,Mazatecochco de José María Morelos,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+29020,Sanctórum de Lázaro Cárdenas,Tlaxcala,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12018,Copala,Guerrero,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+12022,Coyuca de Catalán,Guerrero,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+12023,Cuajinicuilapa,Guerrero,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+12027,Cutzamala de Pinzón,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+28024,Mier,Tamaulipas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+28025,Miguel Alemán,Tamaulipas,1,0.1,10,1,0,0,0,0,0,0,0,0,10,1
+28029,Ocampo,Tamaulipas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+28030,Padilla,Tamaulipas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+14085,Tamazula de Gordiano,Jalisco,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+14087,Tecalitlán,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14089,Techaluta de Montenegro,Jalisco,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+14091,Teocaltiche,Jalisco,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+14092,Teocuitatlán de Corona,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14096,Tizapán el Alto,Jalisco,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+14108,Tuxpan,Jalisco,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+21212,Zautla,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21213,Zihuateutla,Puebla,1,0.1,1,0,0,0,0,0,0,0,1,0,0,0
+21214,Zinacatepec,Puebla,1,0.1,4,0,0,0,2,0,0,0,0,0,2,0
+22001,Amealco de Bonfil,Querétaro,1,0.1,9,1,0,0,0,0,0,0,1,0,8,1
+22003,Arroyo Seco,Querétaro,1,0.1,1,0,0,0,0,0,0,0,1,0,0,0
+22004,Cadereyta de Montes,Querétaro,1,0.1,5,0,0,0,0,0,0,0,1,0,4,0
+22007,Ezequiel Montes,Querétaro,1,0.1,12,1,0,0,0,0,0,0,0,0,12,1
+22008,Huimilpan,Querétaro,1,0.1,11,2,0,0,0,0,0,0,0,0,11,2
+21188,Tochimilco,Puebla,1,0.1,2,1,0,0,0,0,0,0,1,0,1,1
+21191,Tulcingo,Puebla,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+21195,Vicente Guerrero,Puebla,1,0.1,4,0,0,0,0,0,0,0,2,0,2,0
+21199,Xiutetelco,Puebla,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+21204,Yaonáhuac,Puebla,1,0.1,2,0,0,0,0,0,0,0,1,0,1,0
+21209,Zapotitlán,Puebla,1,0.1,5,1,0,0,1,0,0,0,0,0,4,1
+15097,Texcaltitlán,México,1,0.1,4,0,0,0,0,0,0,0,1,0,3,0
+15049,Joquicingo,México,1,0.1,2,1,0,0,0,0,0,0,1,0,1,1
+24033,Santo Domingo,San Luis Potosí,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14004,Amacueca,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14005,Amatitán,Jalisco,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+14008,Arandas,Jalisco,1,0.1,20,2,0,0,0,0,0,0,0,0,20,2
+23002,Felipe Carrillo Puerto,Quintana Roo,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+23003,Isla Mujeres,Quintana Roo,1,0.1,2,0,0,0,0,0,2,0,0,0,0,0
+23011,Puerto Morelos,Quintana Roo,1,0.1,5,0,0,0,1,0,1,0,0,0,3,0
+24003,Aquismón,San Luis Potosí,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+24023,Rayón,San Luis Potosí,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14059,Mazamitla,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14069,Quitupan,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14071,San Cristóbal de la Barranca,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14072,San Diego de Alejandría,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14075,San Marcos,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14078,San Miguel el Alto,Jalisco,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+14080,San Sebastián del Oeste,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14081,Santa María de los Ángeles,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14109,Unión de San Antonio,Jalisco,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+14110,Unión de Tula,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14118,Yahualica de González Gallo,Jalisco,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+14122,Zapotitlán de Vadillo,Jalisco,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+14042,Huejuquilla el Alto,Jalisco,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+13009,El Arenal,Hidalgo,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+13011,Atlapexco,Hidalgo,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+13028,Huejutla de Reyes,Hidalgo,1,0.1,5,1,0,0,0,0,0,0,0,0,5,1
+24048,Villa de la Paz,San Luis Potosí,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+25003,Badiraguato,Sinaloa,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+26001,Aconchi,Sonora,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+13003,Actopan,Hidalgo,1,0.1,30,2,0,0,0,0,0,0,0,0,30,2
+13046,San Felipe Orizatlán,Hidalgo,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+13050,Progreso de Obregón,Hidalgo,1,0.1,16,2,0,0,0,0,0,0,0,0,16,2
+13055,Santiago de Anaya,Hidalgo,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+13065,Tetepango,Hidalgo,1,0.1,2,0,0,0,0,0,0,0,1,0,1,0
+13081,Zacualtipán de Ángeles,Hidalgo,1,0.1,5,0,0,0,1,0,0,0,0,0,4,0
+14020,Cabo Corrientes,Jalisco,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+14021,Casimiro Castillo,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14022,Cihuatlán,Jalisco,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+14025,Colotlán,Jalisco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+14036,Etzatlán,Jalisco,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+14041,Huejúcar,Jalisco,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+12008,Atenango del Río,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12010,Atlixtac,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12012,Ayutla de los Libres,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12013,Azoyú,Guerrero,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+12014,Benito Juárez,Guerrero,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+12016,Coahuayutla de José María Izazaga,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12017,Cocula,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+28015,Gustavo Díaz Ordaz,Tamaulipas,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+28016,Hidalgo,Tamaulipas,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+11031,San Francisco del Rincón,Guanajuato,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+11044,Villagrán,Guanajuato,1,0.1,10,1,0,0,0,0,0,0,0,0,10,1
+12002,Ahuacuotzingo,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+28001,Abasolo,Tamaulipas,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+28009,Ciudad Madero,Tamaulipas,1,0.1,19,2,0,0,0,0,0,0,0,0,19,2
+28012,González,Tamaulipas,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+12064,Tlalchapa,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12066,Tlapa de Comonfort,Guerrero,1,0.1,10,1,0,0,0,0,0,0,0,0,10,1
+12071,Xochistlahuaca,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12077,Marquelia,Guerrero,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+27001,Balancán,Tabasco,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+27009,Jalapa,Tabasco,1,0.1,5,2,0,0,0,0,0,0,0,0,5,2
+12043,Metlatónoc,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12045,Olinalá,Guerrero,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+12050,Pungarabato,Guerrero,1,0.1,10,1,0,0,0,0,0,0,0,0,10,1
+12052,San Luis Acatlán,Guerrero,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+12056,Tecoanapa,Guerrero,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+12058,Teloloapan,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12060,Tetipac,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+12062,Tlacoachistlahuaca,Guerrero,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+26051,Rosario,Sonora,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+26058,Santa Ana,Sonora,1,0.1,7,2,0,0,0,0,0,0,0,0,7,2
+12028,Chilapa de Álvarez,Guerrero,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+12033,Huamuxtitlán,Guerrero,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+26013,Banámichi,Sonora,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+26014,Baviácora,Sonora,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+26019,Cananea,Sonora,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+26020,Carbó,Sonora,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+13029,Huichapan,Hidalgo,1,0.1,19,2,0,0,0,0,0,0,0,0,19,2
+13038,Mineral del Chico,Hidalgo,1,0.1,3,0,0,0,1,0,0,0,0,0,2,0
+26003,Álamos,Sonora,1,0.1,4,2,0,0,0,0,0,0,0,0,4,2
+26012,Bácum,Sonora,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+32051,Villa de Cos,Zacatecas,1,0.1,3,1,0,0,1,0,0,0,0,0,2,1
+30199,Zaragoza,Veracruz de Ignacio de la Llave,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+30201,Zongolica,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30205,El Higo,Veracruz de Ignacio de la Llave,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+30206,Nanchital de Lázaro Cárdenas del Río,Veracruz de Ignacio de la Llave,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+30211,San Rafael,Veracruz de Ignacio de la Llave,1,0.1,6,2,0,0,0,0,0,0,0,0,6,2
+07052,Las Margaritas,Chiapas,1,0.1,8,2,0,0,0,0,0,0,0,0,8,2
+30182,Tlalnelhuayocan,Veracruz de Ignacio de la Llave,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+30183,Tlapacoyan,Veracruz de Ignacio de la Llave,1,0.1,6,1,0,0,0,0,0,0,0,0,6,1
+30188,Totutla,Veracruz de Ignacio de la Llave,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+30194,Villa Aldama,Veracruz de Ignacio de la Llave,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+07038,Huixtán,Chiapas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+07040,Huixtla,Chiapas,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+07046,Jiquipilas,Chiapas,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+07047,Jitotol,Chiapas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+07049,Larráinzar,Chiapas,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+20363,Santa Catarina Ixtepeji,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20364,Santa Catarina Juquila,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20399,Santa María Atzompa,Oaxaca,1,0.1,13,1,0,0,0,0,0,0,0,0,13,1
+20406,Santa María Chilchotla,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32037,Pánuco,Zacatecas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+32050,Vetagrande,Zacatecas,1,0.1,3,1,0,0,0,0,0,0,0,0,3,1
+20344,San Sebastián Coatlán,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+20360,Santa Ana Zegache,Oaxaca,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32011,Trinidad García de la Cadena,Zacatecas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+32012,Genaro Codina,Zacatecas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32026,Mazapil,Zacatecas,1,0.1,3,2,0,0,0,0,0,0,0,0,3,2
+32029,Miguel Auza,Zacatecas,1,0.1,1,1,0,0,0,0,0,0,0,0,1,1
+32033,Moyahua de Estrada,Zacatecas,1,0.1,2,2,0,0,0,0,0,0,0,0,2,2
+05006,Castaños,Coahuila de Zaragoza,1,0.1,2,1,0,0,0,0,0,0,0,0,2,1
+05017,Matamoros,Coahuila de Zaragoza,1,0.1,4,1,0,0,0,0,0,0,0,0,4,1
+05004,Arteaga,Coahuila de Zaragoza,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+05011,General Cepeda,Coahuila de Zaragoza,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+05022,Nava,Coahuila de Zaragoza,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+05025,Piedras Negras,Coahuila de Zaragoza,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+05027,Ramos Arizpe,Coahuila de Zaragoza,0,0.0,10,0,0,0,0,0,0,0,0,0,10,0
+05028,Sabinas,Coahuila de Zaragoza,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+05030,Saltillo,Coahuila de Zaragoza,0,0.0,40,0,0,0,0,0,0,0,0,0,40,0
+05032,San Juan de Sabinas,Coahuila de Zaragoza,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+32006,Cañitas de Felipe Pescador,Zacatecas,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+32034,Nochistlán de Mejía,Zacatecas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20348,San Sebastián Tecomaxtlahuaca,Oaxaca,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+20350,San Sebastián Tutla,Oaxaca,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+20356,Santa Ana del Valle,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20362,Santa Catarina Cuixtla,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20375,Santa Cruz Amilpas,Oaxaca,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20389,Santa Inés Yatzeche,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20401,Santa María Colotepec,Oaxaca,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+07037,Huehuetán,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07041,La Independencia,Chiapas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+07045,Ixtapangajoya,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30176,Tlacojalpan,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30184,Tlaquilpa,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30191,Ursulo Galván,Veracruz de Ignacio de la Llave,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+30203,Zozocolco de Hidalgo,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30212,Santiago Sochiapan,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+31041,Kanasín,Yucatán,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+31052,Motul,Yucatán,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+31058,Peto,Yucatán,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+31059,Progreso,Yucatán,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+31067,Seyé,Yucatán,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+31101,Umán,Yucatán,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+31102,Valladolid,Yucatán,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+05003,Allende,Coahuila de Zaragoza,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13034,Lolotla,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13043,Nicolás Flores,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26005,Arivechi,Sonora,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+26011,Bacoachi,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26015,Bavispe,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26021,La Colorada,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26022,Cucurpe,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26026,Etchojoa,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26039,Naco,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26041,Nacozari de García,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+26047,Pitiquito,Sonora,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+26065,Tubutama,Sonora,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+26069,Yécora,Sonora,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+27003,Centla,Tabasco,0,0.0,11,0,0,0,0,0,0,0,0,0,11,0
+27011,Jonuta,Tabasco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+27017,Tenosique,Tabasco,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+28002,Aldama,Tamaulipas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+28004,Antiguo Morelos,Tamaulipas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+28014,Guerrero,Tamaulipas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+28019,Llera,Tamaulipas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+11038,Tarandacuao,Guanajuato,0,0.0,6,0,0,0,0,0,0,0,0,0,6,0
+11040,Tierra Blanca,Guanajuato,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+12003,Ajuchitlán del Progreso,Guerrero,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+14026,Concepción de Buenos Aires,Jalisco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+14033,Degollado,Jalisco,0,0.0,8,0,0,0,0,0,0,0,0,0,8,0
+13044,Nopala de Villagrán,Hidalgo,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+13045,Omitlán de Juárez,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13064,Tepetitlán,Hidalgo,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+24042,Tanquián de Escobedo,San Luis Potosí,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+24054,Xilitla,San Luis Potosí,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+24058,El Naranjo,San Luis Potosí,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13005,Ajacuba,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13006,Alfajayucan,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13012,Atotonilco el Grande,Hidalgo,0,0.0,8,0,0,0,0,0,0,0,0,0,8,0
+13020,Eloxochitlán,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13024,Huasca de Ocampo,Hidalgo,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+13027,Huehuetla,Hidalgo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+14112,Valle de Juárez,Jalisco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+14116,Villa Hidalgo,Jalisco,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+14058,Mascota,Jalisco,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+23006,José María Morelos,Quintana Roo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+23010,Bacalar,Quintana Roo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+24007,Cedral,San Luis Potosí,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+24027,San Ciro de Acosta,San Luis Potosí,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+13084,Zimapán,Hidalgo,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+14007,San Juanito de Escobedo,Jalisco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+14010,Atemajac de Brizuela,Jalisco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16004,Angamacutiro,Michoacán de Ocampo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+15080,Sultepec,México,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+15102,Timilpan,México,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+14125,San Ignacio Cerro Gordo,Jalisco,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+15004,Almoloya de Alquisiras,México,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21187,Tlaxco,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21193,Tzicatlacoyan,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21201,Xochiltepec,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+22009,Jalpan de Serra,Querétaro,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+10034,Tamazula,Durango,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+10035,Tepehuanes,Durango,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+11012,Cuerámaro,Guanajuato,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+11025,Purísima del Rincón,Guanajuato,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+16058,Nuevo Parangaricutiro,Michoacán de Ocampo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16078,Santa Ana Maya,Michoacán de Ocampo,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+16021,Charapan,Michoacán de Ocampo,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+16031,Epitacio Huerta,Michoacán de Ocampo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16036,Huandacareo,Michoacán de Ocampo,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+21173,Teteles de Ávila Castillo,Puebla,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21182,Tlanepantla,Puebla,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21183,Tlaola,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21184,Tlapacoya,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21185,Tlapanalá,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+19008,Bustamante,Nuevo León,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16113,José Sixto Verduzco,Michoacán de Ocampo,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+17014,Mazatepec,Morelos,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16098,Tuxpan,Michoacán de Ocampo,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21111,Pantepec,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21116,Quimixtlán,Puebla,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21120,San Antonio Cañada,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21121,San Diego la Mesa Tochimiltzingo,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21147,Santa Inés Ahuatempan,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+16051,Marcos Castellanos,Michoacán de Ocampo,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+11026,Romita,Guanajuato,0,0.0,6,0,0,0,0,0,0,0,0,0,6,0
+10020,Pánuco de Coronado,Durango,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+10022,Poanas,Durango,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+29029,Tepeyanco,Tlaxcala,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+29037,Ziltlaltépec de Trinidad Sánchez Santos,Tlaxcala,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+29053,San Juan Huactzinco,Tlaxcala,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30015,Angel R. Cabada,Veracruz de Ignacio de la Llave,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+08023,Galeana,Chihuahua,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+19042,Los Ramones,Nuevo León,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20023,Cuilápam de Guerrero,Oaxaca,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+20026,Chalcatongo de Hidalgo,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20028,Heroica Ciudad de Ejutla de Crespo,Oaxaca,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+21064,Francisco Z. Mena,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21072,Huehuetla,Puebla,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21073,Huehuetlán el Chico,Puebla,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+21075,Hueyapan,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21089,Jopala,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21092,Juan N. Méndez,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21093,Lafragua,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+18003,Amatlán de Cañas,Nayarit,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+18008,Xalisco,Nayarit,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+18011,Ruíz,Nayarit,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+18014,Santa María del Oro,Nayarit,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08028,Guadalupe,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08033,Huejotitán,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08035,Janos,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08038,Julimes,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08052,Ojinaga,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08059,San Francisco del Oro,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30021,Atoyac,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30022,Atzacan,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30030,Camerino Z. Mendoza,Veracruz de Ignacio de la Llave,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+30046,Cosautlán de Carvajal,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30052,Cuichapa,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30062,Chocamán,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30069,Gutiérrez Zamora,Veracruz de Ignacio de la Llave,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+30072,Huayacocotla,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30073,Hueyapan de Ocampo,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30078,Ixcatepec,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20073,Putla Villa de Guerrero,Oaxaca,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20077,Reyes Etla,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20085,San Agustín Loxicha,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20091,San Andrés Huayápam,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20141,San Francisco del Mar,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20143,San Francisco Ixhuatán,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20145,San Francisco Lachigoló,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20174,Ánimas Trujano,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21028,Camocuautla,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21030,Coatepec,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21039,Cuautempan,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21046,Chapulco,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21058,Chilchotla,Puebla,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+19034,Marín,Nuevo León,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20308,San Pedro Huilotepec,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20310,San Pedro Ixtlahuaca,Oaxaca,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+20339,San Pedro y San Pablo Teposcolula,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20487,Santiago Tenango,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20499,Santiago Yolomécatl,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20526,Santos Reyes Nopala,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20539,Soledad Etla,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20540,Villa de Tamazulápam del Progreso,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20557,Unión Hidalgo,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21009,Ahuehuetitla,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+21020,Atoyatempan,Puebla,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20030,El Espinal,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20031,Tamazulápam del Espíritu Santo,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20041,Huautla de Jiménez,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20058,Mazatlán Villa de Flores,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20069,La Pe,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30082,Ixhuatlán del Sureste,Veracruz de Ignacio de la Llave,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+30092,Xico,Veracruz de Ignacio de la Llave,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+30101,Mariano Escobedo,Veracruz de Ignacio de la Llave,0,0.0,7,0,0,0,0,0,0,0,0,0,7,0
+30117,Omealca,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07077,Salto de Agua,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07094,Teopisca,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07112,San Juan Cancuc,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07124,Mezcalapa,Chiapas,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+08004,Aquiles Serdán,Chihuahua,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08005,Ascensión,Chihuahua,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+20413,Santa María Huatulco,Oaxaca,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+20418,Santa María Jalapa del Marqués,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20435,Santa María Tepantlali,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20460,Santiago Choápam,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20462,Santiago Huajolotitlán,Oaxaca,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20467,Santiago Jamiltepec,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20469,Santiago Juxtlahuaca,Oaxaca,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+20482,Santiago Pinotepa Nacional,Oaxaca,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20486,Villa Tejúpam de la Unión,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20229,San Lorenzo Texmelúcan,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20235,San Luis Amatlán,Oaxaca,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+20239,San Martín Huamelúlpam,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20265,San Miguel Chimalapa,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20266,San Miguel del Puerto,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20274,San Miguel Piedras,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20277,Villa Sola de Vega,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+20293,San Pablo Etla,Oaxaca,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+08006,Bachíniva,Chihuahua,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+30120,Oteapan,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30133,Pueblo Viejo,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30143,Santiago Tuxtla,Veracruz de Ignacio de la Llave,0,0.0,2,0,0,0,0,0,0,0,0,0,2,0
+30147,Soledad Atzompa,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30149,Soteapan,Veracruz de Ignacio de la Llave,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+30151,Tamiahua,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30155,Tantoyuca,Veracruz de Ignacio de la Llave,0,0.0,4,0,0,0,0,0,0,0,0,0,4,0
+30158,Tecolutla,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30162,Tenampa,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+30164,Teocelo,Veracruz de Ignacio de la Llave,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+06001,Armería,Colima,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+06003,Comala,Colima,0,0.0,3,0,0,0,0,0,0,0,0,0,3,0
+06005,Cuauhtémoc,Colima,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+06009,Tecomán,Colima,0,0.0,24,0,0,0,0,0,0,0,0,0,24,0
+07020,La Concordia,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+07026,Chenalhó,Chiapas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+04002,Campeche,Campeche,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+03009,Loreto,Baja California Sur,0,0.0,5,0,0,0,0,0,0,0,0,0,5,0
+03002,Mulegé,Baja California Sur,0,0.0,10,0,0,0,0,0,0,0,0,0,10,0
+02007,San Felipe,Baja California,0,0.0,7,0,0,0,0,0,0,0,0,0,7,0
+01010,El Llano,Aguascalientes,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0
+32058,Santa María de la Paz,Zacatecas,0,0.0,1,0,0,0,0,0,0,0,0,0,1,0

@@ -222,7 +222,12 @@ async function cargarOficial() {
     const p = e.features[0].properties;
     new maplibregl.Popup({ offset: 6 }).setLngLat(e.lngLat).setHTML(
       `<div class="pop"><div class="pop-t">${esc([p.municipio, p.estado].filter(Boolean).join(', '))}</div>` +
-      `<div>${p.robos} robos a transportista · ${p.con_violencia} con violencia</div>` +
+      (p.transportista !== undefined
+        ? `<div><b>Robo a transportista: ${p.transportista}</b> (${p.transportista_cv} con violencia)</div>` +
+          `<div class="pop-s">Transporte público: ${(+p.transporte_colectivo || 0) + (+p.transporte_pub_indiv || 0)} · ` +
+          `Transporte individual: ${p.transporte_individual} · Vehículo: ${p.vehiculo}</div>` +
+          `<div class="pop-s">Nivel de riesgo para carga: ${['—', 'Bajo', 'Medio', 'Alto', 'Muy alto'][p.nivel] || ''}</div>`
+        : `<div>${p.robos} robos a transportista · ${p.con_violencia} con violencia</div>`) +
       `<div class="pop-s">SESNSP ${esc(p.periodo || gj.periodo || '')}</div></div>`).addTo(map);
   });
   const ch = document.createElement('div');

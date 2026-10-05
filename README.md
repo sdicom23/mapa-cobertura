@@ -45,13 +45,16 @@ En `Cobertura.gs`, cambia `CFG.MAPA_URL` por la dirección de este sitio, termin
 https://sdicom23.github.io/mapa-cobertura/
 ```
 
-## Índice oficial SESNSP (robo a transportista por municipio)
+## Índice oficial SESNSP (robo a transporte por municipio)
 
-1. Descarga del SESNSP la base **"Incidencia delictiva municipal – Fuero común – Delitos"** (CSV).
+Incluye: robo a transportista (peso principal), robo en transporte público colectivo e individual,
+robo en transporte individual y robo de vehículo de 4 ruedas. Los pesos están al inicio de `sesnsp_a_mapa.py`.
+
+1. Descarga del SESNSP, sección **Datos abiertos → metodología 2026**, el archivo **"Fuero común – Delitos. Incidencia delictiva municipal"** (XLSX, ej. `RNID-Delitos_Municipal-2026-ago2026.xlsx`). Sale cada mes.
 2. En la carpeta `herramientas/` ejecuta:
 
    ```bash
-   python sesnsp_a_mapa.py ARCHIVO_DEL_SESNSP.csv --meses 12
+   python sesnsp_a_mapa.py RNID-Delitos_Municipal-2026-ago2026.xlsx --meses 12
    ```
 
 3. Sube el `riesgo_municipal.geojson` que genera a la carpeta `capas/`.
