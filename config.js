@@ -10,10 +10,13 @@ window.CONFIG = {
   // Capas de cobertura. Sube cada .pmtiles a la carpeta "capas/" del repositorio.
   // "capa" es el nombre que usaste con tippecanoe -l <capa>
   OPERADORES: [
-    // AT&T 4G (CRT, 2T 2026). Va en 2 archivos por el límite de 100 MB de GitHub:
+    // AT&T 4G (CRT, 2T 2026 + CobEx de att.com.mx ene 2024). Va en 2 archivos por el límite de 100 MB de GitHub:
     // zoom 4-8 (rejilla ~550 m) y zoom 9-11 (detalle; se sobre-escala al acercar más).
     { id: 'att', nombre: 'AT&T', capa: 'cobertura', tecnologia: 'LTE',
       archivos: [
+        // CobEx complementaria (att.com.mx, 4G LTE No Garantizada Cob Ex, ene 2024): sólo donde la CRT no reporta cobertura.
+        // Va primero para quedar debajo de las capas de la CRT.
+        { url: 'capas/att4g_cobex_web.pmtiles' },
         { url: 'capas/att4g_low.pmtiles',  maxzoom: 9 },
         { url: 'capas/att4g_high.pmtiles', minzoom: 9 }
       ],
@@ -31,7 +34,7 @@ window.CONFIG = {
                          tip: { telemetria: 'Normalmente funciona, aunque puede haber reintentos o reportes atrasados.',
                            voz: 'Pueden fallar, sobre todo dentro de la cabina o con antenas de poca ganancia.',
                            practica: 'Un equipo con antena externa o con LTE B28/700 MHz responde mejor ahí.' } },
-        extendida:     { etiqueta: 'Extendida (≈ -101 dBm)',   color: '#4f8fc0', calidad: 'regular',
+        extendida:     { etiqueta: 'Extendida (CobEx)',        color: '#4f8fc0', calidad: 'regular',
                          tip: { telemetria: 'Funciona en exteriores con reintentos frecuentes; usa un equipo con buffer para no perder reportes.',
                            voz: 'Poco confiables; son probables los cortes.',
                            practica: 'Antena externa de buena ganancia y equipo con LTE B28/700 MHz.' } },

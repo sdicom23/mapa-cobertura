@@ -9,7 +9,7 @@ const COB_RES = 0.005;
 const COB_TXT = {
   0: '⚫ Sin cobertura reportada',
   1: '🔵 Extendida (alterna)',
-  2: '🔵 Extendida (≈ -101 dBm)',
+  2: '🔵 Extendida (CobEx)',
   3: '🟠 Baja (-121 a -111 dBm)',
   4: '🟡 Media (-111 a -100 dBm)',
   5: '🟢 Alta (≥ -100 dBm)'
