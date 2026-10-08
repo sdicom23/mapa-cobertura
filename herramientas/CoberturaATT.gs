@@ -45,17 +45,30 @@ function tipTexto_(c, titulo) {
          '• En la práctica: ' + t.practica;
 }
 
-// ---- 3G (KMZ AT&T: Total con CobEx mar 2025 + Garantizada mar 2026). Rejilla capas/grid_att3g: 0 sin | 1 con cobertura | 2 garantizada
-const COB3_TXT = { 0: '⚫ Sin cobertura 3G', 1: '🟣 3G con cobertura (incluye CobEx)', 2: '✅ Garantizada 3G' };
+// ---- 3G (CRT 3G Diferenciada 2T 2026 por RSCP + relleno KMZ AT&T). Rejilla capas/grid_att3g, mismos códigos que 4G:
+// 0 sin | 2 extendida (CobEx) | 3 baja | 4 media | 5 alta
+const COB3_TXT = {
+  0: '⚫ Sin cobertura 3G',
+  2: '🔵 Extendida (CobEx)',
+  3: '🟠 Baja (-116 a -96 dBm)',
+  4: '🟡 Media (-96 a -85 dBm)',
+  5: '🟢 Alta (RSCP > -85 dBm)'
+};
 const COB3_TIP = {
   0: { telemetria: 'No hay transmisión 3G; el equipo debe guardar posiciones (buffer).',
        voz: 'Sin servicio 3G AT&T.',
        practica: 'Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.' },
-  1: { telemetria: 'Sólo equipos con 3G; en orillas y zonas CobEx espera reintentos o reportes atrasados.',
-       voz: 'Pueden fallar dentro de la cabina o con antenas de poca ganancia.',
-       practica: 'Equipos sólo LTE no funcionan aquí aunque haya 3G. Antena externa ayuda en orillas.' },
-  2: { telemetria: 'Funciona en equipos con 3G (UMTS). Equipos sólo LTE (LTE-M, Cat-1) no se conectan en 3G.',
-       voz: 'Estables, incluso en interiores.',
+  2: { telemetria: 'Sólo equipos 3G; funciona en exteriores con reintentos frecuentes. Usa buffer para no perder reportes.',
+       voz: 'Poco confiables; son probables los cortes.',
+       practica: 'Antena externa de buena ganancia; equipos sólo LTE no funcionan aquí.' },
+  3: { telemetria: 'Normalmente funciona en equipos 3G, aunque puede haber reintentos o reportes atrasados.',
+       voz: 'Pueden fallar, sobre todo dentro de la cabina o con antenas de poca ganancia.',
+       practica: 'Un equipo 3G con antena externa responde mejor ahí.' },
+  4: { telemetria: 'Funciona bien en equipos 3G; en interiores puede haber algún reintento.',
+       voz: 'Estables en exteriores; en sótanos o cabinas blindadas puede bajar la calidad.',
+       practica: 'Antena interna suele bastar; equipos sólo LTE no funcionan en 3G.' },
+  5: { telemetria: 'Funciona sin problema en equipos con 3G (UMTS). Equipos sólo LTE (LTE-M, Cat-1) no se conectan en 3G.',
+       voz: 'Estables, incluso dentro de la cabina y en interiores.',
        practica: 'Confirma que el equipo soporte 3G y la banda de AT&T.' }
 };
 function tipTexto3_(c, titulo) {
@@ -79,7 +92,7 @@ function cobTile_(lonF, latF, tec) {
   return txt ? txt.split('\n') : null;
 }
 
-/** Código del punto. 4G: 0-5 (ver COB_TXT). 3G: 0-2 (ver COB3_TXT). */
+/** Código del punto (4G: COB_TXT, 3G: COB3_TXT). */
 function coberturaCodigo(lat, lon, tec) {
   const latF = Math.floor(lat), lonF = Math.floor(lon);
   const rows = cobTile_(lonF, latF, tec);
@@ -133,10 +146,8 @@ function coberturaRuta(origen, destino, tec) {
   const pct = c => Math.round(100 * cuenta[c] / n) + '%';
   let msg = '🛣️ ' + route.legs[0].start_address + ' → ' + route.legs[route.legs.length - 1].end_address +
             '\n' + km.toFixed(0) + ' km · AT&T ' + (tec === '3g' ? '3G' : '4G') + ': ' + (100 - Math.round(100 * cuenta[0] / n)) + '% con cobertura\n' +
-            (tec === '3g'
-              ? '✅ Garantizada ' + pct(2) + '  🟣 Con cobertura (incluye CobEx) ' + pct(1) + '  ⚫ Sin cobertura ' + pct(0)
-              : '🟢 Alta ' + pct(5) + '  🟡 Media ' + pct(4) + '  🟠 Baja ' + pct(3) + '\n' +
-                '🔵 Extendida ' + Math.round(100 * (cuenta[1] + cuenta[2]) / n) + '%  ⚫ Sin cobertura ' + pct(0));
+            '🟢 Alta ' + pct(5) + '  🟡 Media ' + pct(4) + '  🟠 Baja ' + pct(3) + '\n' +
+            '🔵 Extendida ' + Math.round(100 * (cuenta[1] + cuenta[2]) / n) + '%  ⚫ Sin cobertura ' + pct(0);
   const largos = huecos.filter(h => h[1] - h[0] >= 4)   // ≥ ~5 km
                        .sort((a, b) => (b[1] - b[0]) - (a[1] - a[0])).slice(0, 5);
   if (largos.length) {
@@ -148,8 +159,8 @@ function coberturaRuta(origen, destino, tec) {
   }
   // Tip del peor nivel con al menos ~2 km en la ruta (sin señal → extendidas → baja)
   if (tec === '3g') {
-    const p3 = [0, 1].find(c => cuenta[c] >= 2);
-    const c3 = p3 !== undefined ? p3 : 2;
+    const p3 = [0, 2, 3].find(c => cuenta[c] >= 2);
+    const c3 = p3 !== undefined ? p3 : (cuenta[5] >= cuenta[4] ? 5 : 4);
     msg += '\n\n' + tipTexto3_(c3, COB3_TXT[c3].replace(/^\S+\s/, '') + (p3 !== undefined ? ' · ~' + cuenta[p3] + ' km' : ''));
   } else {
     const peor = [0, 1, 2, 3].find(c => cuenta[c] >= 2);
@@ -167,7 +178,7 @@ function ayudaCobertura() {
     '   ej. `19.4326,-99.1332`  ·  tip de 3G: `3g 19.4326,-99.1332`\n\n' +
     '*Una ruta:* `ruta origen > destino`\n' +
     '   ej. `ruta CDMX > Oaxaca`  ·  en 3G: `3g ruta CDMX > Oaxaca`\n\n' +
-    '*3G:* ' + COB3_TXT[2] + ' · ' + COB3_TXT[1] + ' (equipos sólo LTE no funcionan en 3G)\n\n' +
+    '*3G:* mismos niveles por RSCP: ' + COB3_TXT[5] + ' · ' + COB3_TXT[4] + ' · ' + COB3_TXT[3] + ' · ' + COB3_TXT[2] + ' (equipos sólo LTE no funcionan en 3G)\n\n' +
     '*Niveles 4G:*\n' +
     COB_TXT[5] + '\n' + COB_TXT[4] + '\n' + COB_TXT[3] + '\n' + COB_TXT[2] + '\n' + COB_TXT[1] + '\n' + COB_TXT[0] + '\n\n' +
     '💡 Tip: en Google Maps mantén presionado un punto para copiar sus coordenadas.';

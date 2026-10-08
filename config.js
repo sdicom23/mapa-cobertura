@@ -43,19 +43,31 @@ window.CONFIG = {
                            voz: 'Es muy probable que fallen.',
                            practica: 'Antena externa y buffer en el equipo; no se recomienda para equipos en interior.' } }
       } },
-    // AT&T 3G (KMZ AT&T: Total con CobEx mar 2025 + Garantizada mar 2026). Sin niveles de RSRP.
+    // AT&T 3G (CRT 3G Diferenciada 2T 2026, niveles de RSCP) + relleno con KMZ AT&T 3G donde la CRT no reporta.
     { id: 'att3g', nombre: 'AT&T 3G', capa: 'cobertura', tecnologia: '',
-      archivos: [ { url: 'capas/att3g_kmz.pmtiles' } ],
+      archivos: [
+        { url: 'capas/att3g_relleno_kmz.pmtiles' },
+        { url: 'capas/att3g_low.pmtiles',  maxzoom: 9 },
+        { url: 'capas/att3g_high.pmtiles', minzoom: 9 }
+      ],
       campoNivel: 'cat',
       niveles: {
-        garantizada: { etiqueta: 'Garantizada 3G',                   color: '#1a9850', calidad: 'buena',
-                       tip: { telemetria: 'Funciona en equipos con 3G (UMTS). Equipos sólo LTE (LTE-M, Cat-1) no se conectan en 3G.',
-                              voz: 'Estables, incluso en interiores.',
-                              practica: 'Confirma que el equipo soporte 3G y la banda de AT&T.' } },
-        cobertura:   { etiqueta: '3G con cobertura (incluye CobEx)', color: '#8e5bb5', calidad: 'regular',
-                       tip: { telemetria: 'Sólo equipos con 3G; en orillas y zonas CobEx espera reintentos o reportes atrasados.',
-                              voz: 'Pueden fallar dentro de la cabina o con antenas de poca ganancia.',
-                              practica: 'Equipos sólo LTE no funcionan aquí aunque haya 3G. Antena externa ayuda en orillas.' } }
+        alta:      { etiqueta: 'Alta (RSCP > -85 dBm)',     color: '#1a9850', calidad: 'buena',
+                     tip: { telemetria: 'Funciona sin problema en equipos con 3G (UMTS). Equipos sólo LTE (LTE-M, Cat-1) no se conectan en 3G.',
+                            voz: 'Estables, incluso dentro de la cabina y en interiores.',
+                            practica: 'Confirma que el equipo soporte 3G y la banda de AT&T.' } },
+        media:     { etiqueta: 'Media (-96 a -85 dBm)',     color: '#d9b81f', calidad: 'buena',
+                     tip: { telemetria: 'Funciona bien en equipos 3G; en interiores puede haber algún reintento.',
+                            voz: 'Estables en exteriores; en sótanos o cabinas blindadas puede bajar la calidad.',
+                            practica: 'Antena interna suele bastar; equipos sólo LTE no funcionan en 3G.' } },
+        baja:      { etiqueta: 'Baja (-116 a -96 dBm)',     color: '#f46d43', calidad: 'regular',
+                     tip: { telemetria: 'Normalmente funciona en equipos 3G, aunque puede haber reintentos o reportes atrasados.',
+                            voz: 'Pueden fallar, sobre todo dentro de la cabina o con antenas de poca ganancia.',
+                            practica: 'Un equipo 3G con antena externa responde mejor ahí.' } },
+        extendida: { etiqueta: 'Extendida (CobEx)',         color: '#4f8fc0', calidad: 'regular',
+                     tip: { telemetria: 'Sólo equipos 3G; funciona en exteriores con reintentos frecuentes. Usa buffer para no perder reportes.',
+                            voz: 'Poco confiables; son probables los cortes.',
+                            practica: 'Antena externa de buena ganancia; equipos sólo LTE no funcionan aquí.' } }
       } },
     { id: 'telcel', nombre: 'Telcel', archivo: 'capas/cobertura_telcel.pmtiles', capa: 'cobertura' }
   ],
