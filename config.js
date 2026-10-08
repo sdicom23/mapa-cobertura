@@ -10,13 +10,13 @@ window.CONFIG = {
   // Capas de cobertura. Sube cada .pmtiles a la carpeta "capas/" del repositorio.
   // "capa" es el nombre que usaste con tippecanoe -l <capa>
   OPERADORES: [
-    // AT&T 4G (CRT, 2T 2026 + CobEx de att.com.mx ene 2024). Va en 2 archivos por el límite de 100 MB de GitHub:
+    // AT&T 4G (CRT 2T 2026 + relleno KMZ AT&T mar 2026). Va en 2 archivos por el límite de 100 MB de GitHub:
     // zoom 4-8 (rejilla ~550 m) y zoom 9-11 (detalle; se sobre-escala al acercar más).
     { id: 'att', nombre: 'AT&T', capa: 'cobertura', tecnologia: 'LTE',
       archivos: [
-        // CobEx complementaria (att.com.mx, 4G LTE No Garantizada Cob Ex, ene 2024): sólo donde la CRT no reporta cobertura.
-        // Va primero para quedar debajo de las capas de la CRT.
-        { url: 'capas/att4g_cobex_web.pmtiles' },
+        // Relleno con KMZ AT&T mar 2026, sólo donde la CRT no reporta cobertura:
+        // Garantizada (CG) → Alta; No garantizada + CobEx (cng) → Extendida (CobEx). Va primero para quedar debajo de la CRT.
+        { url: 'capas/att4g_kmz2026.pmtiles' },
         { url: 'capas/att4g_low.pmtiles',  maxzoom: 9 },
         { url: 'capas/att4g_high.pmtiles', minzoom: 9 }
       ],

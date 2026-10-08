@@ -35,8 +35,8 @@ Sin capas cargadas, las páginas muestran **datos de ejemplo** (etiqueta amarill
 
 - `capas/att4g_low.pmtiles` (zoom 4–8) y `capas/att4g_high.pmtiles` (zoom 9–11, se sobre-escala al acercar).
   Van en dos archivos por el límite de 100 MB de GitHub; `config.js` los declara en `archivos: [...]`.
-- `capas/att4g_cobex_web.pmtiles` → CobEx complementaria tomada de att.com.mx (capa 4G "LTE No Garantizada Cob Ex", ene 2024),
-  sólo en zonas donde la CRT no reporta cobertura. Se muestra y consulta como **Extendida (CobEx)** (campo `fuente: att_web_2024`).
+- `capas/att4g_kmz2026.pmtiles` → relleno con los KMZ de AT&T (mar 2026) sólo donde la CRT no reporta cobertura:
+  Garantizada → **Alta**; No garantizada + CobEx → **Extendida (CobEx)** (campo `fuente: att_kmz_2026`).
 - La capa trae el campo `cat` con 5 niveles de señal (RSRP): `alta`, `media`, `baja`, `extendida`, `extendida_alt`.
   Colores y etiquetas en `config.js` → `niveles`. Alta/Media cuentan como **buena** en las rutas; el resto como **regular**.
 - `capas/grid_att4g/` → rejilla de consulta para el bot (celdas de 0.005° ≈ 550 m; 1 archivo por cuadro de 1°;
