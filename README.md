@@ -41,7 +41,9 @@ Sin capas cargadas, las páginas muestran **datos de ejemplo** (etiqueta amarill
   Colores y etiquetas en `config.js` → `niveles`. Alta/Media cuentan como **buena** en las rutas; el resto como **regular**.
 - `capas/grid_att4g/` → rejilla de consulta para el bot (celdas de 0.005° ≈ 550 m; 1 archivo por cuadro de 1°;
   códigos 0 sin cobertura, 1 extendida alt, 2 extendida, 3 baja, 4 media, 5 alta).
-- `herramientas/CoberturaATT.gs` → funciones para Apps Script: `coberturaPunto(lat, lon)` y `coberturaRuta(origen, destino)`.
+- **3G** (botón AT&T 3G o `?tec=3g` en la URL): `capas/att3g_kmz.pmtiles` y rejilla `capas/grid_att3g/` (0 sin, 1 con cobertura incl. CobEx, 2 garantizada),
+  desde los KMZ de AT&T (Total mar 2025, Garantizada mar 2026). Sin niveles de RSRP.
+- `herramientas/CoberturaATT.gs` → funciones para Apps Script (prefijo `3g` para consultar en 3G): `coberturaPunto(lat, lon)` y `coberturaRuta(origen, destino)`.
 
 ## Mapa v2 — AT&T 4G / 3G (KMZ 2026)  →  `/v2/`
 

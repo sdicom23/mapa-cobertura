@@ -134,26 +134,38 @@
   }
 
   /** Botones para elegir operador. onCambio(idSeleccionado) */
+  let seleccion = 'todos';   // operador/tecnología visible ('todos' = todas)
+  function seleccionado() { return seleccion; }
+
+  /** Botones para elegir operador/tecnología. onCambio(idSeleccionado) */
   function botonesOperador(contenedor, map, capas, onCambio) {
-    let sel = 'todos';
-    const opciones = [...capas.map(c => ({ k: c.id, n: c.nombre })), { k: 'todos', n: 'Todos' }];
+    // ?tec=3g|4g en la URL elige la tecnología al abrir (ver C.TEC_URL)
+    const tq = new URLSearchParams(location.search).get('tec');
+    const ini = (tq && C.TEC_URL && C.TEC_URL[tq.toLowerCase()]) || C.OPERADOR_INICIAL;
+    seleccion = capas.some(c => c.id === 'cob_' + ini) ? 'cob_' + ini : (C.MOSTRAR_TODOS === false && capas.length ? capas[0].id : 'todos');
+    const opciones = capas.map(c => ({ k: c.id, n: c.nombre }));
+    if (C.MOSTRAR_TODOS !== false || !capas.length) opciones.push({ k: 'todos', n: 'Todos' });
+    const aplicar = () => capas.forEach(c => (c.layers || [c.id]).forEach(id =>
+      map.setLayoutProperty(id, 'visibility', (seleccion === 'todos' || seleccion === c.id) ? 'visible' : 'none')));
     opciones.forEach(o => {
       const b = document.createElement('button');
-      b.className = 'btn' + (o.k === sel ? ' on' : '');
+      b.className = 'btn' + (o.k === seleccion ? ' on' : '');
       b.textContent = o.n;
       b.onclick = () => {
-        sel = o.k;
+        seleccion = o.k;
         contenedor.querySelectorAll('.btn').forEach(x => x.classList.toggle('on', x === b));
-        capas.forEach(c => (c.layers || [c.id]).forEach(id =>
-          map.setLayoutProperty(id, 'visibility', (sel === 'todos' || sel === c.id) ? 'visible' : 'none')));
-        if (onCambio) onCambio(sel);
+        aplicar();
+        if (onCambio) onCambio(seleccion);
       };
       contenedor.appendChild(b);
     });
+    aplicar();
   }
 
   function leyendaTecnologias(contenedor) {
-    const conNiveles = cargadas.filter(op => op.niveles);
+    contenedor.innerHTML = '';
+    const sel = cargadas.find(op => 'cob_' + op.id === seleccion);
+    const conNiveles = sel ? (sel.niveles ? [sel] : []) : cargadas.filter(op => op.niveles);
     const pares = conNiveles.length
       ? conNiveles.flatMap(op => Object.values(op.niveles).map(n => [n.etiqueta, n.color]))
       : Object.entries(C.COLORES_TECNOLOGIA);
@@ -208,7 +220,7 @@
   /** Niveles para colorear la ruta, del mejor al peor, terminando en "sin".
    *  Si el operador trae niveles de señal (config "niveles") usa esos mismos colores del fondo. */
   function escalaRuta(capas) {
-    const op = (capas.find(c => c.op && c.op.niveles) || {}).op;
+    const op = (capas.find(c => c.id === seleccion && c.op && c.op.niveles) || capas.find(c => c.op && c.op.niveles) || {}).op;
     const lista = op
       ? Object.entries(op.niveles).map(([k, v]) => ({ k, etiqueta: v.etiqueta, color: v.color, tip: v.tip || null }))
       : [{ k: 'buena', etiqueta: 'Buena', color: '#1D9E75' }, { k: 'regular', etiqueta: 'Regular', color: '#EF9F27' }];
@@ -368,6 +380,6 @@
     return mejor;
   }
 
-  window.Comun = { cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, tipHTML, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { seleccionado, cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, tipHTML, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();

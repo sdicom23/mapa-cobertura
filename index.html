@@ -46,10 +46,11 @@ map.on('load', async () => {
   const r = await U.cargarCoberturas(map, 0.4);
   capas = r.capas;
   if (r.demo) document.getElementById('demo').style.display = 'inline-block';
-  U.leyendaTecnologias(document.getElementById('leyenda'));
   U.botonesOperador(document.getElementById('operadores'), map, capas, () => {
+    U.leyendaTecnologias(document.getElementById('leyenda'));
     if (marcador) ponerPunto(marcador.getLngLat().toArray());
   });
+  U.leyendaTecnologias(document.getElementById('leyenda'));
   if (hayPunto) ponerPunto([lon, lat]);
 });
 

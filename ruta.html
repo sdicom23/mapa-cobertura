@@ -75,7 +75,15 @@ map.on('load', async () => {
   new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([D[1], D[0]]).addTo(map);
 
   map.fitBounds(turf.bbox(ruta), { padding: { top: 170, bottom: 120, left: 40, right: 40 }, duration: 0 });
-  U.botonesOperador(document.getElementById('operadores'), map, capas, () => U.cuandoListo(map, evaluar));
+  U.botonesOperador(document.getElementById('operadores'), map, capas, () => {
+    escala = U.escalaRuta(capas);
+    U.leyendaEscala(document.getElementById('leyenda'), escala);
+    map.setPaintProperty('ruta-linea', 'line-color', U.colorEscala(escala));
+    U.cuandoListo(map, evaluar);
+  });
+  escala = U.escalaRuta(capas);
+  U.leyendaEscala(document.getElementById('leyenda'), escala);
+  map.setPaintProperty('ruta-linea', 'line-color', U.colorEscala(escala));
   U.cuandoListo(map, evaluar);
 });
 

@@ -124,7 +124,13 @@ map.on('load', async () => {
   map.fitBounds(turf.bbox(todas), { padding: { top: 110, bottom: 250, left: 40, right: 40 }, duration: 0 });
 
   rutas.forEach(r => { r.riesgo = riesgoRuta(r); });
-  U.botonesOperador(document.getElementById('operadores'), map, capas, () => U.cuandoListo(map, evaluarTodo));
+  U.botonesOperador(document.getElementById('operadores'), map, capas, () => {
+    escala = U.escalaRuta(capas);
+    map.setPaintProperty('sel-linea', 'line-color', U.colorEscala(escala));
+    U.cuandoListo(map, evaluarTodo);
+  });
+  escala = U.escalaRuta(capas);
+  map.setPaintProperty('sel-linea', 'line-color', U.colorEscala(escala));
   U.cuandoListo(map, evaluarTodo);
 });
 

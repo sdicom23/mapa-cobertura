@@ -12,7 +12,7 @@ window.CONFIG = {
   OPERADORES: [
     // AT&T 4G (CRT 2T 2026 + relleno KMZ AT&T mar 2026). Va en 2 archivos por el límite de 100 MB de GitHub:
     // zoom 4-8 (rejilla ~550 m) y zoom 9-11 (detalle; se sobre-escala al acercar más).
-    { id: 'att', nombre: 'AT&T', capa: 'cobertura', tecnologia: 'LTE',
+    { id: 'att', nombre: 'AT&T 4G', capa: 'cobertura', tecnologia: 'LTE',
       archivos: [
         // Relleno con KMZ AT&T mar 2026, sólo donde la CRT no reporta cobertura:
         // Garantizada (CG) → Alta; No garantizada + CobEx (cng) → Extendida (CobEx). Va primero para quedar debajo de la CRT.
@@ -43,6 +43,20 @@ window.CONFIG = {
                            voz: 'Es muy probable que fallen.',
                            practica: 'Antena externa y buffer en el equipo; no se recomienda para equipos en interior.' } }
       } },
+    // AT&T 3G (KMZ AT&T: Total con CobEx mar 2025 + Garantizada mar 2026). Sin niveles de RSRP.
+    { id: 'att3g', nombre: 'AT&T 3G', capa: 'cobertura', tecnologia: '',
+      archivos: [ { url: 'capas/att3g_kmz.pmtiles' } ],
+      campoNivel: 'cat',
+      niveles: {
+        garantizada: { etiqueta: 'Garantizada 3G',                   color: '#1a9850', calidad: 'buena',
+                       tip: { telemetria: 'Funciona en equipos con 3G (UMTS). Equipos sólo LTE (LTE-M, Cat-1) no se conectan en 3G.',
+                              voz: 'Estables, incluso en interiores.',
+                              practica: 'Confirma que el equipo soporte 3G y la banda de AT&T.' } },
+        cobertura:   { etiqueta: '3G con cobertura (incluye CobEx)', color: '#8e5bb5', calidad: 'regular',
+                       tip: { telemetria: 'Sólo equipos con 3G; en orillas y zonas CobEx espera reintentos o reportes atrasados.',
+                              voz: 'Pueden fallar dentro de la cabina o con antenas de poca ganancia.',
+                              practica: 'Equipos sólo LTE no funcionan aquí aunque haya 3G. Antena externa ayuda en orillas.' } }
+      } },
     { id: 'telcel', nombre: 'Telcel', archivo: 'capas/cobertura_telcel.pmtiles', capa: 'cobertura' }
   ],
 
@@ -50,6 +64,11 @@ window.CONFIG = {
   TIP_SIN_SENAL: { telemetria: 'No hay transmisión; el equipo debe guardar posiciones (buffer) y enviarlas al recuperar señal.',
                    voz: 'Sin servicio AT&T.',
                    practica: 'Si el tramo es crítico, considera SIM multi-operador o respaldo satelital.' },
+
+  // Tecnología/operador que se muestra al abrir y si aparece el botón "Todos" (mezcla capas)
+  OPERADOR_INICIAL: 'att',
+  MOSTRAR_TODOS: false,
+  TEC_URL: { '4g': 'att', '3g': 'att3g' },   // ?tec=3g abre directo en 3G
 
   // Nombres de los campos en tus capas
   CAMPO_TECNOLOGIA: 'tecnologia',
