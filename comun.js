@@ -53,8 +53,8 @@
       try {
         if (sl === 'transportation_name') {
           const menor = /minor|path|service|track/i.test(l.id);
-          map.setLayerZoomRange(l.id, menor ? 13 : 10, l.maxzoom || 24);
-          map.setLayoutProperty(l.id, 'text-size', ['interpolate', ['linear'], ['zoom'], 10, menor ? 10 : 11, 14, menor ? 12 : 13, 17, 15]);
+          map.setLayerZoomRange(l.id, menor ? 10 : 8, l.maxzoom || 24);
+          map.setLayoutProperty(l.id, 'text-size', ['interpolate', ['linear'], ['zoom'], 8, menor ? 9 : 10, 12, menor ? 11 : 12, 14, menor ? 12 : 13, 17, 15]);
         }
         if (sl === 'transportation_name' || sl === 'place' || sl === 'poi') {
           map.setPaintProperty(l.id, 'text-color', '#222');
