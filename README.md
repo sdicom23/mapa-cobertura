@@ -43,6 +43,20 @@ Sin capas cargadas, las páginas muestran **datos de ejemplo** (etiqueta amarill
   códigos 0 sin cobertura, 1 extendida alt, 2 extendida, 3 baja, 4 media, 5 alta).
 - `herramientas/CoberturaATT.gs` → funciones para Apps Script: `coberturaPunto(lat, lon)` y `coberturaRuta(origen, destino)`.
 
+## Mapa v2 — AT&T 4G / 3G (KMZ 2026)  →  `/v2/`
+
+Página aparte para elegir tecnología. Fuente: KMZ de AT&T (4G Total con CobEx y Garantizada, mar 2026;
+3G Total con CobEx mar 2025 y Garantizada mar 2026). Sin niveles de RSRP: sólo **Garantizada**, **Con cobertura (incluye CobEx)** y **Sin cobertura**.
+
+| Página | Parámetros |
+|---|---|
+| `v2/index.html` | `?tec=4g|3g&lat=..&lon=..` |
+| `v2/ruta.html` | `?tec=4g|3g&o=lat,lon&d=lat,lon` |
+
+- `v2/att_kmz_2026.pmtiles` → capa `cobertura` con `tech` (4g/3g) y `nivel` (1 cobertura, 2 garantizada).
+- `v2/grid_4g/`, `v2/grid_3g/` → rejilla para consultas (0 sin, 1 cobertura, 2 garantizada).
+- `herramientas/CoberturaV2.gs` → bot: `v2Responder(message)`; acepta `3g 19.43,-99.13` y `3g ruta A > B`.
+
 ## Conectar el mapa de incidencias
 
 Pega la URL `/exec` de tu Apps Script con `?accion=eventos&dias=365` en:

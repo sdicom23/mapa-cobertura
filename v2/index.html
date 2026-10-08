@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Cobertura AT&T 4G / 3G</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="../estilos.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3.2.1/dist/pmtiles.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="../config.js"></script>
+<script src="v2.js"></script>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="panel arriba">
+  <h1><span>Cobertura AT&T</span></h1>
+  <div class="info" id="info">Elige la tecnología y toca el mapa para ver la cobertura en ese punto.</div>
+</div>
+
+<div class="panel abajo">
+  <div class="fila" id="tec"></div>
+  <div class="fila" id="leyenda"></div>
+</div>
+
+<script>
+const C = window.CONFIG;
+const q = new URLSearchParams(location.search);
+const lat = parseFloat(q.get('lat')), lon = parseFloat(q.get('lon'));
+const hayPunto = !isNaN(lat) && !isNaN(lon);
+let tec = V2.tecInicial(), marcador = null;
+
+const map = new maplibregl.Map({
+  container: 'map', style: C.MAPA_BASE,
+  center: hayPunto ? [lon, lat] : C.CENTRO, zoom: hayPunto ? 11 : C.ZOOM,
+  attributionControl: { compact: true }
+});
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+map.on('load', () => {
+  V2.agregarCapas(map, 0.45);
+  V2.mostrarTec(map, tec);
+  V2.leyenda(document.getElementById('leyenda'), tec);
+  V2.selectorTec(document.getElementById('tec'), tec, t => {
+    tec = t; V2.mostrarTec(map, t); V2.leyenda(document.getElementById('leyenda'), t);
+    if (marcador) ponerPunto(marcador.getLngLat().toArray());
+  });
+  if (hayPunto) ponerPunto([lon, lat]);
+});
+map.on('click', e => ponerPunto([e.lngLat.lng, e.lngLat.lat]));
+
+async function ponerPunto([x, y]) {
+  if (marcador) marcador.remove();
+  marcador = new maplibregl.Marker({ color: '#E24B4A' }).setLngLat([x, y]).addTo(map);
+  const [c4, c3] = await Promise.all([V2.codigo('4g', y, x), V2.codigo('3g', y, x)]);
+  const linea = (t, c) => {
+    const n = V2.NIV[t][c];
+    const sel = t === tec;
+    return `<div${sel ? '' : ' class="sub"'}><span class="sq" style="background:${n.color};opacity:1"></span> ` +
+           `<b>${V2.TEC[t].nombre}</b> · ${V2.esc(n.etiqueta)}</div>`;
+  };
+  const cod = tec === '4g' ? c4 : c3;
+  document.getElementById('info').innerHTML =
+    `<div class="sub">${y.toFixed(5)}, ${x.toFixed(5)}</div>` +
+    (tec === '4g' ? linea('4g', c4) + linea('3g', c3) : linea('3g', c3) + linea('4g', c4)) +
+    V2.tipHTML(V2.NIV[tec][cod], V2.TEC[tec].nombre + ' · ' + V2.NIV[tec][cod].etiqueta);
+}
+</script>
+</body>
+</html>
