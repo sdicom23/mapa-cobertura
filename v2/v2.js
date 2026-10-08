@@ -71,14 +71,36 @@
       `<li><b>En la práctica:</b> ${esc(t.practica)}</li></ul></div>`;
   }
 
+
+  function mejorarEtiquetas(map) {
+    (map.getStyle().layers || []).forEach(l => {
+      if (l.type !== 'symbol') return;
+      const sl = l['source-layer'] || '';
+      try {
+        if (sl === 'transportation_name') {
+          const menor = /minor|path|service|track/i.test(l.id);
+          map.setLayerZoomRange(l.id, menor ? 13 : 10, l.maxzoom || 24);
+          map.setLayoutProperty(l.id, 'text-size', ['interpolate', ['linear'], ['zoom'], 10, menor ? 10 : 11, 14, menor ? 12 : 13, 17, 15]);
+        }
+        if (sl === 'transportation_name' || sl === 'place' || sl === 'poi') {
+          map.setPaintProperty(l.id, 'text-color', '#222');
+          map.setPaintProperty(l.id, 'text-halo-color', 'rgba(255,255,255,0.95)');
+          map.setPaintProperty(l.id, 'text-halo-width', 1.6);
+        }
+      } catch (e) {}
+    });
+  }
+
   /** Agrega la capa vectorial (ambas tecnologías, filtradas) */
   function agregarCapas(map, opacidad) {
+    const sym = (map.getStyle().layers || []).find(x => x.type === 'symbol');
+    mejorarEtiquetas(map);
     map.addSource('kmz', { type: 'vector', url: 'pmtiles://' + new URL('att_kmz_2026.pmtiles', location.href).href });
     ['4g', '3g'].forEach(tec => {
       map.addLayer({ id: 'cob_' + tec, type: 'fill', source: 'kmz', 'source-layer': 'cobertura',
         filter: ['==', ['get', 'tech'], tec],
         paint: { 'fill-color': ['match', ['get', 'nivel'], 2, NIV[tec][2].color, NIV[tec][1].color],
-                 'fill-opacity': opacidad, 'fill-antialias': false } });
+                 'fill-opacity': opacidad, 'fill-antialias': false } }, sym ? sym.id : undefined);
     });
   }
   function mostrarTec(map, tec) {

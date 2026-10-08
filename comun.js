@@ -38,6 +38,33 @@
     return turf.featureCollection(f);
   }
 
+
+  /** Primer layer de etiquetas del mapa base: las capas de cobertura se insertan debajo para no tapar nombres */
+  function primeraEtiqueta(map) {
+    const l = (map.getStyle().layers || []).find(x => x.type === 'symbol');
+    return l ? l.id : undefined;
+  }
+
+  /** Nombres de calles visibles desde zoom más bajo y con contorno blanco para leerse sobre la cobertura */
+  function mejorarEtiquetas(map) {
+    (map.getStyle().layers || []).forEach(l => {
+      if (l.type !== 'symbol') return;
+      const sl = l['source-layer'] || '';
+      try {
+        if (sl === 'transportation_name') {
+          const menor = /minor|path|service|track/i.test(l.id);
+          map.setLayerZoomRange(l.id, menor ? 13 : 10, l.maxzoom || 24);
+          map.setLayoutProperty(l.id, 'text-size', ['interpolate', ['linear'], ['zoom'], 10, menor ? 10 : 11, 14, menor ? 12 : 13, 17, 15]);
+        }
+        if (sl === 'transportation_name' || sl === 'place' || sl === 'poi') {
+          map.setPaintProperty(l.id, 'text-color', '#222');
+          map.setPaintProperty(l.id, 'text-halo-color', 'rgba(255,255,255,0.95)');
+          map.setPaintProperty(l.id, 'text-halo-width', 1.6);
+        }
+      } catch (e) { /* capa sin texto */ }
+    });
+  }
+
   // Color de una capa: por nivel de señal (si el operador define "niveles") o por tecnología
   function colorOp(op) {
     if (!op || !op.niveles) return colorTec();
@@ -52,6 +79,8 @@
    *  Un operador puede tener "archivo" (uno) o "archivos" (varios por rango de zoom). */
   async function cargarCoberturas(map, opacidad) {
     const capas = [];
+    const debajoDe = primeraEtiqueta(map);
+    mejorarEtiquetas(map);
     for (const op of C.OPERADORES) {
       const lista = op.archivos || (op.archivo ? [{ url: op.archivo }] : []);
       const ok = [];
@@ -66,7 +95,7 @@
           paint: { 'fill-color': colorOp(op), 'fill-opacity': opacidad, 'fill-antialias': false } };
         if (a.minzoom !== undefined) capa.minzoom = a.minzoom;
         if (a.maxzoom !== undefined) capa.maxzoom = a.maxzoom;
-        map.addLayer(capa);
+        map.addLayer(capa, debajoDe);
         layers.push(id);
       });
       capas.push({ id: layers[0], nombre: op.nombre, layers, op });
@@ -80,7 +109,7 @@
         id: 'cob_' + op.id, type: 'fill', source: 'cob_demo',
         filter: ['==', ['get', 'operador'], op.nombre],
         paint: { 'fill-color': colorTec(), 'fill-opacity': opacidad }
-      });
+      }, debajoDe);
       capas.push({ id: 'cob_' + op.id, nombre: op.nombre, layers: ['cob_' + op.id] });
     });
     return { capas, demo: true };
@@ -381,6 +410,6 @@
     return mejor;
   }
 
-  window.Comun = { seleccionado, cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, tipHTML, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
+  window.Comun = { primeraEtiqueta, mejorarEtiquetas, seleccionado, cargarCoberturas, coberturaEn, idsCapas, escalaRuta, nivelEn, colorEscala, leyendaEscala, resumenKm, tipRuta, tipHTML, botonesOperador, leyendaTecnologias, cuandoListo, esc, cargarEventos,
                    cargarRiesgoMunicipal, municipioEn, COLOR_NIVEL, cargarTramos, tramoEn, COLOR_TRAMO };
 })();
