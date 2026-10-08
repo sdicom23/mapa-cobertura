@@ -3,7 +3,7 @@
  */
 window.CONFIG = {
   // Súbelo cada vez que cambies archivos de capas/ para que los navegadores no usen copias viejas
-  VERSION_DATOS: '20261007b',
+  VERSION_DATOS: '20261007c',
 
   // Mapa base gratuito, sin registro
   MAPA_BASE: 'https://tiles.openfreemap.org/styles/positron',
@@ -13,15 +13,12 @@ window.CONFIG = {
   // Capas de cobertura. Sube cada .pmtiles a la carpeta "capas/" del repositorio.
   // "capa" es el nombre que usaste con tippecanoe -l <capa>
   OPERADORES: [
-    // AT&T 4G (CRT 2T 2026 + relleno KMZ AT&T mar 2026). Va en 2 archivos por el límite de 100 MB de GitHub:
+    // AT&T 4G (CRT 2T 2026 + relleno KMZ AT&T mar 2026 ya integrado; niveles sin traslapes y bordes suavizados). Va en 2 archivos por el límite de 100 MB de GitHub:
     // zoom 4-8 (rejilla ~550 m) y zoom 9-11 (detalle; se sobre-escala al acercar más).
     { id: 'att', nombre: 'AT&T 4G', capa: 'cobertura', tecnologia: 'LTE',
       archivos: [
-        // Relleno con KMZ AT&T mar 2026, sólo donde la CRT no reporta cobertura:
-        // Garantizada (CG) → Alta; No garantizada + CobEx (cng) → Extendida (CobEx). Va primero para quedar debajo de la CRT.
-        { url: 'capas/att4g_kmz2026.pmtiles' },
         { url: 'capas/att4g_low.pmtiles',  maxzoom: 9 },
-        { url: 'capas/att4g_high.pmtiles', minzoom: 9 }
+        { url: 'capas/att4g_high.pmtiles', minzoom: 9 }   // detalle hasta zoom 12
       ],
       campoNivel: 'cat',   // la capa trae niveles de señal en vez de tecnología
       niveles: {
@@ -49,7 +46,6 @@ window.CONFIG = {
     // AT&T 3G (CRT 3G Diferenciada 2T 2026, niveles de RSCP) + relleno con KMZ AT&T 3G donde la CRT no reporta.
     { id: 'att3g', nombre: 'AT&T 3G', capa: 'cobertura', tecnologia: '',
       archivos: [
-        { url: 'capas/att3g_relleno_kmz.pmtiles' },
         { url: 'capas/att3g_low.pmtiles',  maxzoom: 9 },
         { url: 'capas/att3g_high.pmtiles', minzoom: 9 }
       ],

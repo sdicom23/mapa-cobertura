@@ -59,6 +59,11 @@ Página aparte para elegir tecnología. Fuente: KMZ de AT&T (4G Total con CobEx 
 - `v2/grid_4g/`, `v2/grid_3g/` → rejilla para consultas (0 sin, 1 cobertura, 2 garantizada).
 - `herramientas/CoberturaV2.gs` → bot: `v2Responder(message)`; acepta `3g 19.43,-99.13` y `3g ruta A > B`.
 
+### Cómo se generan las capas AT&T (sin huecos ni picos)
+Todos los niveles (CRT + relleno KMZ) se rasterizan a 0.001°, se suavizan (desenfoque por nivel + mayoría a 0.0005°) y se
+poligonizan como una sola cobertura sin traslapes; luego se simplifican los bordes con `coverage_simplify` (sin abrir huecos).
+Resultado: `att4g_low/high` y `att3g_low/high` (detalle hasta zoom 12) y rejillas `grid_att4g` / `grid_att3g` derivadas de lo mismo.
+
 ## Conectar el mapa de incidencias
 
 Pega la URL `/exec` de tu Apps Script con `?accion=eventos&dias=365` en:
