@@ -2,6 +2,9 @@
  * CONFIGURACIÓN DEL SITIO — es el único archivo que necesitas editar.
  */
 window.CONFIG = {
+  // Súbelo cada vez que cambies archivos de capas/ para que los navegadores no usen copias viejas
+  VERSION_DATOS: '20261007b',
+
   // Mapa base gratuito, sin registro
   MAPA_BASE: 'https://tiles.openfreemap.org/styles/positron',
   CENTRO: [-102.5, 23.6],

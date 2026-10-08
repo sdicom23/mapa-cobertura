@@ -55,12 +55,13 @@
     for (const op of C.OPERADORES) {
       const lista = op.archivos || (op.archivo ? [{ url: op.archivo }] : []);
       const ok = [];
-      for (const a of lista) if (await existe(a.url)) ok.push(a);
+      const ver = C.VERSION_DATOS ? '?v=' + C.VERSION_DATOS : '';
+      for (const a of lista) if (await existe(a.url + ver)) ok.push(a);
       if (!ok.length) continue;
       const layers = [];
       ok.forEach((a, i) => {
         const id = 'cob_' + op.id + (i ? '_' + i : '');
-        map.addSource(id, { type: 'vector', url: 'pmtiles://' + new URL(a.url, location.href).href });
+        map.addSource(id, { type: 'vector', url: 'pmtiles://' + new URL(a.url + ver, location.href).href });
         const capa = { id, type: 'fill', source: id, 'source-layer': op.capa,
           paint: { 'fill-color': colorOp(op), 'fill-opacity': opacidad, 'fill-antialias': false } };
         if (a.minzoom !== undefined) capa.minzoom = a.minzoom;
