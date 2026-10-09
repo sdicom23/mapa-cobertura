@@ -3,61 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Mapa de cobertura</title>
+<title>Mapa de Cobertura AT&T</title>
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link href="estilos.css?v=202610080014" rel="stylesheet">
+<link href="estilos.css?v=202610091600" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="https://unpkg.com/pmtiles@3.2.1/dist/pmtiles.js"></script>
 <script src="https://unpkg.com/@turf/turf@7.1.0/turf.min.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="config.js?v=202610080014"></script>
-<script src="comun.js?v=202610080014"></script>
-<style>
-/* Ajustes directos para el botón de cierre y scroll controlado */
-.btn-cerrar {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  color: var(--tx2, #5f5e5a);
-  cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
-}
-.btn-cerrar:hover {
-  color: #000;
-}
-#btn-reabrir-info {
-  display: none;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--bd, #e2e0d8);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--tx, #1d1d1f);
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-.panel.arriba .info {
-  max-height: 35vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-</style>
+<script src="config.js?v=202610091600"></script>
+<script src="comun.js?v=202610091600"></script>
 </head>
 <body>
 <div id="map"></div>
 
-<!-- Botón flotante para reabrir el diagnóstico si se cerró -->
-<button id="btn-reabrir-info" onclick="mostrarDiagnostico()">📋 Ver Info</button>
+<!-- Botón flotante para reabrir panel superior si se cerró -->
+<button id="btn-reabrir" onclick="mostrarDiagnostico()">📋 Ver Info</button>
 
 <div class="panel arriba" id="panel-diagnostico">
   <h1>
-    <span>Cobertura</span>
+    <span>Cobertura AT&T</span>
     <span style="display:flex; align-items:center; gap:8px;">
       <span class="demo" id="demo">Datos de ejemplo</span>
       <button class="btn-cerrar" onclick="ocultarDiagnostico()" title="Cerrar panel">✖</button>
@@ -104,12 +68,12 @@ map.on('click', e => ponerPunto([e.lngLat.lng, e.lngLat.lat]));
 
 function ocultarDiagnostico() {
   document.getElementById('panel-diagnostico').style.display = 'none';
-  document.getElementById('btn-reabrir-info').style.display = 'block';
+  document.getElementById('btn-reabrir').style.display = 'block';
 }
 
 function mostrarDiagnostico() {
   document.getElementById('panel-diagnostico').style.display = 'block';
-  document.getElementById('btn-reabrir-info').style.display = 'none';
+  document.getElementById('btn-reabrir').style.display = 'none';
 }
 
 function tips(cob) {
